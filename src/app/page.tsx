@@ -391,7 +391,9 @@ export default function Home() {
                 >
                   À propos de moi
                 </motion.button>
-                <motion.button 
+                                <motion.a
+                  href="/Alternante Développeuse Informatique.pdf"
+                  download="Alternante Développeuse Informatique.pdf"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
@@ -413,7 +415,7 @@ export default function Home() {
                   >
                     <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.div>
-                </motion.button>
+                </motion.a>
               </motion.div>
 
               {/* Icônes sociales */}
@@ -614,7 +616,7 @@ export default function Home() {
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}
               >
-                Avec plus de 5 ans d&apos;expérience dans le développement web, je combine expertise technique 
+                Avec 3 ans d&apos;expérience dans le développement web, je combine expertise technique 
                 et vision créative pour créer des solutions digitales exceptionnelles.
               </motion.p>
               <motion.p 
@@ -675,7 +677,7 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="text-2xl sm:text-3xl font-bold text-[#0077FF] mb-2"
                   >
-                    5+
+                    3+
                   </motion.div>
                   <div className={`text-sm sm:text-base ${
                     isDarkMode ? 'text-gray-300' : 'text-gray-600'
