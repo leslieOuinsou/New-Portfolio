@@ -14,25 +14,79 @@ import {
   X,
   // Icônes pour les animations
   Award,
-  Zap as Lightning
+  Zap as Lightning,
+  // Nouvelles icônes
+  Phone,
+  MapPin,
+  Download,
+  ChevronDown,
+  ArrowUp,
+  MessageCircle,
+  Send,
+  Heart,
+  Sparkles,
+  Target,
+  Shield,
+  Palette,
+  Zap,
+  Cpu,
+  Layers,
+  Workflow,
+  FileText,
+  Calendar,
+  Gamepad2,
+  ExternalLink
 } from 'lucide-react';
 
 // React Icons - Collections variées
 import { 
   FaReact, 
   FaNodeJs, 
-  FaDocker
+  FaDocker,
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaDownload,
+  FaHeart,
+  FaExternalLinkAlt
 } from 'react-icons/fa';
 
 import { 
-  SiFigma
+  SiFigma,
+  SiPokemon,
+  SiAngular,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiGit,
+  SiGitlab,
+  SiJest,
+  SiDocker,
+  SiWordpress,
+  SiDrupal,
+  SiPrestashop,
+  SiN8N
 } from 'react-icons/si';
 
 import { 
   MdCode,
   MdSecurity,
   MdSpeed,
-  MdPalette
+  MdPalette,
+  MdWork,
+  MdEmail,
+  MdPhone,
+  MdLocationOn,
+  MdDownload,
+  MdFavorite,
+  MdOpenInNew
 } from 'react-icons/md';
 // import Image from 'next/image'; // Non utilisé pour le moment
 import { lazy, Suspense } from 'react';
@@ -196,7 +250,7 @@ export default function Home() {
               className="flex items-center gap-2 sm:gap-3"
             >
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                <div className="w-4 h-4 sm:w-6 sm:h-6 bg-white rounded-sm transform rotate-45"></div>
+                <Code className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
               </div>
               <span className={`text-lg sm:text-xl md:text-2xl font-bold ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
@@ -490,9 +544,7 @@ export default function Home() {
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 bg-white rounded-sm flex items-center justify-center">
-                      <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-sm transform rotate-45"></div>
-                    </div>
+                    <Download className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
                   </motion.div>
                 </motion.a>
               </motion.div>
@@ -516,7 +568,7 @@ export default function Home() {
                       : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
                   }`}
                 >
-                  <Github className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                  <FaGithub className={`w-5 h-5 sm:w-6 sm:h-6 ${
                     isDarkMode ? 'text-white' : 'text-gray-700'
                   }`} />
                 </motion.a>
@@ -532,7 +584,7 @@ export default function Home() {
                       : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
                   }`}
                 >
-                  <Linkedin className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                  <FaLinkedin className={`w-5 h-5 sm:w-6 sm:h-6 ${
                     isDarkMode ? 'text-white' : 'text-gray-700'
                   }`} />
                 </motion.a>
@@ -546,7 +598,7 @@ export default function Home() {
                       : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
                   }`}
                 >
-                  <Mail className={`w-5 h-5 sm:w-6 sm:h-6 ${
+                  <FaEnvelope className={`w-5 h-5 sm:w-6 sm:h-6 ${
                     isDarkMode ? 'text-white' : 'text-gray-700'
                   }`} />
                 </motion.a>
@@ -569,9 +621,7 @@ export default function Home() {
             className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white/30 rounded-full flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors"
             onClick={() => scrollToSection('about')}
           >
-            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white/60 rounded-full flex items-center justify-center">
-              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-blue-500 rounded-full"></div>
-            </div>
+            <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/60" />
           </motion.div>
         </motion.div>
       </section>
@@ -796,7 +846,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <MdSpeed className="w-6 h-6 text-white" />
+                          <Zap className="w-6 h-6 text-white" />
                         </div>
                       ), 
                       title: "Performance", 
@@ -805,7 +855,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <MdPalette className="w-6 h-6 text-white" />
+                          <Palette className="w-6 h-6 text-white" />
                         </div>
                       ), 
                       title: "Design", 
@@ -814,7 +864,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <MdCode className="w-6 h-6 text-white" />
+                          <Code className="w-6 h-6 text-white" />
                         </div>
                       ), 
                       title: "Code", 
@@ -823,7 +873,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <MdSecurity className="w-6 h-6 text-white" />
+                          <Shield className="w-6 h-6 text-white" />
                         </div>
                       ), 
                       title: "Qualité", 
@@ -1095,7 +1145,7 @@ export default function Home() {
                 description: "Application web interactive de collection Pokemon avec interface moderne, recherche de créatures, affichage des statistiques et gestion de collection personnelle. Développée avec TypeScript pour la robustesse du code.",
                 image: (
                   <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <div className="w-8 h-8 bg-white rounded-sm transform rotate-45"></div>
+                    <SiPokemon className="w-8 h-8 text-white" />
                   </div>
                 ),
                 tech: ["TypeScript", "React", "Pokemon API"],
@@ -1107,7 +1157,7 @@ export default function Home() {
                 description: "Plateforme culinaire africaine moderne avec catalogue de recettes traditionnelles, système de recherche avancée, filtres par région et ingrédients. Interface utilisateur intuitive et design culturel authentique.",
                 image: (
                   <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <div className="w-8 h-8 bg-white rounded-full"></div>
+                    <Heart className="w-8 h-8 text-white" />
                   </div>
                 ),
                 tech: ["JavaScript", "HTML5", "CSS3", "SQLite"],
@@ -1117,7 +1167,7 @@ export default function Home() {
               {
                 title: "Site Vitrine Angular",
                 description: "Site vitrine professionnel responsive développé avec Angular et SCSS. Design moderne avec animations fluides, navigation intuitive et optimisation des performances. Parfait exemple de maîtrise du framework Angular.",
-                image: <Globe className="w-16 h-16 text-blue-500" />,
+                image: <SiAngular className="w-16 h-16 text-blue-500" />,
                 tech: ["Angular", "SCSS", "TypeScript"],
                 link: "https://github.com/leslieOuinsou/site-vitrine-angular",
                 github: "https://github.com/leslieOuinsou/site-vitrine-angular"
@@ -1127,7 +1177,7 @@ export default function Home() {
                 description: "Application complète de gestion d'événements avec création, modification et suppression d'événements. Interface utilisateur intuitive, validation des données et gestion des dates. Solution pratique pour organisateurs d'événements.",
                 image: (
                   <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <div className="w-8 h-8 bg-white rounded-lg"></div>
+                    <Calendar className="w-8 h-8 text-white" />
                   </div>
                 ),
                 tech: ["JavaScript", "HTML5", "CSS3"],
@@ -1137,7 +1187,7 @@ export default function Home() {
               {
                 title: "Portfolio",
                 description: "Portfolio personnel moderne et responsive développé avec Next.js et TypeScript. Design élégant avec animations, sections interactives et optimisation SEO. Démonstration de compétences en développement frontend moderne.",
-                image: <Code className="w-16 h-16 text-green-500" />,
+                image: <SiNextdotjs className="w-16 h-16 text-green-500" />,
                 tech: ["TypeScript", "Next.js", "Tailwind CSS"],
                 link: "https://github.com/leslieOuinsou/PORTFOLIO",
                 github: "https://github.com/leslieOuinsou/PORTFOLIO"
@@ -1147,7 +1197,7 @@ export default function Home() {
                 description: "Jeu de Sudoku interactif avec génération automatique de grilles, validation en temps réel et niveaux de difficulté. Interface utilisateur claire, logique de jeu robuste et expérience de jeu fluide pour tous les niveaux.",
                 image: (
                   <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <div className="w-8 h-8 bg-white rounded-lg"></div>
+                    <Gamepad2 className="w-8 h-8 text-white" />
                   </div>
                 ),
                 tech: ["JavaScript", "HTML5", "CSS3"],
@@ -1324,7 +1374,7 @@ export default function Home() {
                     ? 'bg-white/5 border-white/10' 
                     : 'bg-white border-gray-200'
                 }`}>
-                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
+                  <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
                   <span className={`text-sm sm:text-base ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-700'
                   }`}>ouinsoul5@gmail.com</span>
@@ -1334,9 +1384,7 @@ export default function Home() {
                     ? 'bg-white/5 border-white/10' 
                     : 'bg-white border-gray-200'
                 }`}>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-sm transform rotate-45"></div>
-                  </div>
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
                   <span className={`text-sm sm:text-base ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-700'
                   }`}>+33 7 66 23 45 75</span>
@@ -1346,9 +1394,7 @@ export default function Home() {
                     ? 'bg-white/5 border-white/10' 
                     : 'bg-white border-gray-200'
                 }`}>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
-                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-white rounded-full"></div>
-                  </div>
+                  <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
                   <span className={`text-sm sm:text-base ${
                     isDarkMode ? 'text-gray-200' : 'text-gray-700'
                   }`}>Paris, France</span>
@@ -1364,9 +1410,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="p-3 sm:p-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-xl sm:rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-sm flex items-center justify-center">
-                    <div className="text-blue-600 text-xs sm:text-sm font-bold">in</div>
-                  </div>
+                  <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.a>
                 <motion.a
                   href="https://github.com/leslieOuinsou"
@@ -1376,9 +1420,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="p-3 sm:p-4 bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-xl sm:rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center">
-                    <div className="text-gray-800 text-xs sm:text-sm font-bold">G</div>
-                  </div>
+                  <FaGithub className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.a>
                 <motion.a
                   href="#"
@@ -1386,9 +1428,7 @@ export default function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="p-3 sm:p-4 bg-gradient-to-br from-red-500 to-red-700 text-white rounded-xl sm:rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105"
                 >
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-lg flex items-center justify-center">
-                    <div className="text-red-600 text-xs sm:text-sm font-bold">@</div>
-                  </div>
+                  <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </motion.a>
               </div>
             </motion.div>
@@ -1541,7 +1581,7 @@ export default function Home() {
                         : 'bg-gray-100 hover:bg-gray-200 border border-gray-300'
                     }`}
                   >
-                    <Github className={`w-6 h-6 ${
+                    <FaGithub className={`w-6 h-6 ${
                       isDarkMode ? 'text-white' : 'text-gray-700'
                     }`} />
                   </motion.a>
@@ -1557,7 +1597,7 @@ export default function Home() {
                         : 'bg-gray-100 hover:bg-gray-200 border border-gray-300'
                     }`}
                   >
-                    <Linkedin className={`w-6 h-6 ${
+                    <FaLinkedin className={`w-6 h-6 ${
                       isDarkMode ? 'text-white' : 'text-gray-700'
                     }`} />
                   </motion.a>
@@ -1571,7 +1611,7 @@ export default function Home() {
                         : 'bg-gray-100 hover:bg-gray-200 border border-gray-300'
                     }`}
                   >
-                    <Mail className={`w-6 h-6 ${
+                    <FaEnvelope className={`w-6 h-6 ${
                       isDarkMode ? 'text-white' : 'text-gray-700'
                     }`} />
                   </motion.a>
@@ -1680,9 +1720,7 @@ export default function Home() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
                 >
-                  <div className="w-5 h-5 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center">
-                    <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
-                  </div>
+                  <Heart className="w-5 h-5 text-red-500" />
                 </motion.div>
                 <span>et du code</span>
               </div>
@@ -1711,9 +1749,7 @@ export default function Home() {
             whileTap={{ scale: 0.9 }}
             className="bg-gradient-to-br from-green-500 to-blue-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110"
           >
-            <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-              <div className="text-green-600 text-sm font-bold">💬</div>
-            </div>
+            <MessageCircle className="w-6 h-6 text-white" />
           </motion.button>
         )}
 
@@ -1818,9 +1854,7 @@ export default function Home() {
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
+                <Send className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -1836,9 +1870,7 @@ export default function Home() {
           onClick={scrollToTop}
           className="fixed bottom-4 sm:bottom-8 left-4 sm:left-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white p-2.5 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all z-40 hover:scale-110"
         >
-          <div className="w-4 h-4 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-blue-500 rounded-full"></div>
-          </div>
+          <ArrowUp className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
         </motion.button>
       )}
     </div>
