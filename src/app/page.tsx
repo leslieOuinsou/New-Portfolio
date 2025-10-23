@@ -35,7 +35,9 @@ import {
   FileText,
   Calendar,
   Gamepad2,
-  ExternalLink
+  ExternalLink,
+  Sun,
+  Moon
 } from 'lucide-react';
 
 // React Icons - Collections variées
@@ -297,9 +299,11 @@ export default function Home() {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                <div className="w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                  <div className={`w-3 h-3 rounded-full ${isDarkMode ? 'bg-yellow-400' : 'bg-gray-600'}`}></div>
-                </div>
+                {isDarkMode ? (
+                  <Sun className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <Moon className="w-5 h-5 text-gray-600" />
+                )}
               </motion.button>
 
               <button 
@@ -368,9 +372,11 @@ export default function Home() {
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  <div className="w-4 h-4 bg-white rounded-full flex items-center justify-center">
-                    <div className={`w-2 h-2 rounded-full ${isDarkMode ? 'bg-yellow-400' : 'bg-gray-600'}`}></div>
-                  </div>
+                  {isDarkMode ? (
+                    <Sun className="w-4 h-4 text-yellow-400" />
+                  ) : (
+                    <Moon className="w-4 h-4 text-gray-600" />
+                  )}
                   {isDarkMode ? 'Mode clair' : 'Mode sombre'}
                 </button>
               </div>
