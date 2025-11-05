@@ -499,8 +499,8 @@ export default function Home() {
                   À propos de moi
                 </motion.button>
                                 <motion.a
-                  href="/Alternante Développeuse Informatique.pdf"
-                  download="Alternante Développeuse Informatique.pdf"
+                  href="/Alternante Développeuse Web Full Stack – React  Node.js  TypeScript (1).pdf"
+                  download="Alternante Développeuse Web Full Stack – React  Node.js  TypeScript (1).pdf"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
