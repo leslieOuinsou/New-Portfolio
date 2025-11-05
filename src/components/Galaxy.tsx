@@ -188,7 +188,7 @@ interface GalaxyProps {
   autoCenterRepulsion?: number;
   transparent?: boolean;
   style?: React.CSSProperties;
-  [key: string]: any;
+  className?: string;
 }
 
 export default function Galaxy({

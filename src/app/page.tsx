@@ -90,7 +90,6 @@ import {
   MdFavorite,
   MdOpenInNew
 } from 'react-icons/md';
-import { Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 // Composant Galaxy pour le background
@@ -1304,35 +1303,35 @@ export default function Home() {
                     >
                       {/* Bouton "Voir le site" uniquement pour les projets hébergés */}
                       {project.link && (
-                        <motion.a
+                      <motion.a
                           href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
                           className="btn-primary text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5"
-                        >
+                      >
                           <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                           Voir le site
-                        </motion.a>
+                      </motion.a>
                       )}
                       {/* Bouton "Code source" si le projet a un lien GitHub */}
                       {project.github && (
-                        <motion.a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
+                      <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
                           className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border transition-colors flex items-center gap-1.5 ${
-                            isDarkMode 
-                              ? 'bg-white/10 text-white border-white/20 hover:bg-white/20' 
-                              : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
-                          }`}
-                        >
+                          isDarkMode 
+                            ? 'bg-white/10 text-white border-white/20 hover:bg-white/20' 
+                            : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                        }`}
+                      >
                           <FaGithub className="w-3 h-3 sm:w-4 sm:h-4" />
-                          Code source
-                        </motion.a>
+                        Code source
+                      </motion.a>
                       )}
                     </motion.div>
                   </div>
