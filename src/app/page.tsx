@@ -449,13 +449,13 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 z-20 relative">
-          <div className="flex items-center justify-center">
-            {/* Section Texte et CTA */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Section Gauche - Texte et CTA */}
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className={`space-y-6 sm:space-y-8 text-center max-w-4xl ${
+              className={`space-y-6 sm:space-y-8 text-center lg:text-left ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}
             >
@@ -494,7 +494,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className={`text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto ${
+                className={`text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0 ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}
               >
@@ -506,7 +506,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4"
               >
                 <motion.button 
                   onClick={() => scrollToSection('about')}
@@ -559,7 +559,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
-                className="flex gap-4 sm:gap-6 justify-center pt-4 sm:pt-6"
+                className="flex gap-4 sm:gap-6 justify-center lg:justify-start pt-4 sm:pt-6"
               >
                 <motion.a
                   href="https://github.com/leslieOuinsou"
@@ -609,6 +609,9 @@ export default function Home() {
                 </motion.a>
               </motion.div>
             </motion.div>
+
+            {/* Section Droite - Vide (photo retirée) */}
+            <div className="hidden lg:block"></div>
           </div>
         </div>
 
