@@ -93,7 +93,6 @@ import {
 import { lazy, Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
-import Image from 'next/image';
 // Lazy loading pour les composants lourds
 const Hyperspeed = lazy(() => import('../components/Hyperspeed'));
 
@@ -450,13 +449,13 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 z-20 relative">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Section Gauche - Texte et CTA */}
+          <div className="flex items-center justify-center">
+            {/* Section Texte et CTA */}
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className={`space-y-6 sm:space-y-8 text-center lg:text-left ${
+              className={`space-y-6 sm:space-y-8 text-center max-w-4xl ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}
             >
@@ -495,7 +494,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className={`text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0 ${
+                className={`text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}
               >
@@ -507,7 +506,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-2 sm:pt-4"
               >
                 <motion.button 
                   onClick={() => scrollToSection('about')}
@@ -560,7 +559,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
-                className="flex gap-4 sm:gap-6 justify-center lg:justify-start pt-4 sm:pt-6"
+                className="flex gap-4 sm:gap-6 justify-center pt-4 sm:pt-6"
               >
                 <motion.a
                   href="https://github.com/leslieOuinsou"
@@ -610,106 +609,6 @@ export default function Home() {
                 </motion.a>
               </motion.div>
             </motion.div>
-
-            {/* Section Droite - Photo de profil */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative flex items-center justify-center"
-            >
-              {/* Cercles décoratifs animés en arrière-plan */}
-              <motion.div
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.1 }}
-                transition={{ duration: 1, delay: 0.5 }}
-                className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-r from-[#0077FF] to-[#00D4FF] blur-3xl"
-              />
-              
-              {/* Cadre photo avec effet glassmorphism */}
-              <motion.div
-                initial={{ scale: 0.8, rotate: -5 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
-                whileHover={{ 
-                  scale: 1.05, 
-                  rotate: 2,
-                  transition: { duration: 0.3 }
-                }}
-                className={`relative z-10 rounded-3xl sm:rounded-[2.5rem] overflow-hidden border-4 shadow-2xl ${
-                  isDarkMode 
-                    ? 'border-white/20 shadow-blue-500/20' 
-                    : 'border-white/50 shadow-blue-500/30'
-                }`}
-              >
-                {/* Image de profil */}
-                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-                  <Image
-                    src="/Photo.jpeg"
-                    alt="Leslie OUINSOU - Développeuse Full Stack"
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
-                  />
-                  
-                  {/* Overlay gradient au survol */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute inset-0 bg-gradient-to-t from-[#0077FF]/30 to-transparent"
-                  />
-                </div>
-              </motion.div>
-
-              {/* Éléments décoratifs flottants */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6"
-              >
-                <motion.div
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [0, 5, -5, 0]
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
-                >
-                  <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                </motion.div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6"
-              >
-                <motion.div
-                  animate={{ 
-                    y: [0, 10, 0],
-                    rotate: [0, -5, 5, 0]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 0.5
-                  }}
-                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg"
-                >
-                  <Code className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                </motion.div>
-              </motion.div>
-            </motion.div>
-
           </div>
         </div>
 
