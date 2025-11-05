@@ -395,7 +395,7 @@ export default function Home() {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20 overflow-hidden">
         {/* Animation Galaxy en arrière-plan */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
           <Galaxy 
             mouseRepulsion={true}
             mouseInteraction={true}
@@ -404,7 +404,6 @@ export default function Home() {
             saturation={0.8}
             hueShift={240}
             transparent={true}
-            style={{ width: '100%', height: '100%', position: 'absolute' }}
           />
         </div>
         
