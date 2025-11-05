@@ -90,10 +90,10 @@ import {
   MdFavorite,
   MdOpenInNew
 } from 'react-icons/md';
-// import Image from 'next/image'; // Non utilisé pour le moment
 import { lazy, Suspense } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 // Lazy loading pour les composants lourds
 const Hyperspeed = lazy(() => import('../components/Hyperspeed'));
 
@@ -608,6 +608,105 @@ export default function Home() {
                     isDarkMode ? 'text-white' : 'text-gray-700'
                   }`} />
                 </motion.a>
+              </motion.div>
+            </motion.div>
+
+            {/* Section Droite - Photo de profil */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative flex items-center justify-center"
+            >
+              {/* Cercles décoratifs animés en arrière-plan */}
+              <motion.div
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-r from-[#0077FF] to-[#00D4FF] blur-3xl"
+              />
+              
+              {/* Cadre photo avec effet glassmorphism */}
+              <motion.div
+                initial={{ scale: 0.8, rotate: -5 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  rotate: 2,
+                  transition: { duration: 0.3 }
+                }}
+                className={`relative z-10 rounded-3xl sm:rounded-[2.5rem] overflow-hidden border-4 shadow-2xl ${
+                  isDarkMode 
+                    ? 'border-white/20 shadow-blue-500/20' 
+                    : 'border-white/50 shadow-blue-500/30'
+                }`}
+              >
+                {/* Image de profil */}
+                <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                  <Image
+                    src="/Photo.jpeg"
+                    alt="Leslie OUINSOU - Développeuse Full Stack"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 384px"
+                  />
+                  
+                  {/* Overlay gradient au survol */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-t from-[#0077FF]/30 to-transparent"
+                  />
+                </div>
+              </motion.div>
+
+              {/* Éléments décoratifs flottants */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, -10, 0],
+                    rotate: [0, 5, -5, 0]
+                  }}
+                  transition={{ 
+                    duration: 4, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg"
+                >
+                  <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6"
+              >
+                <motion.div
+                  animate={{ 
+                    y: [0, 10, 0],
+                    rotate: [0, -5, 5, 0]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5
+                  }}
+                  className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg"
+                >
+                  <Code className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+                </motion.div>
               </motion.div>
             </motion.div>
 
@@ -1147,6 +1246,31 @@ export default function Home() {
           >
             {[
               {
+                title: "Sailingloc",
+                description: "Plateforme web de location de bateaux avec système de réservation en temps réel, gestion des disponibilités, recherche avancée par type de bateau et localisation. Interface intuitive pour les propriétaires et locataires avec système de paiement sécurisé.",
+                image: (
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/50 to-cyan-600/50"></div>
+                    <Globe className="w-8 h-8 text-white relative z-10" />
+                  </div>
+                ),
+                tech: ["React", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS"],
+                link: "https://dsp-dev-o24a-g4.fr/home",
+                github: "https://github.com/Yass8/DEVO23-G4-SAILINGLOC"
+              },
+              {
+                title: "Mybudget+",
+                description: "Application web de gestion budgétaire personnelle avec suivi des dépenses en temps réel, catégorisation automatique, graphiques interactifs et rapports détaillés. Interface moderne et intuitive pour un contrôle total de vos finances.",
+                image: (
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                ),
+                tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+                link: "https://mybudget-black.vercel.app/",
+                github: "https://github.com/leslieOuinsou/MyBudjet-"
+              },
+              {
                 title: "Pokemon",
                 description: "Application web interactive de collection Pokemon avec interface moderne, recherche de créatures, affichage des statistiques et gestion de collection personnelle. Développée avec TypeScript pour la robustesse du code.",
                 image: (
@@ -1155,7 +1279,7 @@ export default function Home() {
                   </div>
                 ),
                 tech: ["TypeScript", "React", "Pokemon API"],
-                link: "https://github.com/leslieOuinsou/Pokemon",
+                link: "",
                 github: "https://github.com/leslieOuinsou/Pokemon"
               },
               {
@@ -1175,7 +1299,7 @@ export default function Home() {
                 description: "Site vitrine professionnel responsive développé avec Angular et SCSS. Design moderne avec animations fluides, navigation intuitive et optimisation des performances. Parfait exemple de maîtrise du framework Angular.",
                 image: <SiAngular className="w-16 h-16 text-blue-500" />,
                 tech: ["Angular", "SCSS", "TypeScript"],
-                link: "https://github.com/leslieOuinsou/site-vitrine-angular",
+                link: "",
                 github: "https://github.com/leslieOuinsou/site-vitrine-angular"
               },
               {
@@ -1187,7 +1311,7 @@ export default function Home() {
                   </div>
                 ),
                 tech: ["JavaScript", "HTML5", "CSS3"],
-                link: "https://github.com/leslieOuinsou/gestion-des-evenements",
+                link: "",
                 github: "https://github.com/leslieOuinsou/gestion-des-evenements"
               },
               {
@@ -1195,7 +1319,7 @@ export default function Home() {
                 description: "Portfolio personnel moderne et responsive développé avec Next.js et TypeScript. Design élégant avec animations, sections interactives et optimisation SEO. Démonstration de compétences en développement frontend moderne.",
                 image: <SiNextdotjs className="w-16 h-16 text-green-500" />,
                 tech: ["TypeScript", "Next.js", "Tailwind CSS"],
-                link: "https://github.com/leslieOuinsou/PORTFOLIO",
+                link: "https://new-portfolio-eight-omega.vercel.app/",
                 github: "https://github.com/leslieOuinsou/PORTFOLIO"
               },
               {
@@ -1207,7 +1331,7 @@ export default function Home() {
                   </div>
                 ),
                 tech: ["JavaScript", "HTML5", "CSS3"],
-                link: "https://github.com/leslieOuinsou/Sudoku-game",
+                link: "",
                 github: "https://github.com/leslieOuinsou/Sudoku-game"
               }
             ].map((project, index) => (
@@ -1280,37 +1404,61 @@ export default function Home() {
                       ))}
                     </motion.div>
                     
+                    {/* Badge "Hébergé" pour les projets avec un lien */}
+                    {project.link && (
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="flex justify-center mb-2"
+                      >
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 text-xs font-medium rounded-full border border-green-500/30">
+                          <Globe className="w-3 h-3" />
+                          Hébergé
+                        </span>
+                      </motion.div>
+                    )}
+                    
                     <motion.div 
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                       viewport={{ once: true }}
-                      className="flex gap-2 sm:gap-3 justify-center"
+                      className="flex gap-2 sm:gap-3 justify-center flex-wrap"
                     >
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="btn-primary text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2"
-                      >
-                        Voir le projet
-                      </motion.a>
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border transition-colors ${
-                          isDarkMode 
-                            ? 'bg-white/10 text-white border-white/20 hover:bg-white/20' 
-                            : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
-                        }`}
-                      >
-                        Code source
-                      </motion.a>
+                      {/* Bouton "Voir le site" uniquement pour les projets hébergés */}
+                      {project.link && (
+                        <motion.a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="btn-primary text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5"
+                        >
+                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                          Voir le site
+                        </motion.a>
+                      )}
+                      {/* Bouton "Code source" si le projet a un lien GitHub */}
+                      {project.github && (
+                        <motion.a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                          className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border transition-colors flex items-center gap-1.5 ${
+                            isDarkMode 
+                              ? 'bg-white/10 text-white border-white/20 hover:bg-white/20' 
+                              : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
+                          }`}
+                        >
+                          <FaGithub className="w-3 h-3 sm:w-4 sm:h-4" />
+                          Code source
+                        </motion.a>
+                      )}
                     </motion.div>
                   </div>
                 </motion.div>
