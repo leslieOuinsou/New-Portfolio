@@ -1134,7 +1134,7 @@ export default function Home() {
               {
                 title: "Afrofood",
                 description: "Plateforme culinaire africaine moderne avec catalogue de recettes traditionnelles, système de recherche avancée, filtres par région et ingrédients. Interface utilisateur intuitive et design culturel authentique.",
-                image: "/afrofood.jpeg",
+                image: "/Afrofood.jpeg",
                 fallbackIcon: <Heart className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-red-400 to-pink-500",
                 tech: ["JavaScript", "HTML5", "CSS3", "SQLite"],
@@ -1211,6 +1211,7 @@ export default function Home() {
                         </a>
                       )}
                       <button
+                        type="button"
                         className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
                       >
                         <Heart className="w-5 h-5 text-red-500" />
