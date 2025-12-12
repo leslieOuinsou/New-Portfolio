@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { 
   Github, 
   Linkedin, 
@@ -90,14 +91,17 @@ import {
   MdFavorite,
   MdOpenInNew
 } from 'react-icons/md';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay } from 'swiper/modules';
 // Composant Galaxy pour le background
 import Galaxy from '../components/Galaxy';
-
-// Import Swiper styles
+// Composant FloatingLines pour le background
+import FloatingLines from '../components/FloatingLines';
+// Swiper pour le carrousel
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
@@ -247,11 +251,8 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="flex items-center gap-2 sm:gap-3"
+              className="flex items-center"
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                <Code className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-              </div>
               <span className={`text-lg sm:text-xl md:text-2xl font-bold ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}>Leslie OUINSOU</span>
@@ -289,19 +290,15 @@ export default function Home() {
               {/* Toggle Theme */}
               <motion.button
                 onClick={toggleTheme}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className={`p-2 rounded-full transition-colors duration-300 ${
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-4 py-2 rounded-full transition-colors duration-300 text-sm xl:text-base font-medium ${
                   isDarkMode 
                     ? 'bg-white/10 text-white hover:bg-white/20' 
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-yellow-400" />
-                ) : (
-                  <Moon className="w-5 h-5 text-gray-600" />
-                )}
+                {isDarkMode ? 'Mode clair' : 'Mode sombre'}
               </motion.button>
 
               <button 
@@ -364,17 +361,12 @@ export default function Home() {
               <div className="pt-3 sm:pt-4 border-t border-white/10">
                 <button 
                   onClick={toggleTheme}
-                  className={`w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-sm sm:text-base flex items-center justify-center gap-2 ${
+                  className={`w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-sm sm:text-base ${
                     isDarkMode 
                       ? 'bg-white/10 text-white hover:bg-white/20' 
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
                 >
-                  {isDarkMode ? (
-                    <Sun className="w-4 h-4 text-yellow-400" />
-                  ) : (
-                    <Moon className="w-4 h-4 text-gray-600" />
-                  )}
                   {isDarkMode ? 'Mode clair' : 'Mode sombre'}
                 </button>
               </div>
@@ -394,30 +386,24 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20 overflow-hidden">
-        {/* Animation Galaxy en arrière-plan */}
-        <div className="absolute inset-0 z-0" style={{ width: '100%', height: '100%' }}>
-          <Galaxy 
-            mouseRepulsion={true}
-            mouseInteraction={true}
-            density={1.5}
-            glowIntensity={0.5}
-            saturation={0.8}
-            hueShift={240}
-            transparent={true}
+        {/* FloatingLines background */}
+        <div className="absolute inset-0 z-0 opacity-40" style={{ width: '100%', height: '100%' }}>
+          <FloatingLines 
+            enabledWaves={['top', 'middle', 'bottom']}
+            lineCount={[10, 15, 20]}
+            lineDistance={[8, 6, 4]}
+            bendRadius={5.0}
+            bendStrength={-0.5}
+            interactive={true}
+            parallax={true}
+            animationSpeed={1}
+            parallaxStrength={0.2}
+            mixBlendMode="screen"
           />
         </div>
-        
-        {/* Background pattern avec petits points gris */}
-        <div className={`absolute inset-0 z-0 transition-opacity duration-300 ${
-          isDarkMode ? 'opacity-20' : 'opacity-10'
-        }`}>
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, ${
-              isDarkMode ? '#374151' : '#9CA3AF'
-            } 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }} />
-        </div>
+
+        {/* Overlay sombre pour améliorer la lisibilité */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60" />
 
         <div className="container mx-auto px-4 sm:px-6 z-10 relative">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -426,15 +412,11 @@ export default function Home() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className={`space-y-6 sm:space-y-8 text-center lg:text-left ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}
+              className="space-y-6 sm:space-y-8 text-center lg:text-left"
             >
               {/* Titre principal */}
               <div className="space-y-3 sm:space-y-4">
-                <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white drop-shadow-lg">
                   Développeuse
                 </h1>
                 <div className="inline-block">
@@ -465,9 +447,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
-                className={`text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0 ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}
+                className="text-lg sm:text-xl md:text-2xl leading-relaxed max-w-2xl mx-auto lg:mx-0 text-white/90 drop-shadow-md"
               >
                 Je conçois des applications web performantes et agiles, alliant rigueur, créativité et expérience terrain pour répondre aux défis numériques d&apos;aujourd&apos;hui.
               </motion.p>
@@ -752,8 +732,8 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="flex items-center justify-center gap-3 mb-3"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Star className="w-6 h-6 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Star className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">7+</span>
                   </motion.div>
@@ -777,8 +757,8 @@ export default function Home() {
                     viewport={{ once: true }}
                     className="flex items-center justify-center gap-3 mb-3"
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Award className="w-6 h-6 text-white" />
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Award className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">3+</span>
                   </motion.div>
@@ -823,8 +803,8 @@ export default function Home() {
                   {[
                     { 
                       icon: (
-                        <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Zap className="w-6 h-6 text-white" />
+                        <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
+                          <Zap className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Performance", 
@@ -832,8 +812,8 @@ export default function Home() {
                     },
                     { 
                       icon: (
-                        <div className="w-12 h-12 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Palette className="w-6 h-6 text-white" />
+                        <div className="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
+                          <Palette className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Design", 
@@ -841,8 +821,8 @@ export default function Home() {
                     },
                     { 
                       icon: (
-                        <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Code className="w-6 h-6 text-white" />
+                        <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
+                          <Code className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Code", 
@@ -850,8 +830,8 @@ export default function Home() {
                     },
                     { 
                       icon: (
-                        <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Shield className="w-6 h-6 text-white" />
+                        <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
+                          <Shield className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Qualité", 
@@ -932,12 +912,12 @@ export default function Home() {
             />
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto">
             {[
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <FaReact className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                    <FaReact className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Front-end",
@@ -945,8 +925,8 @@ export default function Home() {
               },
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <FaNodeJs className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center shadow-md">
+                    <FaNodeJs className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Back-end",
@@ -954,8 +934,8 @@ export default function Home() {
               },
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Database className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+                    <Database className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Base de données",
@@ -963,8 +943,8 @@ export default function Home() {
               },
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <FaDocker className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-md">
+                    <FaDocker className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Outils & DevOps",
@@ -972,8 +952,8 @@ export default function Home() {
               },
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <SiFigma className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center shadow-md">
+                    <SiFigma className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Design & CMS",
@@ -981,8 +961,8 @@ export default function Home() {
               },
               {
                 icon: (
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Lightning className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center shadow-md">
+                    <Lightning className="w-5 h-5 text-white" />
                   </div>
                 ),
                 title: "Automatisation",
@@ -996,7 +976,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.05, type: "spring", stiffness: 100 }}
                 viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ scale: 1.02, y: -3 }}
-                className={`p-6 rounded-2xl transition-all duration-300 ${
+                className={`p-5 rounded-xl transition-all duration-300 ${
                   isDarkMode 
                     ? 'bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50' 
                     : 'bg-white border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
@@ -1007,10 +987,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1, type: "spring" }}
                   viewport={{ once: true }}
-                  className="flex items-center gap-4 mb-6"
+                  className="flex items-center gap-3 mb-4"
                 >
                   {category.icon}
-                  <h3 className={`text-xl font-bold ${
+                  <h3 className={`text-lg font-bold ${
                       isDarkMode ? 'text-white' : 'text-gray-900'
                   }`}>
                     {category.title}
@@ -1025,9 +1005,9 @@ export default function Home() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.2, delay: 0.2 + index * 0.05 + skillIndex * 0.02 }}
                       viewport={{ once: true, margin: "-20px" }}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors duration-200 ${
                         isDarkMode 
-                          ? 'bg-gray-700 text-gray-300 hover:bg-gray-600' 
+                          ? 'bg-gray-700/80 text-gray-300 hover:bg-gray-600' 
                           : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
@@ -1042,24 +1022,24 @@ export default function Home() {
       </section>
 
       {/* Section Projets */}
-      <section id="projects" className={`py-16 sm:py-20 relative transition-colors duration-300 ${
-        isDarkMode ? 'bg-gray-900' : 'bg-white'
+      <section id="projects" className={`py-16 sm:py-20 relative transition-colors duration-300 overflow-hidden ${
+        isDarkMode ? 'bg-black' : 'bg-gray-50'
       }`}>
-        {/* Background pattern avec petits points gris */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: isDarkMode ? 0.2 : 0.1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="absolute inset-0"
-        >
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, ${
-              isDarkMode ? '#374151' : '#9CA3AF'
-            } 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }} />
-        </motion.div>
+        {/* FloatingLines background pour la section projets */}
+        <div className="absolute inset-0 z-0 opacity-30" style={{ width: '100%', height: '100%' }}>
+          <FloatingLines 
+            enabledWaves={['top', 'middle', 'bottom']}
+            lineCount={[8, 12, 15]}
+            lineDistance={[6, 5, 4]}
+            bendRadius={5.0}
+            bendStrength={-0.5}
+            interactive={true}
+            parallax={true}
+            animationSpeed={0.8}
+            parallaxStrength={0.15}
+            mixBlendMode="screen"
+          />
+        </div>
         
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
@@ -1078,7 +1058,7 @@ export default function Home() {
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}
             >
-              Mes projets
+              Mes Projets
             </motion.h2>
             <motion.div 
               initial={{ width: 0, opacity: 0 }}
@@ -1089,19 +1069,21 @@ export default function Home() {
             />
           </motion.div>
 
+          {/* Carrousel de projets */}
           <Swiper
-            modules={[Pagination, Autoplay]}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={1}
+            modules={[Pagination, Autoplay, Navigation]}
             spaceBetween={30}
+            slidesPerView={1}
             loop={true}
             autoplay={{
-              delay: 3000,
+              delay: 4000,
               disableOnInteraction: false,
             }}
-            pagination={{ clickable: true }}
-            className="mySwiper"
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={true}
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -1112,21 +1094,19 @@ export default function Home() {
                 spaceBetween: 30,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 40,
               },
             }}
+            className="projects-swiper"
           >
             {[
               {
                 title: "Sailingloc",
                 description: "Plateforme web de location de bateaux avec système de réservation en temps réel, gestion des disponibilités, recherche avancée par type de bateau et localisation. Interface intuitive pour les propriétaires et locataires avec système de paiement sécurisé.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center shadow-lg relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/50 to-cyan-600/50"></div>
-                    <Globe className="w-8 h-8 text-white relative z-10" />
-                  </div>
-                ),
+                image: "/Sailingloc.jpeg",
+                fallbackIcon: <Globe className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-blue-400 to-cyan-500",
                 tech: ["React", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS"],
                 link: "https://dsp-dev-o24a-g4.fr/home",
                 github: "https://github.com/Yass8/DEVO23-G4-SAILINGLOC"
@@ -1134,11 +1114,9 @@ export default function Home() {
               {
                 title: "Mybudget+",
                 description: "Application web de gestion budgétaire personnelle avec suivi des dépenses en temps réel, catégorisation automatique, graphiques interactifs et rapports détaillés. Interface moderne et intuitive pour un contrôle total de vos finances.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Target className="w-8 h-8 text-white" />
-                  </div>
-                ),
+                image: "/MyBudget.jpeg",
+                fallbackIcon: <Target className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-green-500 to-emerald-600",
                 tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
                 link: "https://mybudget-black.vercel.app/",
                 github: "https://github.com/leslieOuinsou/MyBudjet-"
@@ -1146,11 +1124,9 @@ export default function Home() {
               {
                 title: "Pokemon",
                 description: "Application web interactive de collection Pokemon avec interface moderne, recherche de créatures, affichage des statistiques et gestion de collection personnelle. Développée avec TypeScript pour la robustesse du code.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <SiPokemon className="w-8 h-8 text-white" />
-                  </div>
-                ),
+                image: "/Pokemon.jpeg",
+                fallbackIcon: <SiPokemon className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-yellow-400 to-orange-500",
                 tech: ["TypeScript", "React", "Pokemon API"],
                 link: "",
                 github: "https://github.com/leslieOuinsou/Pokemon"
@@ -1158,11 +1134,9 @@ export default function Home() {
               {
                 title: "Afrofood",
                 description: "Plateforme culinaire africaine moderne avec catalogue de recettes traditionnelles, système de recherche avancée, filtres par région et ingrédients. Interface utilisateur intuitive et design culturel authentique.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Heart className="w-8 h-8 text-white" />
-                  </div>
-                ),
+                image: "/afrofood.jpeg",
+                fallbackIcon: <Heart className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-red-400 to-pink-500",
                 tech: ["JavaScript", "HTML5", "CSS3", "SQLite"],
                 link: "",
                 github: ""
@@ -1170,7 +1144,9 @@ export default function Home() {
               {
                 title: "Site Vitrine Angular",
                 description: "Site vitrine professionnel responsive développé avec Angular et SCSS. Design moderne avec animations fluides, navigation intuitive et optimisation des performances. Parfait exemple de maîtrise du framework Angular.",
-                image: <SiAngular className="w-16 h-16 text-blue-500" />,
+                image: "/site-angular.jpeg",
+                fallbackIcon: <SiAngular className="w-20 h-20 text-white/80" />,
+                fallbackGradient: "from-blue-500 to-indigo-600",
                 tech: ["Angular", "SCSS", "TypeScript"],
                 link: "",
                 github: "https://github.com/leslieOuinsou/site-vitrine-angular"
@@ -1178,166 +1154,94 @@ export default function Home() {
               {
                 title: "Gestion des Événements",
                 description: "Application complète de gestion d'événements avec création, modification et suppression d'événements. Interface utilisateur intuitive, validation des données et gestion des dates. Solution pratique pour organisateurs d'événements.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Calendar className="w-8 h-8 text-white" />
-                  </div>
-                ),
+                image: "/events.jpeg",
+                fallbackIcon: <Calendar className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-purple-500 to-indigo-600",
                 tech: ["JavaScript", "HTML5", "CSS3"],
                 link: "",
                 github: "https://github.com/leslieOuinsou/gestion-des-evenements"
               },
               {
-                title: "Portfolio",
-                description: "Portfolio personnel moderne et responsive développé avec Next.js et TypeScript. Design élégant avec animations, sections interactives et optimisation SEO. Démonstration de compétences en développement frontend moderne.",
-                image: <SiNextdotjs className="w-16 h-16 text-green-500" />,
-                tech: ["TypeScript", "Next.js", "Tailwind CSS"],
-                link: "https://new-portfolio-eight-omega.vercel.app/",
-                github: "https://github.com/leslieOuinsou/PORTFOLIO"
-              },
-              {
                 title: "Sudoku Game",
                 description: "Jeu de Sudoku interactif avec génération automatique de grilles, validation en temps réel et niveaux de difficulté. Interface utilisateur claire, logique de jeu robuste et expérience de jeu fluide pour tous les niveaux.",
-                image: (
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Gamepad2 className="w-8 h-8 text-white" />
-                  </div>
-                ),
+                image: "/Sudoku.jpeg",
+                fallbackIcon: <Gamepad2 className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-indigo-500 to-blue-600",
                 tech: ["JavaScript", "HTML5", "CSS3"],
                 link: "",
                 github: "https://github.com/leslieOuinsou/Sudoku-game"
               }
             ].map((project, index) => (
               <SwiperSlide key={project.title}>
-                <motion.div
-                  initial={{ opacity: 0, y: 50, scale: 0.8, rotateY: -10 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1, type: "spring", stiffness: 80 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -15, scale: 1.02, rotateY: 2 }}
-                  className={`w-full max-w-sm sm:max-w-md lg:max-w-lg border rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-300 group cursor-pointer ${
-                    isDarkMode 
-                      ? 'bg-white/5 border-white/10 hover:border-[#0077FF]/50' 
-                      : 'bg-white border-gray-200 hover:border-[#0077FF]/50 shadow-lg hover:shadow-xl'
-                  }`}
-                >
-                  <div className="p-4 sm:p-6">
-                    <motion.div 
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 + index * 0.1, type: "spring" }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="text-4xl sm:text-5xl mb-3 sm:mb-4 text-center"
-                    >
-                      {project.image}
-                    </motion.div>
-                    <motion.h3 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className={`text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-center ${
-                        isDarkMode ? 'text-white' : 'text-gray-900'
-                      }`}
-                    >
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full">
+                  {/* Image du projet */}
+                  <div className="relative overflow-hidden h-48 bg-gray-100">
+                    {project.image && typeof project.image === 'string' ? (
+                      <>
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        {/* Fallback avec gradient et icône si l'image ne charge pas */}
+                        <div 
+                          className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center hidden`}
+                          id={`fallback-${index}`}
+                        >
+                          {project.fallbackIcon}
+                        </div>
+                      </>
+                    ) : (
+                      <div className={`w-full h-full bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center`}>
+                        {project.fallbackIcon || project.image}
+                      </div>
+                    )}
+                    {/* Icônes en overlay */}
+                    <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+                        >
+                          <ExternalLink className="w-5 h-5 text-gray-700" />
+                        </a>
+                      )}
+                      <button
+                        className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+                      >
+                        <Heart className="w-5 h-5 text-red-500" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Contenu de la carte */}
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
                       {project.title}
-                    </motion.h3>
-                    <motion.p 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className={`mb-3 sm:mb-4 text-center leading-relaxed text-sm sm:text-base ${
-                        isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                      }`}
-                    >
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       {project.description}
-                    </motion.p>
+                    </p>
                     
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4 justify-center"
-                    >
-                      {project.tech.map((tech, techIndex) => (
-                        <motion.span 
-                          key={tech} 
-                          initial={{ opacity: 0, scale: 0.5 }}
-                          whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: 0.6 + index * 0.1 + techIndex * 0.05, type: "spring" }}
-                          viewport={{ once: true }}
-                          whileHover={{ scale: 1.1, y: -2 }}
-                          className="px-2 sm:px-3 py-1 bg-[#0077FF]/20 text-[#0077FF] text-xs sm:text-sm rounded-full border border-[#0077FF]/30"
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
                         >
                           {tech}
-                        </motion.span>
-                      ))}
-                    </motion.div>
-                    
-                    {/* Badge "Hébergé" pour les projets avec un lien */}
-                    {project.link && (
-                      <motion.div 
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="flex justify-center mb-2"
-                      >
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 text-xs font-medium rounded-full border border-green-500/30">
-                          <Globe className="w-3 h-3" />
-                          Hébergé
                         </span>
-                      </motion.div>
-                    )}
-                    
-                    <motion.div 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex gap-2 sm:gap-3 justify-center flex-wrap"
-                    >
-                      {/* Bouton "Voir le site" uniquement pour les projets hébergés */}
-                      {project.link && (
-                      <motion.a
-                          href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                          className="btn-primary text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 flex items-center gap-1.5"
-                      >
-                          <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                          Voir le site
-                      </motion.a>
-                      )}
-                      {/* Bouton "Code source" si le projet a un lien GitHub */}
-                      {project.github && (
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                          className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border transition-colors flex items-center gap-1.5 ${
-                          isDarkMode 
-                            ? 'bg-white/10 text-white border-white/20 hover:bg-white/20' 
-                            : 'bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200'
-                        }`}
-                      >
-                          <FaGithub className="w-3 h-3 sm:w-4 sm:h-4" />
-                        Code source
-                      </motion.a>
-                      )}
-                    </motion.div>
+                      ))}
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               </SwiperSlide>
             ))}
-            <div className="swiper-pagination"></div>
           </Swiper>
         </div>
       </section>

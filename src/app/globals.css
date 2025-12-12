@@ -235,6 +235,53 @@ html {
   transform: scale(1.2);
 }
 
+/* Styles pour le carrousel de projets */
+.projects-swiper {
+  padding: 2rem 0 4rem 0;
+  width: 100%;
+}
+
+.projects-swiper .swiper-slide {
+  height: auto;
+  display: flex;
+}
+
+.projects-swiper .swiper-pagination-bullet {
+  background: #0077FF !important;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.projects-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.projects-swiper .swiper-button-next,
+.projects-swiper .swiper-button-prev {
+  color: #0077FF !important;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  width: 50px !important;
+  height: 50px !important;
+  margin-top: -25px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.projects-swiper .swiper-button-next:hover,
+.projects-swiper .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.projects-swiper .swiper-button-next::after,
+.projects-swiper .swiper-button-prev::after {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .mySwiper .swiper-slide {
@@ -250,6 +297,18 @@ html {
   
   .swiper-button-next::after,
   .swiper-button-prev::after {
+    font-size: 16px !important;
+  }
+
+  .projects-swiper .swiper-button-next,
+  .projects-swiper .swiper-button-prev {
+    width: 40px !important;
+    height: 40px !important;
+    margin-top: -20px;
+  }
+
+  .projects-swiper .swiper-button-next::after,
+  .projects-swiper .swiper-button-prev::after {
     font-size: 16px !important;
   }
 }
