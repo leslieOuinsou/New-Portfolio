@@ -1131,7 +1131,7 @@ export default function Home() {
                 fallbackIcon: <HiChartBar className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-green-500 to-emerald-600",
                 tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
-                link: "https://mybudget-black.vercel.app/",
+                link: "https://my-budjet-web.vercel.app",
                 github: "https://github.com/leslieOuinsou/MyBudjet-"
               },
               {
