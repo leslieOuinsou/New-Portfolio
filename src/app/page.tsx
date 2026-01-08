@@ -1171,7 +1171,7 @@ export default function Home() {
                 fallbackIcon: <HiCalendar className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-purple-500 to-indigo-600",
                 tech: ["JavaScript", "HTML5", "CSS3"],
-                link: "https://gestion-%C3%A9v%C3%A9nements-frontend.vercel.app",
+                link: "https://gestion-evenements-frontend.vercel.app",
                 github: "https://github.com/leslieOuinsou/gestion-des-evenements"
               },
               {
