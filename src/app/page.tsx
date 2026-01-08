@@ -77,6 +77,13 @@ import {
   SiPrestashop,
   SiN8N
 } from 'react-icons/si';
+import { 
+  HiGlobe,
+  HiChartBar,
+  HiHeart,
+  HiCalendar,
+  HiViewGrid
+} from 'react-icons/hi';
 
 import { 
   MdCode,
@@ -89,7 +96,13 @@ import {
   MdLocationOn,
   MdDownload,
   MdFavorite,
-  MdOpenInNew
+  MdOpenInNew,
+  MdRocketLaunch,
+  MdBrush,
+  MdCodeOff,
+  MdVerified,
+  MdTrendingUp,
+  MdBuild
 } from 'react-icons/md';
 // Composant Galaxy pour le background
 import Galaxy from '../components/Galaxy';
@@ -500,7 +513,7 @@ export default function Home() {
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <Download className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
+                    <FaDownload className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
                   </motion.div>
                 </motion.a>
               </motion.div>
@@ -579,7 +592,7 @@ export default function Home() {
             className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white/30 rounded-full flex items-center justify-center cursor-pointer hover:border-white/60 transition-colors"
             onClick={() => scrollToSection('about')}
           >
-            <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white/60" />
+            <MdOpenInNew className="w-3 h-3 sm:w-4 sm:h-4 text-white/60 rotate-90" />
           </motion.div>
         </motion.div>
       </section>
@@ -733,7 +746,7 @@ export default function Home() {
                     className="flex items-center justify-center gap-3 mb-3"
                   >
                     <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Star className="w-5 h-5 text-white" />
+                      <MdWork className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">7+</span>
                   </motion.div>
@@ -758,7 +771,7 @@ export default function Home() {
                     className="flex items-center justify-center gap-3 mb-3"
                   >
                     <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Award className="w-5 h-5 text-white" />
+                      <MdTrendingUp className="w-5 h-5 text-white" />
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">3+</span>
                   </motion.div>
@@ -804,7 +817,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Zap className="w-5 h-5 text-white" />
+                          <MdRocketLaunch className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Performance", 
@@ -813,7 +826,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Palette className="w-5 h-5 text-white" />
+                          <MdBrush className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Design", 
@@ -822,7 +835,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Code className="w-5 h-5 text-white" />
+                          <MdCode className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Code", 
@@ -831,7 +844,7 @@ export default function Home() {
                     { 
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                          <Shield className="w-5 h-5 text-white" />
+                          <MdVerified className="w-5 h-5 text-white" />
                         </div>
                       ), 
                       title: "Qualité", 
@@ -1105,7 +1118,7 @@ export default function Home() {
                 title: "Sailingloc",
                 description: "Plateforme web de location de bateaux avec système de réservation en temps réel, gestion des disponibilités, recherche avancée par type de bateau et localisation. Interface intuitive pour les propriétaires et locataires avec système de paiement sécurisé.",
                 image: "/Sailingloc.jpeg",
-                fallbackIcon: <Globe className="w-16 h-16 text-white/80" />,
+                fallbackIcon: <HiGlobe className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-blue-400 to-cyan-500",
                 tech: ["React", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS"],
                 link: "https://dsp-dev-o24a-g4.fr/home",
@@ -1115,7 +1128,7 @@ export default function Home() {
                 title: "Mybudget+",
                 description: "Application web de gestion budgétaire personnelle avec suivi des dépenses en temps réel, catégorisation automatique, graphiques interactifs et rapports détaillés. Interface moderne et intuitive pour un contrôle total de vos finances.",
                 image: "/MyBudget.jpeg",
-                fallbackIcon: <Target className="w-16 h-16 text-white/80" />,
+                fallbackIcon: <HiChartBar className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-green-500 to-emerald-600",
                 tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
                 link: "https://mybudget-black.vercel.app/",
@@ -1135,7 +1148,7 @@ export default function Home() {
                 title: "Afrofood",
                 description: "Plateforme culinaire africaine moderne avec catalogue de recettes traditionnelles, système de recherche avancée, filtres par région et ingrédients. Interface utilisateur intuitive et design culturel authentique.",
                 image: "/Afrofood.jpeg",
-                fallbackIcon: <Heart className="w-16 h-16 text-white/80" />,
+                fallbackIcon: <HiHeart className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-red-400 to-pink-500",
                 tech: ["JavaScript", "HTML5", "CSS3", "SQLite"],
                 link: "",
@@ -1155,17 +1168,17 @@ export default function Home() {
                 title: "Gestion des Événements",
                 description: "Application complète de gestion d'événements avec création, modification et suppression d'événements. Interface utilisateur intuitive, validation des données et gestion des dates. Solution pratique pour organisateurs d'événements.",
                 image: "/events.jpeg",
-                fallbackIcon: <Calendar className="w-16 h-16 text-white/80" />,
+                fallbackIcon: <HiCalendar className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-purple-500 to-indigo-600",
                 tech: ["JavaScript", "HTML5", "CSS3"],
-                link: "",
+                link: "https://gestion-%C3%A9v%C3%A9nements-frontend.vercel.app",
                 github: "https://github.com/leslieOuinsou/gestion-des-evenements"
               },
               {
                 title: "Sudoku Game",
                 description: "Jeu de Sudoku interactif avec génération automatique de grilles, validation en temps réel et niveaux de difficulté. Interface utilisateur claire, logique de jeu robuste et expérience de jeu fluide pour tous les niveaux.",
                 image: "/Sudoku.jpeg",
-                fallbackIcon: <Gamepad2 className="w-16 h-16 text-white/80" />,
+                fallbackIcon: <HiViewGrid className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-indigo-500 to-blue-600",
                 tech: ["JavaScript", "HTML5", "CSS3"],
                 link: "",
@@ -1173,9 +1186,15 @@ export default function Home() {
               }
             ].map((project, index) => (
               <SwiperSlide key={project.title}>
-                <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full">
-                  {/* Image du projet */}
-                  <div className="relative overflow-hidden h-48 bg-gray-100">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full cursor-pointer"
+                  >
+                    {/* Image du projet */}
+                    <div className="relative overflow-hidden h-48 bg-gray-100">
                     {project.image && typeof project.image === 'string' ? (
                       <>
                         <Image
@@ -1200,21 +1219,17 @@ export default function Home() {
                     )}
                     {/* Icônes en overlay */}
                     <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
-                        >
-                          <ExternalLink className="w-5 h-5 text-gray-700" />
-                        </a>
-                      )}
+                      <div
+                        className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
+                      >
+                        <MdOpenInNew className="w-5 h-5 text-gray-700" />
+                      </div>
                       <button
                         type="button"
+                        onClick={(e) => e.stopPropagation()}
                         className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
                       >
-                        <Heart className="w-5 h-5 text-red-500" />
+                        <MdFavorite className="w-5 h-5 text-red-500" />
                       </button>
                     </div>
                   </div>
@@ -1240,7 +1255,61 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </div>
+                  </a>
+                ) : (
+                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full">
+                    {/* Image du projet */}
+                    <div className="relative overflow-hidden h-48 bg-gray-100">
+                      {project.image && typeof project.image === 'string' ? (
+                        <>
+                          <Image
+                            src={project.image}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                          <div 
+                            className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center hidden`}
+                            id={`fallback-${index}`}
+                          >
+                            {project.fallbackIcon}
+                          </div>
+                        </>
+                      ) : (
+                        <div className={`w-full h-full bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center`}>
+                          {project.fallbackIcon || project.image}
+                        </div>
+                      )}
+                      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                        <button
+                          type="button"
+                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
+                        >
+                          <MdFavorite className="w-5 h-5 text-red-500" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -1468,7 +1537,7 @@ export default function Home() {
             whileTap={{ scale: 0.9 }}
             className="bg-gradient-to-br from-green-500 to-blue-600 text-white p-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-110"
           >
-            <MessageCircle className="w-6 h-6 text-white" />
+            <MdEmail className="w-6 h-6 text-white" />
           </motion.button>
         )}
 
@@ -1573,7 +1642,7 @@ export default function Home() {
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   }`}
                 >
-                <Send className="w-5 h-5" />
+                <MdEmail className="w-5 h-5" />
                 </button>
               </div>
             </div>
@@ -1589,7 +1658,7 @@ export default function Home() {
           onClick={scrollToTop}
           className="fixed bottom-4 sm:bottom-8 left-4 sm:left-8 bg-gradient-to-br from-blue-500 to-purple-600 text-white p-2.5 sm:p-3 rounded-full shadow-lg hover:shadow-xl transition-all z-40 hover:scale-110"
         >
-          <ArrowUp className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+          <MdOpenInNew className="w-4 h-4 sm:w-6 sm:h-6 text-white rotate-[-45deg]" />
         </motion.button>
       )}
     </div>
