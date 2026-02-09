@@ -1187,7 +1187,7 @@ export default function Home() {
               {
                 title: "Marketplace",
                 description: "Plateforme marketplace développée avec PHP, Java et Docker. Application complète pour la vente et la gestion de produits en ligne.",
-                image: "",
+                image: "/Logo_MarketPlace.png",
                 fallbackIcon: <HiViewGrid className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-amber-500 to-orange-600",
                 tech: ["PHP", "Java", "Docker"],
