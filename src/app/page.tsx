@@ -1150,8 +1150,8 @@ export default function Home() {
                 image: "/Afrofood.jpeg",
                 fallbackIcon: <HiHeart className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-red-400 to-pink-500",
-                tech: ["JavaScript", "HTML5", "CSS3", "SQLite"],
-                link: "",
+                tech: ["Next.js", "React", "TypeScript", "Tailwind", "Node.js", "Express", "Mongoose", "MongoDB", "Vercel"],
+                link: "https://afrofood.vercel.app",
                 github: ""
               },
               {
@@ -1183,6 +1183,16 @@ export default function Home() {
                 tech: ["JavaScript", "HTML5", "CSS3"],
                 link: "",
                 github: "https://github.com/leslieOuinsou/Sudoku-game"
+              },
+              {
+                title: "Marketplace",
+                description: "Plateforme marketplace développée avec PHP, Java et Docker. Application complète pour la vente et la gestion de produits en ligne.",
+                image: "",
+                fallbackIcon: <HiViewGrid className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-amber-500 to-orange-600",
+                tech: ["PHP", "Java", "Docker"],
+                link: "https://maketplace-production.up.railway.app",
+                github: ""
               }
             ].map((project, index) => (
               <SwiperSlide key={project.title}>
