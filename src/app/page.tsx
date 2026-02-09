@@ -1120,7 +1120,7 @@ export default function Home() {
                 image: "/Sailingloc.jpeg",
                 fallbackIcon: <HiGlobe className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-blue-400 to-cyan-500",
-                tech: ["React", "Node.js", "MongoDB", "TypeScript", "Tailwind CSS"],
+                tech: ["PostgreSQL", "Express", "React", "Node.js", "Docker Compose"],
                 link: "https://dsp-dev-o24a-g4.fr/home",
                 github: "https://github.com/Yass8/DEVO23-G4-SAILINGLOC"
               },
@@ -1170,7 +1170,7 @@ export default function Home() {
                 image: "/events.jpeg",
                 fallbackIcon: <HiCalendar className="w-16 h-16 text-white/80" />,
                 fallbackGradient: "from-purple-500 to-indigo-600",
-                tech: ["JavaScript", "HTML5", "CSS3"],
+                tech: ["React 19", "Tailwind", "Flowbite", "React Router", "Framer Motion", "Node.js", "Express 5", "MongoDB", "Mongoose", "JWT", "Stripe", "Nodemailer", "Vercel"],
                 link: "https://gestion-evenements-frontend.vercel.app",
                 github: "https://github.com/leslieOuinsou/gestion-des-evenements"
               },
