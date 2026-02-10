@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { 
-  Github, 
-  Linkedin, 
-  Mail, 
+import {
+  Github,
+  Linkedin,
+  Mail,
   Code,
   Database,
   Globe,
@@ -42,9 +42,9 @@ import {
 } from 'lucide-react';
 
 // React Icons - Collections variées
-import { 
-  FaReact, 
-  FaNodeJs, 
+import {
+  FaReact,
+  FaNodeJs,
   FaDocker,
   FaGithub,
   FaLinkedin,
@@ -56,7 +56,7 @@ import {
   FaExternalLinkAlt
 } from 'react-icons/fa';
 
-import { 
+import {
   SiFigma,
   SiPokemon,
   SiAngular,
@@ -77,7 +77,7 @@ import {
   SiPrestashop,
   SiN8N
 } from 'react-icons/si';
-import { 
+import {
   HiGlobe,
   HiChartBar,
   HiHeart,
@@ -85,25 +85,9 @@ import {
   HiViewGrid
 } from 'react-icons/hi';
 
-import { 
-  MdCode,
-  MdSecurity,
-  MdSpeed,
-  MdPalette,
-  MdWork,
-  MdEmail,
-  MdPhone,
-  MdLocationOn,
-  MdDownload,
-  MdFavorite,
-  MdOpenInNew,
-  MdRocketLaunch,
-  MdBrush,
-  MdCodeOff,
-  MdVerified,
-  MdTrendingUp,
-  MdBuild
-} from 'react-icons/md';
+import { MdCode, MdSecurity, MdSpeed, MdPalette, MdWork, MdEmail, MdPhone, MdLocationOn, MdDownload, MdFavorite, MdOpenInNew, MdRocketLaunch, MdBrush, MdCodeOff, MdVerified, MdTrendingUp, MdBuild } from 'react-icons/md';
+// Composant ProjectCard
+import ProjectCard from '../components/ProjectCard';
 // Composant Galaxy pour le background
 import Galaxy from '../components/Galaxy';
 // Composant FloatingLines pour le background
@@ -193,31 +177,31 @@ export default function Home() {
 
   const generateBotResponse = (message: string) => {
     const lowerMessage = message.toLowerCase();
-    
+
     if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
       return 'Bonjour ! Ravi de vous rencontrer. Comment puis-je vous aider concernant le portfolio de Leslie ?';
     }
-    
+
     if (lowerMessage.includes('compétences') || lowerMessage.includes('skills') || lowerMessage.includes('technologies')) {
       return 'Leslie maîtrise Angular, React, Next.js, TypeScript, Node.js, MongoDB, et bien d&apos;autres technologies. Voulez-vous en savoir plus sur une technologie spécifique ?';
     }
-    
+
     if (lowerMessage.includes('projets') || lowerMessage.includes('portfolio') || lowerMessage.includes('travaux')) {
       return 'Leslie a réalisé de nombreux projets : e-commerce, gestion de tâches, applications web... Voulez-vous voir des exemples spécifiques ?';
     }
-    
+
     if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('téléphone')) {
       return 'Vous pouvez contacter Leslie via email : ouinsoul5@gmail.com ou téléphone : +33 7 66 23 45 75. Ou utilisez le formulaire de contact !';
     }
-    
+
     if (lowerMessage.includes('expérience') || lowerMessage.includes('années') || lowerMessage.includes('carrière')) {
       return 'Leslie a plus de 5 ans d&apos;expérience dans le développement web. Elle a travaillé sur des projets variés et maîtrise le développement full-stack.';
     }
-    
+
     if (lowerMessage.includes('cv') || lowerMessage.includes('résumé') || lowerMessage.includes('background')) {
       return 'Leslie est développeuse Full Stack passionnée par l&apos;innovation. Elle combine expertise technique et créativité pour créer des solutions exceptionnelles.';
     }
-    
+
     return 'Merci pour votre message ! Je peux vous parler des compétences, projets, expérience ou contact de Leslie. Que souhaitez-vous savoir ?';
   };
 
@@ -237,7 +221,7 @@ export default function Home() {
     if (element) {
       const headerHeight = 80; // Hauteur du header fixe
       const elementPosition = element.offsetTop - headerHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
@@ -247,17 +231,15 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDarkMode 
-        ? 'bg-black text-white' 
-        : 'bg-gray-50 text-gray-900'
-    }`}>
-      {/* Header/Navigation */}
-      <header className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-300 ${
-        isDarkMode 
-          ? 'bg-black/95 border-white/10' 
-          : 'bg-white/95 border-gray-200'
+    <div className={`min-h-screen transition-colors duration-300 ${isDarkMode
+      ? 'bg-black text-white'
+      : 'bg-gray-50 text-gray-900'
       }`}>
+      {/* Header/Navigation */}
+      <header className={`fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors duration-300 ${isDarkMode
+        ? 'bg-black/95 border-white/10'
+        : 'bg-white/95 border-gray-200'
+        }`}>
         <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -266,9 +248,8 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center"
             >
-              <span className={`text-lg sm:text-xl md:text-2xl font-bold ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}>Leslie OUINSOU</span>
+              <span className={`text-lg sm:text-xl md:text-2xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}>Leslie OUINSOU</span>
             </motion.div>
 
             {/* Navigation Desktop */}
@@ -286,11 +267,10 @@ export default function Home() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`transition-colors duration-300 relative group text-sm xl:text-base ${
-                    isDarkMode 
-                      ? 'text-gray-300 hover:text-white' 
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
+                  className={`transition-colors duration-300 relative group text-sm xl:text-base ${isDarkMode
+                    ? 'text-gray-300 hover:text-white'
+                    : 'text-gray-600 hover:text-gray-900'
+                    }`}
                 >
                   {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#0077FF] transition-all duration-300 group-hover:w-full"></span>
@@ -305,16 +285,15 @@ export default function Home() {
                 onClick={toggleTheme}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-4 py-2 rounded-full transition-colors duration-300 text-sm xl:text-base font-medium ${
-                  isDarkMode 
-                    ? 'bg-white/10 text-white hover:bg-white/20' 
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-2 rounded-full transition-colors duration-300 text-sm xl:text-base font-medium ${isDarkMode
+                  ? 'bg-white/10 text-white hover:bg-white/20'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 {isDarkMode ? 'Mode clair' : 'Mode sombre'}
               </motion.button>
 
-              <button 
+              <button
                 onClick={() => scrollToSection('contact')}
                 className="btn-primary text-sm xl:text-base"
               >
@@ -327,11 +306,10 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                isDarkMode 
-                  ? 'text-white hover:bg-white/10' 
-                  : 'text-gray-700 hover:bg-gray-100'
-              }`}
+              className={`lg:hidden p-2 rounded-lg transition-colors ${isDarkMode
+                ? 'text-white hover:bg-white/10'
+                : 'text-gray-700 hover:bg-gray-100'
+                }`}
             >
               {isMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </motion.button>
@@ -340,16 +318,15 @@ export default function Home() {
           {/* Menu Mobile */}
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ 
+            animate={{
               opacity: isMenuOpen ? 1 : 0,
               height: isMenuOpen ? 'auto' : 0
             }}
             transition={{ duration: 0.3 }}
             className="lg:hidden overflow-hidden"
           >
-            <div className={`py-4 space-y-3 sm:space-y-4 border-t mt-3 sm:mt-4 transition-colors duration-300 ${
-              isDarkMode ? 'border-white/10' : 'border-gray-200'
-            }`}>
+            <div className={`py-4 space-y-3 sm:space-y-4 border-t mt-3 sm:mt-4 transition-colors duration-300 ${isDarkMode ? 'border-white/10' : 'border-gray-200'
+              }`}>
               {[
                 { id: 'home', label: 'Accueil' },
                 { id: 'about', label: 'À propos' },
@@ -360,32 +337,30 @@ export default function Home() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left py-2 px-4 rounded-lg transition-colors text-base sm:text-lg ${
-                    isDarkMode 
-                      ? 'text-gray-300 hover:text-white hover:bg-white/5' 
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
-                  }`}
+                  className={`block w-full text-left py-2 px-4 rounded-lg transition-colors text-base sm:text-lg ${isDarkMode
+                    ? 'text-gray-300 hover:text-white hover:bg-white/5'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    }`}
                 >
                   {item.label}
                 </button>
               ))}
-              
+
               {/* Toggle Theme Mobile */}
               <div className="pt-3 sm:pt-4 border-t border-white/10">
-                <button 
+                <button
                   onClick={toggleTheme}
-                  className={`w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-sm sm:text-base ${
-                    isDarkMode 
-                      ? 'bg-white/10 text-white hover:bg-white/20' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                  className={`w-full px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-colors duration-300 text-sm sm:text-base ${isDarkMode
+                    ? 'bg-white/10 text-white hover:bg-white/20'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
                 >
                   {isDarkMode ? 'Mode clair' : 'Mode sombre'}
                 </button>
               </div>
-              
+
               <div className="pt-3 sm:pt-4 border-t border-white/10">
-                <button 
+                <button
                   onClick={() => scrollToSection('contact')}
                   className="btn-primary w-full text-sm sm:text-base"
                 >
@@ -401,7 +376,7 @@ export default function Home() {
       <section id="home" className="min-h-screen flex items-center justify-center relative pt-16 sm:pt-20 overflow-hidden">
         {/* FloatingLines background */}
         <div className="absolute inset-0 z-0 opacity-40" style={{ width: '100%', height: '100%' }}>
-          <FloatingLines 
+          <FloatingLines
             enabledWaves={['top', 'middle', 'bottom']}
             lineCount={[10, 15, 20]}
             lineDistance={[8, 6, 4]}
@@ -433,17 +408,17 @@ export default function Home() {
                   Développeuse
                 </h1>
                 <div className="inline-block">
-                  <motion.span 
+                  <motion.span
                     initial={{ opacity: 0, scale: 0.5, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    transition={{ 
-                      duration: 0.8, 
+                    transition={{
+                      duration: 0.8,
                       delay: 0.4,
                       type: "spring",
                       stiffness: 200,
                       damping: 15
                     }}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.05,
                       rotate: [0, -2, 2, 0],
                       transition: { duration: 0.3 }
@@ -456,7 +431,7 @@ export default function Home() {
               </div>
 
               {/* Description */}
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
@@ -466,48 +441,46 @@ export default function Home() {
               </motion.p>
 
               {/* Boutons CTA */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2 sm:pt-4"
               >
-                <motion.button 
+                <motion.button
                   onClick={() => scrollToSection('about')}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -3, 
-                    boxShadow: "0 10px 25px rgba(0, 119, 255, 0.3)" 
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                    boxShadow: "0 10px 25px rgba(0, 119, 255, 0.3)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-xl sm:rounded-2xl border-2 border-[#0077FF] transition-all duration-300 text-sm sm:text-base ${
-                    isDarkMode 
-                      ? 'bg-white text-black hover:bg-blue-50' 
-                      : 'bg-white text-gray-900 hover:bg-gray-50'
-                  }`}
+                  className={`px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-xl sm:rounded-2xl border-2 border-[#0077FF] transition-all duration-300 text-sm sm:text-base ${isDarkMode
+                    ? 'bg-white text-black hover:bg-blue-50'
+                    : 'bg-white text-gray-900 hover:bg-gray-50'
+                    }`}
                 >
                   À propos de moi
                 </motion.button>
-                                <motion.a
+                <motion.a
                   href="/CV-Leslie-Ouinsou.pdf"
                   download="CV-Leslie-Ouinsou.pdf"
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -3, 
-                    boxShadow: "0 10px 25px rgba(0, 119, 255, 0.3)" 
+                  whileHover={{
+                    scale: 1.05,
+                    y: -3,
+                    boxShadow: "0 10px 25px rgba(0, 119, 255, 0.3)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className={`px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-xl sm:rounded-2xl border-2 border-[#0077FF] transition-all duration-300 flex items-center gap-2 justify-center text-sm sm:text-base ${
-                    isDarkMode 
-                      ? 'bg-white text-black hover:bg-blue-50' 
-                      : 'bg-white text-gray-900 hover:bg-gray-50'
-                }`}>
+                  className={`px-6 sm:px-8 py-3 sm:py-4 font-semibold rounded-xl sm:rounded-2xl border-2 border-[#0077FF] transition-all duration-300 flex items-center gap-2 justify-center text-sm sm:text-base ${isDarkMode
+                    ? 'bg-white text-black hover:bg-blue-50'
+                    : 'bg-white text-gray-900 hover:bg-gray-50'
+                    }`}>
                   Télécharger mon CV
                   <motion.div
                     whileHover={{ rotate: 360 }}
@@ -519,7 +492,7 @@ export default function Home() {
               </motion.div>
 
               {/* Icônes sociales */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.8 }}
@@ -531,45 +504,39 @@ export default function Home() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${
-                    isDarkMode 
-                      ? 'bg-white/10 hover:bg-white/20 border-white/20' 
-                      : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
-                  }`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${isDarkMode
+                    ? 'bg-white/10 hover:bg-white/20 border-white/20'
+                    : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+                    }`}
                 >
-                  <FaGithub className={`w-5 h-5 sm:w-6 sm:h-6 ${
-                    isDarkMode ? 'text-white' : 'text-gray-700'
-                  }`} />
+                  <FaGithub className={`w-5 h-5 sm:w-6 sm:h-6 ${isDarkMode ? 'text-white' : 'text-gray-700'
+                    }`} />
                 </motion.a>
                 <motion.a
                   href="https://www.linkedin.com/in/leslie-ouinsou-b464822b8"
-            target="_blank"
-            rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${
-                    isDarkMode 
-                      ? 'bg-white/10 hover:bg-white/20 border-white/20' 
-                      : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
-                  }`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${isDarkMode
+                    ? 'bg-white/10 hover:bg-white/20 border-white/20'
+                    : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+                    }`}
                 >
-                  <FaLinkedin className={`w-5 h-5 sm:w-6 sm:h-6 ${
-                    isDarkMode ? 'text-white' : 'text-gray-700'
-                  }`} />
+                  <FaLinkedin className={`w-5 h-5 sm:w-6 sm:h-6 ${isDarkMode ? 'text-white' : 'text-gray-700'
+                    }`} />
                 </motion.a>
                 <motion.a
                   href="mailto:ouinsoul5@gmail.com"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${
-                    isDarkMode 
-                      ? 'bg-white/10 hover:bg-white/20 border-white/20' 
-                      : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
-                  }`}
+                  className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center hover:bg-opacity-20 transition-colors duration-300 border ${isDarkMode
+                    ? 'bg-white/10 hover:bg-white/20 border-white/20'
+                    : 'bg-gray-100 hover:bg-gray-200 border-gray-300'
+                    }`}
                 >
-                  <FaEnvelope className={`w-5 h-5 sm:w-6 sm:h-6 ${
-                    isDarkMode ? 'text-white' : 'text-gray-700'
-                  }`} />
+                  <FaEnvelope className={`w-5 h-5 sm:w-6 sm:h-6 ${isDarkMode ? 'text-white' : 'text-gray-700'
+                    }`} />
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -598,11 +565,10 @@ export default function Home() {
       </section>
 
       {/* Section À propos */}
-      <section id="about" className={`py-16 sm:py-20 relative transition-colors duration-300 overflow-hidden ${
-        isDarkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 via-white to-gray-50'
-      }`}>
+      <section id="about" className={`py-16 sm:py-20 relative transition-colors duration-300 overflow-hidden ${isDarkMode ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' : 'bg-gradient-to-br from-gray-50 via-white to-gray-50'
+        }`}>
         {/* Background pattern avec petits points gris */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: isDarkMode ? 0.15 : 0.08 }}
           transition={{ duration: 1 }}
@@ -610,9 +576,8 @@ export default function Home() {
           className="absolute inset-0"
         >
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, ${
-              isDarkMode ? '#374151' : '#9CA3AF'
-            } 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, ${isDarkMode ? '#374151' : '#9CA3AF'
+              } 1px, transparent 0)`,
             backgroundSize: '20px 20px'
           }} />
         </motion.div>
@@ -632,7 +597,7 @@ export default function Home() {
           viewport={{ once: true }}
           className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-green-400 to-blue-500 rounded-full blur-3xl"
         />
-        
+
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -641,18 +606,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}
             >
               À propos de moi
             </motion.h2>
-            <motion.div 
+            <motion.div
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: "6%", opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -683,14 +647,13 @@ export default function Home() {
                 <span className="text-sm font-medium text-[#0077FF]">Développeur Full Stack</span>
               </motion.div>
 
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className={`text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}
+                className={`text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}
               >
                 Passionné par l&apos;
                 <span className="bg-gradient-to-r from-[#0077FF] to-[#00D4FF] bg-clip-text text-transparent">
@@ -699,7 +662,7 @@ export default function Home() {
                 <br />
                 et la créativité
               </motion.h3>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -707,38 +670,35 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="space-y-4"
               >
-                <p className={`text-lg leading-relaxed ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  Avec <span className="font-semibold text-[#0077FF]">3 ans d&apos;expérience</span> dans le développement web, 
+                <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
+                  Avec <span className="font-semibold text-[#0077FF]">3 ans d&apos;expérience</span> dans le développement web,
                   je combine expertise technique et vision créative pour créer des solutions digitales exceptionnelles.
                 </p>
-                <p className={`text-lg leading-relaxed ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                Mon approche se base sur une compréhension approfondie des besoins utilisateurs et 
-                une maîtrise des technologies les plus récentes pour livrer des projets d&apos;excellence.
+                <p className={`text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
+                  Mon approche se base sur une compréhension approfondie des besoins utilisateurs et
+                  une maîtrise des technologies les plus récentes pour livrer des projets d&apos;excellence.
                 </p>
               </motion.div>
-              
+
               {/* Statistiques améliorées */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 30, scale: 0.8 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.5, type: "spring" }}
                 viewport={{ once: true }}
                 className="grid grid-cols-2 gap-4 sm:gap-6 pt-4"
               >
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className={`text-center p-6 rounded-2xl border transition-all duration-300 ${
-                    isDarkMode 
-                      ? 'bg-white/5 border-white/10 hover:bg-white/10' 
-                      : 'bg-white border-gray-200 hover:shadow-lg'
-                  }`}
+                  className={`text-center p-6 rounded-2xl border transition-all duration-300 ${isDarkMode
+                    ? 'bg-white/5 border-white/10 hover:bg-white/10'
+                    : 'bg-white border-gray-200 hover:shadow-lg'
+                    }`}
                 >
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.6, type: "spring" }}
@@ -750,20 +710,18 @@ export default function Home() {
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">7+</span>
                   </motion.div>
-                  <div className={`text-sm font-medium ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>Projets réalisés</div>
+                  <div className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                    }`}>Projets réalisés</div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className={`text-center p-6 rounded-2xl border transition-all duration-300 ${
-                    isDarkMode 
-                      ? 'bg-white/5 border-white/10 hover:bg-white/10' 
-                      : 'bg-white border-gray-200 hover:shadow-lg'
-                  }`}
+                  className={`text-center p-6 rounded-2xl border transition-all duration-300 ${isDarkMode
+                    ? 'bg-white/5 border-white/10 hover:bg-white/10'
+                    : 'bg-white border-gray-200 hover:shadow-lg'
+                    }`}
                 >
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
@@ -775,9 +733,8 @@ export default function Home() {
                     </div>
                     <span className="text-3xl font-bold text-[#0077FF]">3+</span>
                   </motion.div>
-                  <div className={`text-sm font-medium ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>Années d&apos;expérience</div>
+                  <div className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                    }`}>Années d&apos;expérience</div>
                 </motion.div>
               </motion.div>
             </motion.div>
@@ -791,64 +748,62 @@ export default function Home() {
               className="relative"
             >
               {/* Carte des valeurs modernisée */}
-              <motion.div 
+              <motion.div
                 whileHover={{ scale: 1.02, rotateY: 5 }}
                 transition={{ duration: 0.3 }}
-                className={`p-8 rounded-3xl border backdrop-blur-sm ${
-                  isDarkMode 
-                    ? 'bg-gradient-to-br from-white/10 to-white/5 border-white/20' 
-                    : 'bg-gradient-to-br from-white/80 to-white/60 border-gray-200/50'
-                }`}
+                className={`p-8 rounded-3xl border backdrop-blur-sm ${isDarkMode
+                  ? 'bg-gradient-to-br from-white/10 to-white/5 border-white/20'
+                  : 'bg-gradient-to-br from-white/80 to-white/60 border-gray-200/50'
+                  }`}
               >
                 <motion.h4
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                   viewport={{ once: true }}
-                  className={`text-xl font-bold mb-6 text-center ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}
+                  className={`text-xl font-bold mb-6 text-center ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}
                 >
                   Mes Valeurs
                 </motion.h4>
-                
+
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { 
+                    {
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
                           <MdRocketLaunch className="w-5 h-5 text-white" />
                         </div>
-                      ), 
-                      title: "Performance", 
-                      desc: "Applications rapides et optimisées" 
+                      ),
+                      title: "Performance",
+                      desc: "Applications rapides et optimisées"
                     },
-                    { 
+                    {
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
                           <MdBrush className="w-5 h-5 text-white" />
                         </div>
-                      ), 
-                      title: "Design", 
-                      desc: "Interfaces modernes et intuitives" 
+                      ),
+                      title: "Design",
+                      desc: "Interfaces modernes et intuitives"
                     },
-                    { 
+                    {
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
                           <MdCode className="w-5 h-5 text-white" />
                         </div>
-                      ), 
-                      title: "Code", 
-                      desc: "Architecture propre et maintenable" 
+                      ),
+                      title: "Code",
+                      desc: "Architecture propre et maintenable"
                     },
-                    { 
+                    {
                       icon: (
                         <div className="w-10 h-10 bg-gradient-to-br from-red-400 to-pink-500 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
                           <MdVerified className="w-5 h-5 text-white" />
                         </div>
-                      ), 
-                      title: "Qualité", 
-                      desc: "Tests et déploiement sécurisé" 
+                      ),
+                      title: "Qualité",
+                      desc: "Tests et déploiement sécurisé"
                     }
                   ].map((item, index) => (
                     <motion.div
@@ -861,12 +816,10 @@ export default function Home() {
                       className="text-center"
                     >
                       {item.icon}
-                      <h4 className={`text-base font-semibold mb-2 ${
-                        isDarkMode ? 'text-white' : 'text-gray-900'
-                      }`}>{item.title}</h4>
-                      <p className={`text-sm leading-relaxed ${
-                        isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                      }`}>{item.desc}</p>
+                      <h4 className={`text-base font-semibold mb-2 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                        }`}>{item.title}</h4>
+                      <p className={`text-sm leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                        }`}>{item.desc}</p>
                     </motion.div>
                   ))}
                 </div>
@@ -878,11 +831,10 @@ export default function Home() {
       </section>
 
       {/* Section Compétences */}
-      <section id="skills" className={`py-16 sm:py-20 relative transition-colors duration-300 ${
-        isDarkMode ? 'bg-black' : 'bg-gray-100'
-      }`}>
+      <section id="skills" className={`py-16 sm:py-20 relative transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-gray-100'
+        }`}>
         {/* Background pattern avec petits points gris */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: isDarkMode ? 0.2 : 0.1 }}
           transition={{ duration: 1 }}
@@ -890,13 +842,12 @@ export default function Home() {
           className="absolute inset-0"
         >
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, ${
-              isDarkMode ? '#374151' : '#9CA3AF'
-            } 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, ${isDarkMode ? '#374151' : '#9CA3AF'
+              } 1px, transparent 0)`,
             backgroundSize: '20px 20px'
           }} />
         </motion.div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -905,18 +856,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}
             >
               Mes compétences
             </motion.h2>
-            <motion.div 
+            <motion.div
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: "6%", opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -989,13 +939,12 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: index * 0.05, type: "spring", stiffness: 100 }}
                 viewport={{ once: true, margin: "-50px" }}
                 whileHover={{ scale: 1.02, y: -3 }}
-                className={`p-5 rounded-xl transition-all duration-300 ${
-                  isDarkMode 
-                    ? 'bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50' 
-                    : 'bg-white border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
-                }`}
+                className={`p-5 rounded-xl transition-all duration-300 ${isDarkMode
+                  ? 'bg-gray-800/50 border border-gray-700/50 hover:border-gray-600/50'
+                  : 'bg-white border border-gray-200 hover:border-gray-300 shadow-lg hover:shadow-xl'
+                  }`}
               >
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1, type: "spring" }}
@@ -1003,13 +952,12 @@ export default function Home() {
                   className="flex items-center gap-3 mb-4"
                 >
                   {category.icon}
-                  <h3 className={`text-lg font-bold ${
-                      isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>
+                  <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>
                     {category.title}
                   </h3>
                 </motion.div>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.span
@@ -1018,11 +966,10 @@ export default function Home() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.2, delay: 0.2 + index * 0.05 + skillIndex * 0.02 }}
                       viewport={{ once: true, margin: "-20px" }}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors duration-200 ${
-                        isDarkMode 
-                          ? 'bg-gray-700/80 text-gray-300 hover:bg-gray-600' 
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
+                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors duration-200 ${isDarkMode
+                        ? 'bg-gray-700/80 text-gray-300 hover:bg-gray-600'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
                     >
                       {skill}
                     </motion.span>
@@ -1035,12 +982,11 @@ export default function Home() {
       </section>
 
       {/* Section Projets */}
-      <section id="projects" className={`py-16 sm:py-20 relative transition-colors duration-300 overflow-hidden ${
-        isDarkMode ? 'bg-black' : 'bg-gray-50'
-      }`}>
+      <section id="projects" className={`py-16 sm:py-20 relative transition-colors duration-300 overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-gray-50'
+        }`}>
         {/* FloatingLines background pour la section projets */}
         <div className="absolute inset-0 z-0 opacity-30" style={{ width: '100%', height: '100%' }}>
-          <FloatingLines 
+          <FloatingLines
             enabledWaves={['top', 'middle', 'bottom']}
             lineCount={[8, 12, 15]}
             lineDistance={[6, 5, 4]}
@@ -1053,7 +999,7 @@ export default function Home() {
             mixBlendMode="screen"
           />
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -1062,18 +1008,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${
-                isDarkMode ? 'text-white' : 'text-gray-900'
-              }`}
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'
+                }`}
             >
               Mes Projets
             </motion.h2>
-            <motion.div 
+            <motion.div
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: "6%", opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -1114,6 +1059,17 @@ export default function Home() {
             className="projects-swiper"
           >
             {[
+              {
+                title: "Player Finder",
+                description: "Application mobile React Native performante permettant de rechercher, filtrer et consulter les profils de joueurs. Inclut une gestion de favoris avec stockage local (AsyncStorage), des animations fluides et une interface utilisateur moderne optimisée pour mobile.",
+                video: "/player-finder-demo.mp4",
+                isMobile: true,
+                fallbackIcon: <Phone className="w-16 h-16 text-white/80" />,
+                fallbackGradient: "from-indigo-600 to-purple-700",
+                tech: ["React Native", "Expo", "React Navigation", "AsyncStorage", "Framer Motion"],
+                link: "https://player-finder-ten.vercel.app",
+                github: "https://github.com/leslieOuinsou/Player-Finder"
+              },
               {
                 title: "Sailingloc",
                 description: "Plateforme web de location de bateaux avec système de réservation en temps réel, gestion des disponibilités, recherche avancée par type de bateau et localisation. Interface intuitive pour les propriétaires et locataires avec système de paiement sécurisé.",
@@ -1196,130 +1152,7 @@ export default function Home() {
               }
             ].map((project, index) => (
               <SwiperSlide key={project.title}>
-                {project.link ? (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full cursor-pointer"
-                  >
-                    {/* Image du projet */}
-                    <div className="relative overflow-hidden h-48 bg-gray-100">
-                    {project.image && typeof project.image === 'string' ? (
-                      <>
-                        <Image
-                          src={project.image}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        {/* Fallback avec gradient et icône si l'image ne charge pas */}
-                        <div 
-                          className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center hidden`}
-                          id={`fallback-${index}`}
-                        >
-                          {project.fallbackIcon}
-                        </div>
-                      </>
-                    ) : (
-                      <div className={`w-full h-full bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center`}>
-                        {project.fallbackIcon || project.image}
-                      </div>
-                    )}
-                    {/* Icônes en overlay */}
-                    <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                      <div
-                        className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg"
-                      >
-                        <MdOpenInNew className="w-5 h-5 text-gray-700" />
-                      </div>
-                      <button
-                        type="button"
-                        onClick={(e) => e.stopPropagation()}
-                        className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
-                      >
-                        <MdFavorite className="w-5 h-5 text-red-500" />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Contenu de la carte */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  </a>
-                ) : (
-                  <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group h-full">
-                    {/* Image du projet */}
-                    <div className="relative overflow-hidden h-48 bg-gray-100">
-                      {project.image && typeof project.image === 'string' ? (
-                        <>
-                          <Image
-                            src={project.image}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          />
-                          <div 
-                            className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center hidden`}
-                            id={`fallback-${index}`}
-                          >
-                            {project.fallbackIcon}
-                          </div>
-                        </>
-                      ) : (
-                        <div className={`w-full h-full bg-gradient-to-br ${project.fallbackGradient || 'from-gray-400 to-gray-600'} flex items-center justify-center`}>
-                          {project.fallbackIcon || project.image}
-                        </div>
-                      )}
-                      <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                        <button
-                          type="button"
-                          className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors"
-                        >
-                          <MdFavorite className="w-5 h-5 text-red-500" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">
-                        {project.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                        {project.description}
-                      </p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
+                <ProjectCard project={project} index={index} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -1327,20 +1160,17 @@ export default function Home() {
       </section>
 
       {/* Section Contact */}
-      <section id="contact" className={`py-16 sm:py-20 relative transition-colors duration-300 ${
-        isDarkMode ? 'bg-black' : 'bg-gray-100'
-      }`}>
-        <div className={`absolute inset-0 transition-opacity duration-300 ${
-          isDarkMode ? 'opacity-20' : 'opacity-10'
+      <section id="contact" className={`py-16 sm:py-20 relative transition-colors duration-300 ${isDarkMode ? 'bg-black' : 'bg-gray-100'
         }`}>
+        <div className={`absolute inset-0 transition-opacity duration-300 ${isDarkMode ? 'opacity-20' : 'opacity-10'
+          }`}>
           <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, ${
-              isDarkMode ? '#374151' : '#9CA3AF'
-            } 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, ${isDarkMode ? '#374151' : '#9CA3AF'
+              } 1px, transparent 0)`,
             backgroundSize: '20px 20px'
           }} />
         </div>
-        
+
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -1349,9 +1179,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12 sm:mb-16"
           >
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${
-              isDarkMode ? 'text-white' : 'text-gray-900'
-            }`}>
+            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'
+              }`}>
               Contactez-moi
             </h2>
             <div className="w-16 sm:w-20 lg:w-24 h-1 bg-[#0077FF] mx-auto rounded-full"></div>
@@ -1366,57 +1195,49 @@ export default function Home() {
               className="space-y-6 sm:space-y-8 order-2 lg:order-1"
             >
               <div className="space-y-4 sm:space-y-6">
-                <h3 className={`text-2xl sm:text-3xl font-bold ${
-                  isDarkMode ? 'text-white' : 'text-gray-900'
-                }`}>
+                <h3 className={`text-2xl sm:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
                   Prête à collaborer ?
                 </h3>
-                <p className={`text-base sm:text-lg leading-relaxed ${
-                  isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
-                  Si vous avez un projet en tête ou souhaitez simplement échanger, 
+                <p className={`text-base sm:text-lg leading-relaxed ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
+                  }`}>
+                  Si vous avez un projet en tête ou souhaitez simplement échanger,
                   n&apos;hésitez pas à me contacter. Je suis toujours ouverte aux nouvelles opportunités !
                 </p>
               </div>
 
               <div className="space-y-3 sm:space-y-4">
-                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${
-                  isDarkMode 
-                    ? 'bg-white/5 border-white/10' 
-                    : 'bg-white border-gray-200'
-                }`}>
+                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${isDarkMode
+                  ? 'bg-white/5 border-white/10'
+                  : 'bg-white border-gray-200'
+                  }`}>
                   <FaEnvelope className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
-                  <span className={`text-sm sm:text-base ${
-                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                  }`}>ouinsoul5@gmail.com</span>
+                  <span className={`text-sm sm:text-base ${isDarkMode ? 'text-gray-200' : 'text-gray-700'
+                    }`}>ouinsoul5@gmail.com</span>
                 </div>
-                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${
-                  isDarkMode 
-                    ? 'bg-white/5 border-white/10' 
-                    : 'bg-white border-gray-200'
-                }`}>
+                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${isDarkMode
+                  ? 'bg-white/5 border-white/10'
+                  : 'bg-white border-gray-200'
+                  }`}>
                   <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
-                  <span className={`text-sm sm:text-base ${
-                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                  }`}>+33 7 66 23 45 75</span>
+                  <span className={`text-sm sm:text-base ${isDarkMode ? 'text-gray-200' : 'text-gray-700'
+                    }`}>+33 7 66 23 45 75</span>
                 </div>
-                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${
-                  isDarkMode 
-                    ? 'bg-white/5 border-white/10' 
-                    : 'bg-white border-gray-200'
-                }`}>
+                <div className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-colors duration-300 ${isDarkMode
+                  ? 'bg-white/5 border-white/10'
+                  : 'bg-white border-gray-200'
+                  }`}>
                   <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-[#0077FF]" />
-                  <span className={`text-sm sm:text-base ${
-                    isDarkMode ? 'text-gray-200' : 'text-gray-700'
-                  }`}>Paris, France</span>
+                  <span className={`text-sm sm:text-base ${isDarkMode ? 'text-gray-200' : 'text-gray-700'
+                    }`}>Paris, France</span>
                 </div>
               </div>
 
               <div className="flex gap-3 sm:gap-4 pt-4 sm:pt-6">
                 <motion.a
                   href="https://www.linkedin.com/in/leslie-ouinsou-b464822b8"
-          target="_blank"
-          rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 sm:p-4 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-xl sm:rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105"
@@ -1425,8 +1246,8 @@ export default function Home() {
                 </motion.a>
                 <motion.a
                   href="https://github.com/leslieOuinsou"
-          target="_blank"
-          rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 sm:p-4 bg-gradient-to-br from-gray-700 to-gray-900 text-white rounded-xl sm:rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105"
@@ -1449,17 +1270,15 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl border backdrop-blur-sm order-1 lg:order-2 transition-colors duration-300 ${
-                isDarkMode 
-                  ? 'bg-white/5 border-white/10' 
-                  : 'bg-white border-gray-200 shadow-lg'
-              }`}
+              className={`p-6 sm:p-8 rounded-2xl sm:rounded-3xl border backdrop-blur-sm order-1 lg:order-2 transition-colors duration-300 ${isDarkMode
+                ? 'bg-white/5 border-white/10'
+                : 'bg-white border-gray-200 shadow-lg'
+                }`}
             >
               <form className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className={`block text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <label htmlFor="name" className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                     Nom complet
                   </label>
                   <input
@@ -1467,20 +1286,18 @@ export default function Home() {
                     id="name"
                     name="name"
                     autoComplete="name"
-                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all text-sm sm:text-base ${
-                      isDarkMode 
-                        ? 'bg-white/5 border-white/20 text-white' 
-                        : 'bg-gray-50 border-gray-300 text-gray-900'
-                    }`}
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all text-sm sm:text-base ${isDarkMode
+                      ? 'bg-white/5 border-white/20 text-white'
+                      : 'bg-gray-50 border-gray-300 text-gray-900'
+                      }`}
                     placeholder="Votre nom"
                     suppressHydrationWarning
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="email" className={`block text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <label htmlFor="email" className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                     Email
                   </label>
                   <input
@@ -1488,36 +1305,33 @@ export default function Home() {
                     id="email"
                     name="email"
                     autoComplete="email"
-                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all text-sm sm:text-base ${
-                      isDarkMode 
-                        ? 'bg-white/5 border-white/20 text-white' 
-                        : 'bg-gray-50 border-gray-300 text-gray-900'
-                    }`}
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all text-sm sm:text-base ${isDarkMode
+                      ? 'bg-white/5 border-white/20 text-white'
+                      : 'bg-gray-50 border-gray-300 text-gray-900'
+                      }`}
                     placeholder="votre@email.com"
                     suppressHydrationWarning
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="message" className={`block text-sm font-medium mb-2 ${
-                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                  }`}>
+                  <label htmlFor="message" className={`block text-sm font-medium mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                    }`}>
                     Message
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all resize-none text-sm sm:text-base ${
-                      isDarkMode 
-                        ? 'bg-white/5 border-white/20 text-white' 
-                        : 'bg-gray-50 border-gray-300 text-gray-900'
-                    }`}
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl placeholder-gray-400 focus:ring-2 focus:ring-[#0077FF] focus:border-transparent transition-all resize-none text-sm sm:text-base ${isDarkMode
+                      ? 'bg-white/5 border-white/20 text-white'
+                      : 'bg-gray-50 border-gray-300 text-gray-900'
+                      }`}
                     placeholder="Décrivez votre projet..."
                     suppressHydrationWarning
                   ></textarea>
                 </div>
-                
+
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -1557,36 +1371,31 @@ export default function Home() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className={`w-96 sm:w-[28rem] h-96 sm:h-[28rem] rounded-2xl shadow-2xl border transition-colors duration-300 ${
-              isDarkMode 
-                ? 'bg-gray-900 border-gray-700' 
-                : 'bg-white border-gray-200'
-            }`}
+            className={`w-96 sm:w-[28rem] h-96 sm:h-[28rem] rounded-2xl shadow-2xl border transition-colors duration-300 ${isDarkMode
+              ? 'bg-gray-900 border-gray-700'
+              : 'bg-white border-gray-200'
+              }`}
           >
             {/* Header du chat */}
-            <div className={`flex items-center justify-between p-4 border-b transition-colors duration-300 ${
-              isDarkMode ? 'border-gray-700' : 'border-gray-200'
-            }`}>
+            <div className={`flex items-center justify-between p-4 border-b transition-colors duration-300 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                   <span className="text-white text-sm font-bold">L</span>
                 </div>
                 <div>
-                  <h3 className={`font-semibold text-sm ${
-                    isDarkMode ? 'text-white' : 'text-gray-900'
-                  }`}>Assistant Leslie</h3>
-                  <p className={`text-xs ${
-                    isDarkMode ? 'text-gray-400' : 'text-gray-500'
-                  }`}>En ligne</p>
+                  <h3 className={`font-semibold text-sm ${isDarkMode ? 'text-white' : 'text-gray-900'
+                    }`}>Assistant Leslie</h3>
+                  <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`}>En ligne</p>
                 </div>
               </div>
               <button
                 onClick={toggleChat}
-                className={`p-2 rounded-full transition-colors duration-300 ${
-                  isDarkMode 
-                    ? 'hover:bg-gray-800 text-gray-400 hover:text-white' 
-                    : 'hover:bg-gray-100 text-gray-500 hover:text-gray-700'
-                }`}
+                className={`p-2 rounded-full transition-colors duration-300 ${isDarkMode
+                  ? 'hover:bg-gray-800 text-gray-400 hover:text-white'
+                  : 'hover:bg-gray-100 text-gray-500 hover:text-gray-700'
+                  }`}
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -1602,21 +1411,19 @@ export default function Home() {
                   className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-xs sm:max-w-sm px-4 py-2 rounded-2xl ${
-                      msg.type === 'user'
-                        ? 'bg-[#0077FF] text-white'
-                        : isDarkMode
+                    className={`max-w-xs sm:max-w-sm px-4 py-2 rounded-2xl ${msg.type === 'user'
+                      ? 'bg-[#0077FF] text-white'
+                      : isDarkMode
                         ? 'bg-gray-800 text-gray-100'
                         : 'bg-gray-100 text-gray-900'
-                    }`}
+                      }`}
                   >
                     <p className="text-sm">{msg.message}</p>
-                    <p className={`text-xs mt-1 ${
-                      msg.type === 'user' ? 'text-blue-100' : isDarkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`} suppressHydrationWarning>
-                      {typeof window !== 'undefined' ? msg.timestamp.toLocaleTimeString('fr-FR', { 
-                        hour: '2-digit', 
-                        minute: '2-digit' 
+                    <p className={`text-xs mt-1 ${msg.type === 'user' ? 'text-blue-100' : isDarkMode ? 'text-gray-500' : 'text-gray-500'
+                      }`} suppressHydrationWarning>
+                      {typeof window !== 'undefined' ? msg.timestamp.toLocaleTimeString('fr-FR', {
+                        hour: '2-digit',
+                        minute: '2-digit'
                       }) : '--:--'}
                     </p>
                   </div>
@@ -1625,9 +1432,8 @@ export default function Home() {
             </div>
 
             {/* Zone de saisie */}
-            <div className={`p-4 border-t transition-colors duration-300 ${
-              isDarkMode ? 'border-gray-700' : 'border-gray-200'
-            }`}>
+            <div className={`p-4 border-t transition-colors duration-300 ${isDarkMode ? 'border-gray-700' : 'border-gray-200'
+              }`}>
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -1635,24 +1441,22 @@ export default function Home() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Tapez votre message..."
-                  className={`flex-1 px-3 py-2 rounded-xl text-sm transition-colors duration-300 ${
-                    isDarkMode
-                      ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400'
-                      : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
-                  } border focus:outline-none focus:ring-2 focus:ring-[#0077FF] focus:border-transparent`}
+                  className={`flex-1 px-3 py-2 rounded-xl text-sm transition-colors duration-300 ${isDarkMode
+                    ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400'
+                    : 'bg-gray-50 border-gray-300 text-gray-900 placeholder-gray-500'
+                    } border focus:outline-none focus:ring-2 focus:ring-[#0077FF] focus:border-transparent`}
                 />
                 <button
                   onClick={sendMessage}
                   disabled={!inputMessage.trim()}
-                  className={`p-2 rounded-xl transition-all duration-300 ${
-                    inputMessage.trim()
-                      ? 'bg-[#0077FF] text-white hover:bg-[#0056CC]'
-                      : isDarkMode
+                  className={`p-2 rounded-xl transition-all duration-300 ${inputMessage.trim()
+                    ? 'bg-[#0077FF] text-white hover:bg-[#0056CC]'
+                    : isDarkMode
                       ? 'bg-gray-700 text-gray-500 cursor-not-allowed'
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  }`}
+                    }`}
                 >
-                <MdEmail className="w-5 h-5" />
+                  <MdEmail className="w-5 h-5" />
                 </button>
               </div>
             </div>
