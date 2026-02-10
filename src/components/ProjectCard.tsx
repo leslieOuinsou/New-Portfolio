@@ -99,15 +99,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 {project.isMobile && (
                     <div className="mt-4 pt-4 border-t border-gray-100 dark:border-gray-800 flex gap-3">
                         {project.video && (
-                            <button className="flex-1 text-xs font-bold py-2 px-4 rounded-lg bg-[#0077FF] text-white hover:bg-blue-600 transition-colors">
+                            <a
+                                href={project.video}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex-1 text-center text-xs font-bold py-2 px-4 rounded-lg bg-[#0077FF] text-white hover:bg-blue-600 transition-colors"
+                            >
                                 Voir la démo mobile
-                            </button>
+                            </a>
                         )}
                         {project.link && (
                             <a
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
                                 className="flex-1 text-center text-xs font-bold py-2 px-4 rounded-lg border border-[#0077FF] text-[#0077FF] hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
                             >
                                 Voir le site (Vercel)
@@ -118,19 +125,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
         </div>
     );
-
-    if (project.link) {
-        return (
-            <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block h-full cursor-pointer"
-            >
-                {content}
-            </a>
-        );
-    }
 
     return <div className="h-full">{content}</div>;
 };
