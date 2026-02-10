@@ -11,17 +11,17 @@ interface MobileMockupProps {
   alt?: string;
 }
 
-const MobileMockup: React.FC<MobileMockupProps> = ({ 
-  type = 'iphone', 
-  src, 
-  videoSrc, 
-  alt = "Application mobile" 
+const MobileMockup: React.FC<MobileMockupProps> = ({
+  type = 'iphone',
+  src,
+  videoSrc,
+  alt = "Application mobile"
 }) => {
   return (
-    <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-xl overflow-hidden">
+    <div className="relative mx-auto border-[#1A1A1A] dark:border-[#0D0D0D] bg-[#0D0D0D] border-[12px] rounded-[2.5rem] h-[580px] w-[280px] shadow-2xl overflow-hidden ring-1 ring-white/10">
       {/* Top speaker / Notch */}
       <div className="w-[148px] h-[18px] bg-gray-800 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute z-20"></div>
-      
+
       {/* Side buttons */}
       <div className="h-[46px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg w-[3px]"></div>
       <div className="h-[46px] bg-gray-800 absolute -left-[17px] top-[178px] rounded-l-lg w-[3px]"></div>
@@ -30,20 +30,20 @@ const MobileMockup: React.FC<MobileMockupProps> = ({
       {/* Screen content */}
       <div className="rounded-[2rem] overflow-hidden w-full h-full bg-white dark:bg-gray-900 relative">
         {videoSrc ? (
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover"
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
         ) : src ? (
-          <Image 
-            src={src} 
-            alt={alt} 
-            fill 
+          <Image
+            src={src}
+            alt={alt}
+            fill
             className="object-cover"
           />
         ) : (
