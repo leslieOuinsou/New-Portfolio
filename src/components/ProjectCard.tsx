@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <div className={`relative overflow-hidden ${project.isMobile ? 'h-[400px] flex items-center justify-center bg-gray-50 dark:bg-gray-800' : 'h-48 bg-gray-100 dark:bg-gray-800'}`}>
                 {project.isMobile ? (
                     <div className="scale-[0.6] origin-center">
-                        <MobileMockup src={project.image} videoSrc={project.video} alt={project.title} />
+                        <MobileMockup src={project.image} alt={project.title} />
                     </div>
                 ) : project.image ? (
                     <Image
