@@ -1062,6 +1062,7 @@ export default function Home() {
               {
                 title: "Player Finder",
                 description: "Application mobile React Native performante permettant de rechercher, filtrer et consulter les profils de joueurs. Inclut une gestion de favoris avec stockage local (AsyncStorage), des animations fluides et une interface utilisateur moderne optimisée pour mobile.",
+                image: "/player-finder.svg",
                 video: "/player-finder-demo.mp4",
                 isMobile: true,
                 fallbackIcon: <Phone className="w-16 h-16 text-white/80" />,
