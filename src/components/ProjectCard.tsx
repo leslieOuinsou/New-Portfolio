@@ -139,6 +139,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         </div>
     );
 
+    if (project.link && !project.isMobile) {
+        return (
+            <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block h-full px-2 py-4 cursor-pointer"
+            >
+                {content}
+            </a>
+        );
+    }
+
     return <div className="h-full px-2 py-4">{content}</div>;
 };
 
