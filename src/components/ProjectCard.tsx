@@ -30,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#0077FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             {/* Media Section */}
-            <div className={`relative overflow-hidden transition-all duration-500 ${project.isMobile ? 'h-[245px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30' : 'h-28 bg-gray-100 dark:bg-gray-800/50'}`}>
+            <div className="relative overflow-hidden transition-all duration-500 h-[245px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30">
                 {project.isMobile ? (
                     <div className="scale-[0.42] origin-center transform transition-transform duration-700 group-hover:scale-[0.44]">
                         <MobileMockup src={project.image} alt={project.title} />
@@ -49,12 +49,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     </div>
                 )}
 
-                {/* Status Badge (Mobile specific) */}
-                {project.isMobile && (
-                    <div className="absolute top-2 left-2 px-1.5 py-0.5 rounded-full bg-blue-500/10 backdrop-blur-md border border-blue-500/20 text-blue-500 text-[9px] font-bold uppercase tracking-wider">
-                        Mobile App
-                    </div>
-                )}
+                {/* Status Badge */}
+                <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-full backdrop-blur-md border text-[9px] font-bold uppercase tracking-wider ${project.isMobile
+                        ? 'bg-blue-500/10 border-blue-500/20 text-blue-500'
+                        : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-500'
+                    }`}>
+                    {project.isMobile ? 'Mobile App' : 'Web App'}
+                </div>
 
                 {/* Action Overlay */}
                 <div className="absolute top-2 right-2 flex gap-1.5 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 z-10">
@@ -97,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-1 mt-1.5">
+                <div className="flex flex-wrap gap-1 mt-auto">
                     {project.tech.map((tech) => (
                         <span
                             key={tech}
@@ -108,18 +109,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     ))}
                 </div>
 
-                {/* Mobile Demo Button for Mobile Projects */}
-                {project.isMobile && (
-                    <div className="mt-2 pt-2 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-1.5">
+                {/* Action Buttons for all projects */}
+                {(project.video || project.link) && (
+                    <div className="mt-2.5 pt-2.5 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-1.5">
                         {project.video && (
                             <a
                                 href={project.video}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[9px] font-bold py-1 rounded-md bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[9px] font-bold py-1.5 rounded-md bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
                             >
-                                Demo Vidéo
+                                Demo {project.isMobile ? 'Vidéo' : 'Live'}
                             </a>
                         )}
                         {project.link && (
@@ -128,9 +129,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[9px] font-bold py-1 rounded-md border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[9px] font-bold py-1.5 rounded-md border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
                             >
-                                Live Vercel
+                                {project.isMobile ? 'Live Vercel' : 'Visiter le site'}
                             </a>
                         )}
                     </div>
@@ -138,19 +139,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
         </div>
     );
-
-    if (project.link && !project.isMobile) {
-        return (
-            <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block h-full px-2 py-0.5 cursor-pointer"
-            >
-                {content}
-            </a>
-        );
-    }
 
     return <div className="h-full px-2 py-0.5">{content}</div>;
 };
