@@ -30,9 +30,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#0077FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             {/* Media Section */}
-            <div className={`relative overflow-hidden transition-all duration-500 ${project.isMobile ? 'h-[220px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30' : 'h-24 bg-gray-100 dark:bg-gray-800/50'}`}>
+            <div className={`relative overflow-hidden transition-all duration-500 ${project.isMobile ? 'h-[245px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30' : 'h-28 bg-gray-100 dark:bg-gray-800/50'}`}>
                 {project.isMobile ? (
-                    <div className="scale-[0.38] origin-center transform transition-transform duration-700 group-hover:scale-[0.40]">
+                    <div className="scale-[0.42] origin-center transform transition-transform duration-700 group-hover:scale-[0.44]">
                         <MobileMockup src={project.image} alt={project.title} />
                     </div>
                 ) : project.image ? (
@@ -86,22 +86,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             {/* Content Section */}
             <div className="p-3 flex flex-col flex-grow relative z-10">
                 <div className="mb-1">
-                    <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2 group-hover:text-[#0077FF] transition-colors truncate">
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-1.5 group-hover:text-[#0077FF] transition-colors truncate">
                         {project.title}
                         {project.link && <MdOpenInNew className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />}
                     </h3>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 text-[11px] leading-tight mb-3 line-clamp-2">
+                <p className="text-gray-600 dark:text-gray-400 text-[10px] leading-tight mb-2 line-clamp-2">
                     {project.description}
                 </p>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-1 mt-auto">
+                <div className="flex flex-wrap gap-1 mt-1.5">
                     {project.tech.map((tech) => (
                         <span
                             key={tech}
-                            className="px-1.5 py-0 bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200/50 dark:border-gray-700/50 text-gray-500 dark:text-gray-500 text-[9px] font-semibold rounded transition-colors hover:border-blue-500/30 hover:text-blue-500"
+                            className="px-1.5 py-0 bg-gray-100/50 dark:bg-gray-800/50 border border-gray-200/50 dark:border-gray-700/50 text-gray-500 dark:text-gray-500 text-[8px] font-semibold rounded transition-colors hover:border-blue-500/30 hover:text-blue-500"
                         >
                             {tech}
                         </span>
@@ -110,14 +110,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
                 {/* Mobile Demo Button for Mobile Projects */}
                 {project.isMobile && (
-                    <div className="mt-2.5 pt-2.5 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-1.5">
+                    <div className="mt-2 pt-2 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-1.5">
                         {project.video && (
                             <a
                                 href={project.video}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[9px] font-bold py-1.5 rounded-md bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[9px] font-bold py-1 rounded-md bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
                             >
                                 Demo Vidéo
                             </a>
@@ -128,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[9px] font-bold py-1.5 rounded-md border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[9px] font-bold py-1 rounded-md border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
                             >
                                 Live Vercel
                             </a>
@@ -145,14 +145,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full px-2 py-1 cursor-pointer"
+                className="block h-full px-2 py-0.5 cursor-pointer"
             >
                 {content}
             </a>
         );
     }
 
-    return <div className="h-full px-2 py-1">{content}</div>;
+    return <div className="h-full px-2 py-0.5">{content}</div>;
 };
 
 export default ProjectCard;
