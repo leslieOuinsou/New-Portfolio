@@ -30,9 +30,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-[#0077FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             {/* Media Section */}
-            <div className={`relative overflow-hidden transition-all duration-500 ${project.isMobile ? 'h-[320px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30' : 'h-40 bg-gray-100 dark:bg-gray-800/50'}`}>
+            <div className={`relative overflow-hidden transition-all duration-500 ${project.isMobile ? 'h-[280px] flex items-center justify-center bg-gray-50/50 dark:bg-gray-800/30' : 'h-32 bg-gray-100 dark:bg-gray-800/50'}`}>
                 {project.isMobile ? (
-                    <div className="scale-[0.5] origin-center transform transition-transform duration-700 group-hover:scale-[0.52]">
+                    <div className="scale-[0.45] origin-center transform transition-transform duration-700 group-hover:scale-[0.47]">
                         <MobileMockup src={project.image} alt={project.title} />
                     </div>
                 ) : project.image ? (
@@ -84,7 +84,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
 
             {/* Content Section */}
-            <div className="p-5 flex flex-col flex-grow relative z-10">
+            <div className="p-4 flex flex-col flex-grow relative z-10">
                 <div className="mb-2">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2 group-hover:text-[#0077FF] transition-colors">
                         {project.title}
@@ -92,7 +92,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     </h3>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed mb-4 line-clamp-3">
+                <p className="text-gray-600 dark:text-gray-400 text-xs leading-relaxed mb-4 line-clamp-2">
                     {project.description}
                 </p>
 
@@ -110,14 +110,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
                 {/* Mobile Demo Button for Mobile Projects */}
                 {project.isMobile && (
-                    <div className="mt-4 pt-4 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-2">
+                    <div className="mt-3 pt-3 border-t border-gray-100/50 dark:border-gray-800/50 flex gap-2">
                         {project.video && (
                             <a
                                 href={project.video}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[10px] font-bold py-2 rounded-lg bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[10px] font-bold py-1.5 rounded-lg bg-[#0077FF] text-white hover:bg-blue-600 shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-0.5"
                             >
                                 Demo Vidéo
                             </a>
@@ -128,7 +128,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="flex-1 text-center text-[10px] font-bold py-2 rounded-lg border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
+                                className="flex-1 text-center text-[10px] font-bold py-1.5 rounded-lg border border-blue-500/30 text-[#0077FF] hover:bg-blue-500/10 transition-all hover:-translate-y-0.5"
                             >
                                 Live Vercel
                             </a>
@@ -145,14 +145,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full px-2 py-4 cursor-pointer"
+                className="block h-full px-2 py-2 cursor-pointer"
             >
                 {content}
             </a>
         );
     }
 
-    return <div className="h-full px-2 py-4">{content}</div>;
+    return <div className="h-full px-2 py-2">{content}</div>;
 };
 
 export default ProjectCard;
