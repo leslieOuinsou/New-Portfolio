@@ -21,8 +21,8 @@ export function Projects() {
 
   return (
     <section id="work" className="relative z-10 py-28 md:py-40">
-      <div className="mx-auto max-w-[1600px] px-5 md:px-10">
-        <Reveal className="mb-20 max-w-4xl md:mb-28">
+      <div className="mx-auto max-w-[1180px] px-5 md:px-10">
+        <Reveal className="mb-16 max-w-4xl md:mb-20">
           <p className="typo-label uppercase tracking-[0.45em]">Problème · solution · résultat</p>
           <h2 className="font-[family-name:var(--font-display)] typo-h2 mt-4">CE QUE J&apos;AI RÉSOLU</h2>
           <p className="typo-section mt-6 max-w-2xl text-white/60">
@@ -30,7 +30,7 @@ export function Projects() {
           </p>
         </Reveal>
 
-        <div className="flex flex-col gap-16 md:gap-20 lg:gap-28">
+        <div className="flex flex-col gap-12 md:gap-14 lg:gap-16">
           {PROJECTS.map((p, i) => {
             const featured = i === FEATURED_INDEX;
             const zigzagRight = !featured && i % 2 === 1;
@@ -48,19 +48,24 @@ export function Projects() {
                 }}
                 className={cn(
                   "relative",
-                  !featured && "lg:w-[min(100%,1120px)]",
+                  !featured && "lg:w-[min(100%,920px)]",
                   zigzagRight && "lg:ml-auto",
                   !zigzagRight && !featured && "lg:mr-auto"
                 )}
               >
                 <span
-                  className="font-[family-name:var(--font-display)] pointer-events-none absolute -left-1 top-0 text-[clamp(3rem,12vw,8rem)] leading-none text-white/[0.06] select-none md:-left-2 lg:-left-4 lg:top-[-0.5rem]"
+                  className="font-[family-name:var(--font-display)] pointer-events-none absolute -left-1 top-0 text-[clamp(2.25rem,9vw,5.5rem)] leading-none text-white/[0.06] select-none md:-left-2 lg:-left-3 lg:top-[-0.25rem]"
                   aria-hidden
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
 
-                <ProjectCard project={p} featured={featured} zigzagRight={zigzagRight} />
+                <ProjectCard
+                  project={p}
+                  featured={featured}
+                  zigzagRight={zigzagRight}
+                  reduceMotion={Boolean(reduce)}
+                />
               </motion.article>
             );
           })}
@@ -74,20 +79,34 @@ function ProjectCard({
   project: p,
   featured,
   zigzagRight,
+  reduceMotion,
 }: {
   project: (typeof PROJECTS)[number];
   featured: boolean;
   zigzagRight: boolean;
+  reduceMotion: boolean;
 }) {
   const [imgErr, setImgErr] = useState(false);
 
   return (
+    <motion.div
+      className="relative"
+      whileHover={
+        reduceMotion
+          ? undefined
+          : {
+              y: -5,
+              transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+            }
+      }
+    >
     <MagicCard
       className={cn(
-        "relative overflow-hidden border border-[var(--color-border)] bg-white/[0.02]",
+        "relative overflow-hidden border border-[var(--color-border)] bg-white/[0.02] transition-shadow duration-500",
+        "hover:shadow-[0_24px_80px_-24px_rgba(255,255,255,0.06)]",
         featured
-          ? "lg:min-h-[min(520px,70vh)]"
-          : "min-h-[min(380px,85vh)] md:min-h-[min(380px,50vh)]"
+          ? "lg:min-h-[min(400px,52vh)]"
+          : "min-h-[min(300px,72vh)] md:min-h-[min(300px,42vh)]"
       )}
     >
       {featured ? <BorderBeam /> : null}
@@ -103,9 +122,9 @@ function ProjectCard({
         {/* Bloc image */}
         <div
           className={cn(
-            "relative min-h-[220px] overflow-hidden",
-            featured && "lg:col-span-7 lg:min-h-[min(520px,70vh)]",
-            !featured && "md:min-h-[min(380px,45vh)] lg:col-span-5",
+            "relative min-h-[180px] overflow-hidden",
+            featured && "lg:col-span-7 lg:min-h-[min(400px,52vh)]",
+            !featured && "md:min-h-[min(280px,38vh)] lg:col-span-5",
             !featured && zigzagRight && "lg:order-2 lg:col-start-8"
           )}
         >
@@ -114,8 +133,11 @@ function ProjectCard({
               src={p.image}
               alt={p.title}
               fill
-              className={cn("object-cover", featured && "lg:object-center")}
-              sizes="(max-width: 1024px) 100vw, 55vw"
+              className={cn(
+                "object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]",
+                featured && "lg:object-center"
+              )}
+              sizes="(max-width: 1024px) 100vw, 48vw"
               onError={() => setImgErr(true)}
               priority={featured}
             />
@@ -128,9 +150,9 @@ function ProjectCard({
         {/* Contenu */}
         <div
           className={cn(
-            "flex flex-col justify-between border-[var(--color-border)] p-6 md:p-8 lg:p-10",
-            featured && "lg:col-span-5 lg:border-l lg:border-t-0 lg:py-12",
-            !featured && "lg:col-span-7 lg:justify-center lg:py-8",
+            "flex flex-col justify-between border-[var(--color-border)] p-5 md:p-6 lg:p-8",
+            featured && "lg:col-span-5 lg:border-l lg:border-t-0 lg:py-9",
+            !featured && "lg:col-span-7 lg:justify-center lg:py-6",
             !featured && !zigzagRight && "lg:border-l",
             !featured && zigzagRight && "lg:order-1 lg:col-start-1 lg:row-start-1 lg:border-r lg:border-l-0"
           )}
@@ -140,12 +162,12 @@ function ProjectCard({
             <h3
               className={cn(
                 "font-[family-name:var(--font-display)] mt-3 leading-[0.95] text-white",
-                featured ? "text-[clamp(2rem,5vw,3.5rem)]" : "text-[clamp(1.5rem,4vw,2.5rem)]"
+                featured ? "text-[clamp(1.65rem,4vw,2.85rem)]" : "text-[clamp(1.35rem,3.2vw,2.1rem)]"
               )}
             >
               {p.summary}
             </h3>
-            <dl className="typo-body mt-6 space-y-4 text-white/60">
+            <dl className="typo-body mt-4 space-y-3 text-white/60">
               <div>
                 <dt className="typo-label text-white">Contrainte</dt>
                 <dd className="mt-1">{p.problem}</dd>
@@ -161,7 +183,7 @@ function ProjectCard({
             </dl>
             <p className="typo-label mt-4 text-white/30">{p.tech.join(" · ")}</p>
           </div>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             {p.link ? (
               <a
                 href={p.link}
@@ -188,5 +210,6 @@ function ProjectCard({
         </div>
       </div>
     </MagicCard>
+    </motion.div>
   );
 }
