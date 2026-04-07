@@ -50,10 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 )}
 
                 {/* Status Badge */}
-                <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-full backdrop-blur-md border text-[9px] font-bold uppercase tracking-wider ${project.isMobile
-                        ? 'bg-blue-500/10 border-blue-500/20 text-blue-500'
-                        : 'bg-emerald-500/10 border-emerald-500/20 text-emerald-500'
-                    }`}>
+                <div className={`absolute top-2 left-2 px-1.5 py-0.5 rounded-full backdrop-blur-md border border-white/15 bg-white/5 text-[9px] font-bold uppercase tracking-wider text-white/80`}>
                     {project.isMobile ? 'Mobile App' : 'Web App'}
                 </div>
 
