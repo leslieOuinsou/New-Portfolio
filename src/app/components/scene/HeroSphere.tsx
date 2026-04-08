@@ -13,8 +13,10 @@ import * as THREE from "three";
  */
 export default function HeroSphere({
   enabled = true,
+  quality = "desktop",
 }: {
   enabled?: boolean;
+  quality?: "desktop" | "mobile";
 }) {
   const groupRef = useRef<THREE.Group>(null);
   const outerRef = useRef<THREE.LineSegments>(null);
@@ -23,14 +25,14 @@ export default function HeroSphere({
   // Valeurs cibles (scroll → fade + shrink)
   const target = useRef({ opacity: 1, scale: 1 });
 
-  const outerEdges = useMemo(
-    () => new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2, 2)),
-    []
-  );
-  const innerEdges = useMemo(
-    () => new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.2, 1)),
-    []
-  );
+  const outerEdges = useMemo(() => {
+    const detail = quality === "mobile" ? 1 : 2;
+    return new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2, detail));
+  }, [quality]);
+  const innerEdges = useMemo(() => {
+    const detail = quality === "mobile" ? 0 : 1;
+    return new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.2, detail));
+  }, [quality]);
 
   useEffect(() => {
     if (!enabled) {

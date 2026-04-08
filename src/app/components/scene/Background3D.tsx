@@ -237,12 +237,8 @@ export default function Background3D() {
           <CameraRig enabled={!isMobile} />
           {!isProd ? <DebugMarker /> : null}
           <InfiniteGrid animate={!isMobile} />
-          {!isMobile ? (
-            <>
-              <HeroSphere />
-              <Particles />
-            </>
-          ) : null}
+          <HeroSphere quality={isMobile ? "mobile" : "desktop"} />
+          {!isMobile ? <Particles /> : null}
         </Suspense>
       </Canvas>
       </div>
