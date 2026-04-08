@@ -66,3 +66,36 @@ export async function sendVisitNotification(payload: VisitPayload): Promise<void
     { publicKey: env.publicKey }
   );
 }
+
+/**
+ * Message du formulaire contact — mêmes variables d’env EmailJS que les visites.
+ * Dans le template EmailJS, mappe : from_name, reply_to, subject, message (ou les noms que tu utilises).
+ */
+export async function sendContactMessage(data: {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}): Promise<void> {
+  const env = getEnv();
+  if (!env) throw new Error("EmailJS non configuré");
+
+  const full = [
+    `De : ${data.name} <${data.email}>`,
+    `Sujet : ${data.subject || "(sans sujet)"}`,
+    "",
+    data.message,
+  ].join("\n");
+
+  await emailjs.send(
+    env.serviceId,
+    env.templateId,
+    {
+      from_name: data.name,
+      reply_to: data.email,
+      subject: data.subject || `Contact portfolio — ${data.name}`,
+      message: full,
+    },
+    { publicKey: env.publicKey }
+  );
+}

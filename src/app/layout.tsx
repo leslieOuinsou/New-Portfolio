@@ -1,24 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, DM_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Unbounded } from "next/font/google";
 import "./globals.css";
 import { ClientProviders } from "@/components/ClientProviders";
+import Background3D from "@/app/components/scene/Background3D";
 
-const display = Bebas_Neue({
-  weight: "400",
+const display = Unbounded({
+  weight: ["300", "400"],
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
 });
 
-/** Corps : DM Mono — contraste brutal avec Bebas (pas Inter / Roboto) */
-const body = DM_Mono({
-  weight: ["400", "500"],
+const mono = IBM_Plex_Mono({
+  weight: ["300", "400"],
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-mono",
   display: "swap",
 });
 
+function resolveSiteUrl(): string {
+  const fromEnv = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/$/, "");
+  if (fromEnv) return fromEnv;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return "http://localhost:3000";
+}
+
+const siteUrl = resolveSiteUrl();
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Leslie Ouinsou — Développeuse Full Stack | React · Node",
   description:
     "Je transforme des idées complexes en interfaces utilisables. Portfolio, projets et contact — disponible pour missions et CDI.",
@@ -33,12 +43,27 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Leslie Ouinsou" }],
   icons: { icon: "/favicon.ico" },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    title: "Leslie Ouinsou — Développeuse Full Stack | React · Node",
+    description:
+      "Je transforme des idées complexes en interfaces utilisables. Portfolio, projets et contact — disponible pour missions et CDI.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Leslie Ouinsou — Développeuse Full Stack | React · Node",
+    description:
+      "Je transforme des idées complexes en interfaces utilisables. Portfolio, projets et contact — disponible pour missions et CDI.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#080808",
+  themeColor: "#040A06",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -47,9 +72,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${display.variable} ${body.variable}`}>
-      <body className={`${body.className} bg-[#080808] text-white antialiased`}>
-        <ClientProviders>{children}</ClientProviders>
+    <html lang="fr" className={`${display.variable} ${mono.variable}`}>
+      <body
+        className={`${mono.className} bg-[#040A06] text-[#F5F0E8] antialiased [padding-bottom:env(safe-area-inset-bottom)]`}
+      >
+        <ClientProviders>
+          <Background3D />
+          <div className="relative z-10">{children}</div>
+        </ClientProviders>
       </body>
     </html>
   );

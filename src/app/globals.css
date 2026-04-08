@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #080808;
-  --color-text: #ffffff;
-  --color-accent: #ffffff;
-  --color-muted: rgba(255, 255, 255, 0.5);
-  --color-faint: rgba(255, 255, 255, 0.3);
-  --color-border: rgba(255, 255, 255, 0.15);
+  --color-bg: #040a06;
+  --color-text: #f5f0e8;
+  --color-accent: #50c878;
+  --color-muted: rgba(245, 240, 232, 0.62);
+  --color-faint: rgba(245, 240, 232, 0.38);
+  --color-border: rgba(80, 200, 120, 0.12);
+  --glass-bg: rgba(80, 200, 120, 0.04);
+  --glass-border: rgba(80, 200, 120, 0.12);
+  --glass-blur: 24px;
+  --font-body: var(--font-mono);
   --font-size-hero: 8vw;
   --font-size-h2: 5vw;
   --font-size-body: 1.1rem;
   --font-size-section: 1.25rem;
   --font-size-label: 0.95rem;
-  --glow-soft: 0 0 40px rgba(255, 255, 255, 0.08);
-  --glow-medium: 0 0 60px rgba(255, 255, 255, 0.12);
+  --glow-soft: 0 0 40px rgba(80, 200, 120, 0.08);
+  --glow-medium: 0 0 60px rgba(80, 200, 120, 0.12);
 }
 
 html {

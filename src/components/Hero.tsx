@@ -52,8 +52,9 @@ export function Hero() {
           className="font-[family-name:var(--font-display)] typo-h1 tracking-tight"
           variants={heroItem}
         >
-          <span className="block text-white">{first}</span>
-          <span className="block text-white">{last}</span>
+          <span className="block whitespace-nowrap text-white">
+            {first}&nbsp;{last}
+          </span>
         </motion.h1>
 
         <motion.div className="mt-12 max-w-3xl space-y-5" variants={heroItem}>
