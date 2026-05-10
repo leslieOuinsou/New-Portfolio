@@ -220,23 +220,18 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Decorative Element */}
+            {/* Decorative Element — fonds contrastés en clair / sombre */}
             <motion.div
-              className="relative h-40 rounded-lg overflow-hidden"
-              animate={{
-                backgroundColor: [
-                  "rgba(238, 237, 254, 0.95)",
-                  "rgba(255, 255, 255, 0.9)",
-                ],
-              }}
+              className="relative h-40 overflow-hidden rounded-lg bg-gradient-to-br from-accent-primary via-white to-accent-primary/80 ring-1 ring-light-border dark:from-dark-card dark:via-violet-950 dark:to-violet-900 dark:ring-dark-border"
+              animate={{ opacity: [0.95, 1, 0.95] }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-4xl font-bold text-violet-950 dark:text-violet-100">
+              <div className="absolute inset-0 flex items-center justify-center px-4">
+                <p className="text-center text-2xl font-bold text-violet-950 sm:text-3xl md:text-4xl dark:text-dark-text-primary">
                   Let&apos;s Work Together
                 </p>
               </div>
