@@ -1,10 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { FiArrowDown, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PERSONAL_INFO } from "@/lib/constants";
-import LiquidEther from "./LiquidEther";
+
+/** WebGL / ogl uniquement côté client — évite les erreurs Webpack du bundle serveur */
+const Iridescence = dynamic(
+  () => import("./Iridescence").then((mod) => mod.Iridescence),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="absolute inset-0 min-h-full bg-accent-primary dark:bg-dark-surface"
+        aria-hidden
+      />
+    ),
+  }
+);
+
+const HERO_IRIDESCENCE_COLOR: [number, number, number] = [0.5, 0.6, 0.8];
 
 export function Hero() {
   const { t } = useLanguage();
@@ -19,28 +35,22 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden pt-20"
     >
-      {/* LiquidEther Background Animation */}
-      <div className="absolute inset-0 overflow-hidden">
-        <LiquidEther
-          colors={['#3B82F6', '#8B5CF6', '#06B6D4']}
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          resolution={0.5}
-          isBounce={false}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={3000}
-          autoRampDuration={0.6}
+      <div className="absolute inset-0 z-0 min-h-full">
+        <Iridescence
+          mixColor={HERO_IRIDESCENCE_COLOR}
+          mouseReact
+          amplitude={0.1}
+          speed={1}
+          className="min-h-full"
+          aria-hidden
         />
       </div>
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] bg-white/25 dark:bg-violet-950/40"
+        aria-hidden
+      />
 
       <div className="container-custom relative z-20">
         <div className="flex flex-col items-center text-center">
@@ -63,7 +73,7 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4"
           >
-            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-violet-950 dark:text-violet-100">
               {PERSONAL_INFO.name}
             </span>
           </motion.h1>
@@ -99,27 +109,29 @@ export function Hero() {
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300"
+              className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-light-border dark:border-gray-700 flex items-center justify-center hover:border-violet-400 hover:text-violet-800 dark:hover:border-violet-400 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
               aria-label="GitHub"
             >
               <FiGithub className="w-5 h-5" />
             </motion.a>
-            <motion.a
-              href={PERSONAL_INFO.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300"
-              whileHover={{ scale: 1.1, y: -5 }}
-              whileTap={{ scale: 0.95 }}
-              aria-label="LinkedIn"
-            >
-              <FiLinkedin className="w-5 h-5" />
-            </motion.a>
+            {PERSONAL_INFO.linkedin ? (
+              <motion.a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-light-border dark:border-gray-700 flex items-center justify-center hover:border-violet-400 hover:text-violet-800 dark:hover:border-violet-400 transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="LinkedIn"
+              >
+                <FiLinkedin className="w-5 h-5" />
+              </motion.a>
+            ) : null}
             <motion.a
               href={`mailto:${PERSONAL_INFO.email}`}
-              className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300"
+              className="w-12 h-12 rounded-full bg-white dark:bg-gray-800 border border-light-border dark:border-gray-700 flex items-center justify-center hover:border-violet-400 hover:text-violet-800 dark:hover:border-violet-400 transition-all duration-300"
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Email"
@@ -137,7 +149,7 @@ export function Hero() {
           >
             <motion.button
               onClick={() => scrollToSection("#projects")}
-              className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+              className="bg-white hover:bg-white/95 text-violet-950 font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 ring-1 ring-violet-200/80"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -145,7 +157,7 @@ export function Hero() {
             </motion.button>
             <motion.button
               onClick={() => scrollToSection("#contact")}
-              className="border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium px-6 py-3 rounded-lg transition-all duration-300"
+              className="border-2 border-white text-violet-950 hover:bg-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-sm bg-white/20"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -170,7 +182,7 @@ export function Hero() {
               className="cursor-pointer"
               onClick={() => scrollToSection("#about")}
             >
-              <FiArrowDown className="w-6 h-6 text-blue-500" />
+              <FiArrowDown className="w-6 h-6 text-violet-800 dark:text-violet-200" />
             </motion.div>
           </motion.div>
         </div>

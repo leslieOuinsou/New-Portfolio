@@ -11,7 +11,15 @@ export function Footer() {
 
   const socialLinks = [
     { icon: FiGithub, href: PERSONAL_INFO.github, label: "GitHub" },
-    { icon: FiLinkedin, href: PERSONAL_INFO.linkedin, label: "LinkedIn" },
+    ...(PERSONAL_INFO.linkedin
+      ? [
+          {
+            icon: FiLinkedin,
+            href: PERSONAL_INFO.linkedin,
+            label: "LinkedIn" as const,
+          },
+        ]
+      : []),
     { icon: FiMail, href: `mailto:${PERSONAL_INFO.email}`, label: "Email" },
   ];
 
@@ -26,7 +34,17 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold gradient-text mb-2">
+            <div className="mb-3 inline-flex items-center">
+              <img
+                src="/Logo.jpg"
+                alt=""
+                width={120}
+                height={36}
+                className="h-8 w-auto object-contain"
+                decoding="async"
+              />
+            </div>
+            <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-1">
               {PERSONAL_INFO.name}
             </h3>
             <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
@@ -50,7 +68,7 @@ export function Footer() {
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
                   rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                  className="w-12 h-12 rounded-full bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-accent-primary dark:hover:border-accent-primary transition-all"
+                  className="w-12 h-12 rounded-full bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-violet-300 dark:hover:border-violet-500 transition-all"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -102,7 +120,7 @@ export function Footer() {
                 ease: "easeInOut",
               }}
             >
-              <FiHeart className="inline text-red-500" />
+              <FiHeart className="inline text-violet-700 dark:text-violet-400" />
             </motion.span>
             <span>{t.footer.using}</span>
           </p>

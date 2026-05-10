@@ -5,67 +5,75 @@ export const translations = {
       about: "À propos",
       skills: "Compétences",
       projects: "Projets",
+      education: "Formation",
       contact: "Contact",
     },
     hero: {
       greeting: "Bonjour, je suis",
-      title: "Développeur Full Stack",
-      subtitle: "Passionné par la création de solutions web innovantes et performantes",
+      title: "Développeuse Fullstack Junior",
+      subtitle:
+        "Passionnée par l’informatique, le développement et le design -autonome, rigoureuse et créative, prête à m’investir pleinement dans vos projets.",
       cta: "Voir mes projets",
       contact: "Me contacter",
     },
     about: {
       title: "À propos de moi",
-      description: "Développeur web full stack passionné, je crée des applications web modernes et performantes. Spécialisé dans l'écosystème JavaScript/TypeScript, je maîtrise aussi bien le front-end avec React, Next.js, Angular et Vue.js, que le back-end avec Node.js, Express, et diverses bases de données. Mon expérience s'étend également aux outils DevOps, à l'automatisation avec n8n, et au design avec Figma et la suite Adobe.",
+      description:
+        "Passionnée par l’informatique, le développement et le design, je suis autonome, rigoureuse et créative. J’aime concevoir des applications web modernes, des API robustes et des interfaces soignées, en m’appuyant sur les bonnes pratiques (tests, clean code, agilité). Curieuse des évolutions tech, notamment autour de l’IA. Langues : français (natif), anglais (B1). Centres d’intérêt : sport, lecture, veille tech (notamment IA).",
       downloadCV: "Télécharger mon CV",
-      location: "Mobilité : Territoire français",
+      location: "Mobilité : flexible",
     },
     skills: {
-      title: "Mes Compétences",
+      title: "Mes compétences",
       frontend: "Front-end",
       backend: "Back-end",
-      database: "Base de données",
+      database: "Bases de données",
       tools: "Outils & DevOps",
       design: "Design & CMS",
-      automation: "Automatisation",
+      automation: "Qualité & IA assistée",
     },
     projects: {
-      title: "Mes Projets",
+      title: "Mes projets",
       viewProject: "Voir le projet",
       viewCode: "Voir le code",
       technologies: "Technologies",
       project1: {
-        title: "Campus Pass",
-        description: "Plateforme SaaS innovante pour les jeunes Africains, facilitant l'accès aux admissions universitaires",
+        title: "MyBudget+",
+        description: "Application budget avec tests et reporting qualité",
       },
       project2: {
-        title: "LT ENR - Solutions Solaires",
-        description: "Site web professionnel pour expert en solutions solaires photovoltaïques avec maintenance continue",
+        title: "Gestion d'événements",
+        description: "Site fullstack de gestion d’événements (CRUD, MERN)",
       },
       project3: {
-        title: "2V177 - Site École",
-        description: "Site web institutionnel complet pour une école, conçu avec une interface moderne et responsive",
+        title: "Player Finder",
+        description:
+          "App mobile pour mettre en relation des joueurs (React Native, Expo)",
       },
       project4: {
-        title: "The Tip Top - Jeu Concours",
-        description: "Plateforme de jeu concours pour une entreprise de vente de thé avec interface interactive",
+        title: "Afro-food",
+        description:
+          "Menu digital cuisine camerounaise et béninoise (Next.js, Vercel)",
       },
     },
     education: {
-      title: "Parcours Scolaire",
-      subtitle: "Formation et diplômes",
+      title: "Parcours scolaire",
+      subtitle: "Formations et diplômes",
     },
     contact: {
       title: "Contactez-moi",
-      subtitle: "Vous avez un projet en tête ? Discutons-en !",
+      subtitle: "Un projet, une question ? Écrivons-nous !",
       name: "Nom",
       email: "Email",
       message: "Message",
       send: "Envoyer",
       sending: "Envoi en cours...",
       success: "Message envoyé avec succès !",
-      error: "Erreur lors de l'envoi. Veuillez réessayer.",
+      error: "Erreur lors de l’envoi. Veuillez réessayer.",
       or: "Ou contactez-moi directement",
+      phone: "Téléphone",
+      portfolio: "Portfolio",
+      mobility: "Mobilité",
     },
     footer: {
       rights: "Tous droits réservés.",
@@ -79,29 +87,32 @@ export const translations = {
       about: "About",
       skills: "Skills",
       projects: "Projects",
+      education: "Education",
       contact: "Contact",
     },
     hero: {
       greeting: "Hello, I'm",
-      title: "Full Stack Developer",
-      subtitle: "Passionate about creating innovative and high-performance web solutions",
+      title: "Junior Fullstack Developer",
+      subtitle:
+        "Passionate about IT, development, and design — independent, rigorous, and creative, ready to fully invest in your projects.",
       cta: "View my projects",
       contact: "Contact me",
     },
     about: {
       title: "About Me",
-      description: "Passionate full stack web developer, I create modern and high-performance web applications. Specialized in the JavaScript/TypeScript ecosystem, I master both front-end with React, Next.js, Angular and Vue.js, and back-end with Node.js, Express, and various databases. My experience also extends to DevOps tools, automation with n8n, and design with Figma and Adobe Suite.",
+      description:
+        "Passionate about IT, development, and design, I am independent, rigorous, and creative. I enjoy building modern web apps, solid APIs, and polished UIs, with a focus on best practices (testing, clean code, agility). I stay curious about tech trends, especially AI. Languages: French (native), English (B1). Interests: sports, reading, tech watch (especially AI).",
       downloadCV: "Download my CV",
-      location: "Location: Available across France",
+      location: "Location: flexible",
     },
     skills: {
       title: "My Skills",
       frontend: "Front-end",
       backend: "Back-end",
-      database: "Database",
+      database: "Databases",
       tools: "Tools & DevOps",
       design: "Design & CMS",
-      automation: "Automation",
+      automation: "Quality & AI-assisted",
     },
     projects: {
       title: "My Projects",
@@ -109,29 +120,30 @@ export const translations = {
       viewCode: "View code",
       technologies: "Technologies",
       project1: {
-        title: "Campus Pass",
-        description: "Innovative SaaS platform for young Africans, facilitating access to university admissions",
+        title: "MyBudget+",
+        description: "Budget app with tests and quality reporting",
       },
       project2: {
-        title: "LT ENR - Solar Solutions",
-        description: "Professional website for photovoltaic solar solutions expert with continuous maintenance",
+        title: "Event management",
+        description: "Fullstack event site (CRUD, MERN)",
       },
       project3: {
-        title: "2V177 - School Website",
-        description: "Complete institutional website for a school, designed with modern and responsive interface",
+        title: "Player Finder",
+        description: "Mobile app connecting players (React Native, Expo)",
       },
       project4: {
-        title: "The Tip Top - Contest Game",
-        description: "Contest game platform for a tea sales company with interactive interface",
+        title: "Afro-food",
+        description:
+          "Digital menu for Cameroonian & Beninese cuisine (Next.js, Vercel)",
       },
     },
     education: {
       title: "Education",
-      subtitle: "Academic background and degrees",
+      subtitle: "Academic background",
     },
     contact: {
       title: "Contact Me",
-      subtitle: "Have a project in mind? Let's talk about it!",
+      subtitle: "Have a project or a question? Let’s talk!",
       name: "Name",
       email: "Email",
       message: "Message",
@@ -139,7 +151,10 @@ export const translations = {
       sending: "Sending...",
       success: "Message sent successfully!",
       error: "Error sending. Please try again.",
-      or: "Or contact me directly",
+      or: "Or reach me directly",
+      phone: "Phone",
+      portfolio: "Portfolio",
+      mobility: "Mobility",
     },
     footer: {
       rights: "All rights reserved.",
@@ -151,4 +166,3 @@ export const translations = {
 
 export type Language = keyof typeof translations;
 export type TranslationKeys = typeof translations.fr;
-

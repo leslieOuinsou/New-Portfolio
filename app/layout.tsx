@@ -11,43 +11,44 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Jordan BELL - Développeur Full Stack",
+  title: "Leslie OUINSOU - Développeuse Fullstack Junior",
   description:
-    "Portfolio de Jordan BELL, développeur full stack passionné par la création de solutions web innovantes. React, Next.js, Node.js, TypeScript et plus encore.",
+    "Portfolio de Leslie OUINSOU, développeuse fullstack junior : React, TypeScript, Node.js, PHP, bases de données, Docker, CI/CD et bonnes pratiques.",
   keywords: [
-    "Jordan BELL",
-    "développeur full stack",
+    "Leslie OUINSOU",
+    "développeuse fullstack",
     "React",
     "Next.js",
     "TypeScript",
     "Node.js",
     "portfolio",
-    "web developer",
     "développeur web",
+    "Laravel",
+    "Symfony",
   ],
-  authors: [{ name: "Jordan BELL" }],
-  creator: "Jordan BELL",
-  publisher: "Jordan BELL",
+  authors: [{ name: "Leslie OUINSOU" }],
+  creator: "Leslie OUINSOU",
+  publisher: "Leslie OUINSOU",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://portfolio-jordanb.vercel.app"),
+  metadataBase: new URL("https://new-portfolio-eight-omega.vercel.app"),
   openGraph: {
-    title: "Jordan BELL - Développeur Full Stack",
+    title: "Leslie OUINSOU - Développeuse Fullstack Junior",
     description:
-      "Portfolio de Jordan BELL, développeur full stack passionné par la création de solutions web innovantes.",
-    url: "https://portfolio-jordanb.vercel.app",
-    siteName: "Jordan BELL Portfolio",
+      "Portfolio de Leslie OUINSOU — développement web fullstack, qualité et bonnes pratiques.",
+    url: "https://new-portfolio-eight-omega.vercel.app",
+    siteName: "Leslie OUINSOU — Portfolio",
     locale: "fr_FR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jordan BELL - Développeur Full Stack",
+    title: "Leslie OUINSOU - Développeuse Fullstack Junior",
     description:
-      "Portfolio de Jordan BELL, développeur full stack passionné par la création de solutions web innovantes.",
+      "Portfolio de Leslie OUINSOU — développement web fullstack et qualité logicielle.",
   },
   robots: {
     index: true,
@@ -60,6 +61,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/Logo.jpg", type: "image/jpeg", sizes: "32x32" },
+      { url: "/Logo.jpg", type: "image/jpeg", sizes: "192x192" },
+    ],
+    shortcut: "/Logo.jpg",
+    apple: [{ url: "/Logo.jpg", sizes: "180x180", type: "image/jpeg" }],
+  },
 };
 
 export default function RootLayout({
@@ -69,9 +78,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
           <LanguageProvider>{children}</LanguageProvider>

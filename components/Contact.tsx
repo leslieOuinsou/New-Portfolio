@@ -5,10 +5,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PERSONAL_INFO } from "@/lib/constants";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiSend } from "react-icons/fi";
-import ElectricBorder from "./ElectricBorder";
-import StarBorder from "./StarBorder";
-
+import {
+  FiMail,
+  FiGithub,
+  FiLinkedin,
+  FiMapPin,
+  FiSend,
+  FiPhone,
+  FiGlobe,
+} from "react-icons/fi";
 export function Contact() {
   const { t } = useLanguage();
   const ref = useRef(null);
@@ -35,7 +40,7 @@ export function Contact() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `Nouveau message de ${formData.name} - Portfolio Jordan BELL`,
+          _subject: `Nouveau message de ${formData.name} - Portfolio Leslie OUINSOU`,
         }),
       });
 
@@ -100,11 +105,11 @@ export function Contact() {
               <div className="space-y-4">
                 <motion.a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="card flex items-center gap-4 hover:border-accent-primary dark:hover:border-accent-primary transition-all"
+                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent-primary to-accent-secondary flex items-center justify-center flex-shrink-0">
-                    <FiMail className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                    <FiMail className="w-6 h-6 text-violet-900 dark:text-violet-200" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -117,55 +122,95 @@ export function Contact() {
                 </motion.a>
 
                 <motion.a
+                  href={`tel:${PERSONAL_INFO.phone.replace(/\s/g, "")}`}
+                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  whileHover={{ scale: 1.02, x: 10 }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                    <FiPhone className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
+                      {t.contact.phone}
+                    </p>
+                    <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+                      {PERSONAL_INFO.phone}
+                    </p>
+                  </div>
+                </motion.a>
+
+                <motion.a
+                  href={PERSONAL_INFO.portfolio}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  whileHover={{ scale: 1.02, x: 10 }}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                    <FiGlobe className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
+                      {t.contact.portfolio}
+                    </p>
+                    <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary break-all">
+                      {PERSONAL_INFO.portfolio.replace(/^https?:\/\//, "")}
+                    </p>
+                  </div>
+                </motion.a>
+
+                <motion.a
                   href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card flex items-center gap-4 hover:border-accent-primary dark:hover:border-accent-primary transition-all"
+                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center flex-shrink-0">
-                    <FiGithub className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                    <FiGithub className="w-6 h-6 text-violet-900 dark:text-violet-200" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
                       GitHub
                     </p>
                     <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-                      @jordannbell
+                      @leslieOuinsou
                     </p>
                   </div>
                 </motion.a>
 
-                <motion.a
-                  href={PERSONAL_INFO.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="card flex items-center gap-4 hover:border-accent-primary dark:hover:border-accent-primary transition-all"
-                  whileHover={{ scale: 1.02, x: 10 }}
-                >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center flex-shrink-0">
-                    <FiLinkedin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
-                      LinkedIn
-                    </p>
-                    <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-                      Jordan Bell
-                    </p>
-                  </div>
-                </motion.a>
+                {PERSONAL_INFO.linkedin ? (
+                  <motion.a
+                    href={PERSONAL_INFO.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                    whileHover={{ scale: 1.02, x: 10 }}
+                  >
+                    <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                      <FiLinkedin className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
+                        LinkedIn
+                      </p>
+                      <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
+                        Leslie OUINSOU
+                      </p>
+                    </div>
+                  </motion.a>
+                ) : null}
 
                 <motion.div
                   className="card flex items-center gap-4"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center flex-shrink-0">
-                    <FiMapPin className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
+                    <FiMapPin className="w-6 h-6 text-violet-900 dark:text-violet-200" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
-                      Location
+                      {t.contact.mobility}
                     </p>
                     <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
                       {PERSONAL_INFO.location}
@@ -179,9 +224,9 @@ export function Contact() {
             <motion.div
               className="relative h-40 rounded-lg overflow-hidden"
               animate={{
-                background: [
-                  "linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)",
-                  "linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%)",
+                backgroundColor: [
+                  "rgba(238, 237, 254, 0.95)",
+                  "rgba(255, 255, 255, 0.9)",
                 ],
               }}
               transition={{
@@ -191,7 +236,7 @@ export function Contact() {
               }}
             >
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-4xl font-bold gradient-text">
+                <p className="text-4xl font-bold text-violet-950 dark:text-violet-100">
                   Let&apos;s Work Together
                 </p>
               </div>
@@ -199,19 +244,8 @@ export function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <ElectricBorder
-              color="#3b82f6"
-              speed={1.5}
-              chaos={0.8}
-              thickness={2}
-              style={{ borderRadius: 16 }}
-            >
-              <form onSubmit={handleSubmit} className="card space-y-6">
+          <div>
+            <form onSubmit={handleSubmit} className="card space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -219,26 +253,18 @@ export function Contact() {
                 >
                   {t.contact.name}
                 </label>
-                <StarBorder
-                  as="div"
-                  color="#3b82f6"
-                  speed="4s"
-                  thickness={2}
-                  className="w-full"
-                >
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border-none focus:outline-none transition-colors text-light-text-primary dark:text-dark-text-primary"
-                    placeholder="Votre nom"
-                    autoComplete="name"
-                    suppressHydrationWarning
-                  />
-                </StarBorder>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors text-light-text-primary dark:text-dark-text-primary"
+                  placeholder="Votre nom"
+                  autoComplete="name"
+                  suppressHydrationWarning
+                />
               </div>
 
               <div>
@@ -248,26 +274,18 @@ export function Contact() {
                 >
                   {t.contact.email}
                 </label>
-                <StarBorder
-                  as="div"
-                  color="#8b5cf6"
-                  speed="5s"
-                  thickness={2}
-                  className="w-full"
-                >
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border-none focus:outline-none transition-colors text-light-text-primary dark:text-dark-text-primary"
-                    placeholder="votre@email.com"
-                    autoComplete="email"
-                    suppressHydrationWarning
-                  />
-                </StarBorder>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors text-light-text-primary dark:text-dark-text-primary"
+                  placeholder="votre@email.com"
+                  autoComplete="email"
+                  suppressHydrationWarning
+                />
               </div>
 
               <div>
@@ -277,73 +295,49 @@ export function Contact() {
                 >
                   {t.contact.message}
                 </label>
-                <StarBorder
-                  as="div"
-                  color="#06b6d4"
-                  speed="6s"
-                  thickness={2}
-                  className="w-full"
-                >
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border-none focus:outline-none transition-colors resize-none text-light-text-primary dark:text-dark-text-primary"
-                    placeholder="Votre message..."
-                    suppressHydrationWarning
-                  />
-                </StarBorder>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors resize-none text-light-text-primary dark:text-dark-text-primary"
+                  placeholder="Votre message..."
+                  suppressHydrationWarning
+                />
               </div>
 
-              <StarBorder
-                as="div"
-                color="#10b981"
-                speed="3s"
-                thickness={2}
-                className="w-full"
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className="w-full btn-primary font-medium px-6 py-3 rounded-lg transition-colors shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                <motion.button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="w-full bg-accent-primary hover:bg-accent-primary/90 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 border-none"
-                  whileHover={status === "idle" ? { scale: 1.02 } : {}}
-                  whileTap={status === "idle" ? { scale: 0.98 } : {}}
-                >
-                  {status === "sending" ? (
-                    <>
-                      <motion.div
-                        className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 1,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                      />
-                      {t.contact.sending}
-                    </>
-                  ) : status === "success" ? (
-                    <>{t.contact.success}</>
-                  ) : (
-                    <>
-                      <FiSend className="w-5 h-5" />
-                      {t.contact.send}
-                    </>
-                  )}
-                </motion.button>
-              </StarBorder>
+                {status === "sending" ? (
+                  <>
+                    <span
+                      className="w-5 h-5 border-2 border-violet-200 border-t-violet-900 rounded-full animate-spin"
+                      aria-hidden
+                    />
+                    {t.contact.sending}
+                  </>
+                ) : status === "success" ? (
+                  <>{t.contact.success}</>
+                ) : (
+                  <>
+                    <FiSend className="w-5 h-5" />
+                    {t.contact.send}
+                  </>
+                )}
+              </button>
 
               {status === "error" && (
                 <p className="text-red-500 text-sm text-center">
                   {t.contact.error}
                 </p>
               )}
-              </form>
-            </ElectricBorder>
-          </motion.div>
+            </form>
+          </div>
         </div>
       </div>
     </section>

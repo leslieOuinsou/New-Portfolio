@@ -13,79 +13,69 @@ import {
   FiLayout,
   FiZap,
 } from "react-icons/fi";
-import { 
-  SiReact, 
-  SiNextdotjs, 
-  SiTypescript, 
-  SiTailwindcss, 
-  SiNodedotjs, 
-  SiExpress, 
-  SiMongodb, 
-  SiPostgresql,
-  SiGit,
-  SiDocker,
-  SiFigma,
-  SiWordpress
-} from "react-icons/si";
-import LogoLoop from "./LogoLoop";
+import { IconCloud } from "./IconCloud";
+
+/** SVG Simple Icons (jsDelivr) — évite le rendu React dans le canvas (Webpack stable) */
+const SI_PKG = "simple-icons@13.15.0";
+const siIcon = (slug: string) =>
+  `https://cdn.jsdelivr.net/npm/${SI_PKG}/icons/${slug}.svg`;
+
+const SKILL_CLOUD_IMAGE_URLS = [
+  siIcon("react"),
+  siIcon("nextdotjs"),
+  siIcon("typescript"),
+  siIcon("tailwindcss"),
+  siIcon("nodedotjs"),
+  siIcon("express"),
+  siIcon("mongodb"),
+  siIcon("postgresql"),
+  siIcon("git"),
+  siIcon("docker"),
+  siIcon("figma"),
+  siIcon("wordpress"),
+];
 
 export function Skills() {
   const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  // Configuration des logos des technologies
-  const techLogos = [
-    { node: <SiReact />, title: "React", href: "https://react.dev" },
-    { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
-    { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
-    { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
-    { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
-    { node: <SiExpress />, title: "Express", href: "https://expressjs.com" },
-    { node: <SiMongodb />, title: "MongoDB", href: "https://www.mongodb.com" },
-    { node: <SiPostgresql />, title: "PostgreSQL", href: "https://www.postgresql.org" },
-    { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
-    { node: <SiDocker />, title: "Docker", href: "https://www.docker.com" },
-    { node: <SiFigma />, title: "Figma", href: "https://www.figma.com" },
-    { node: <SiWordpress />, title: "WordPress", href: "https://wordpress.org" },
-  ];
-
   const skillCategories = [
     {
       title: t.skills.frontend,
       skills: SKILLS.frontend,
       icon: FiCode,
-      color: "from-blue-500 to-cyan-500",
+      accent: "primary" as const,
     },
     {
       title: t.skills.backend,
       skills: SKILLS.backend,
       icon: FiServer,
-      color: "from-green-500 to-emerald-500",
+      accent: "secondary" as const,
     },
     {
       title: t.skills.database,
       skills: SKILLS.database,
       icon: FiDatabase,
-      color: "from-purple-500 to-pink-500",
+      accent: "primary" as const,
     },
     {
       title: t.skills.tools,
       skills: SKILLS.tools,
       icon: FiTool,
-      color: "from-orange-500 to-red-500",
+      accent: "secondary" as const,
     },
     {
       title: t.skills.design,
       skills: [...SKILLS.design, ...SKILLS.cms],
       icon: FiLayout,
-      color: "from-pink-500 to-rose-500",
+      accent: "primary" as const,
     },
     {
       title: t.skills.automation,
       skills: SKILLS.automation,
       icon: FiZap,
-      color: "from-yellow-500 to-amber-500",
+      accent: "secondary" as const,
     },
   ];
 
@@ -108,6 +98,18 @@ export function Skills() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
+            const tint =
+              category.accent === "primary"
+                ? "bg-accent-primary"
+                : "bg-white border border-light-border dark:border-dark-border";
+            const tintSoft =
+              category.accent === "primary"
+                ? "bg-accent-primary/15"
+                : "bg-accent-primary/5";
+            const pulseTint =
+              category.accent === "primary"
+                ? "bg-accent-primary"
+                : "bg-accent-primary/40";
             return (
               <motion.div
                 key={category.title}
@@ -118,25 +120,22 @@ export function Skills() {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                 className="card card-hover relative overflow-hidden group"
               >
-                {/* Animated Background on Hover */}
-                <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-5`}
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 0.05 }}
-                  transition={{ duration: 0.3 }}
+                {/* Fond au survol (couleur unie) */}
+                <div
+                  className={`pointer-events-none absolute inset-0 ${tintSoft} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
                 />
 
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-6 relative z-10">
                   <motion.div
-                    className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center relative`}
+                    className={`w-12 h-12 rounded-lg ${tint} flex items-center justify-center relative`}
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Icon className="w-6 h-6 text-white" />
+                    <Icon className="w-6 h-6 text-violet-950 dark:text-violet-100" />
                     {/* Pulse effect */}
                     <motion.div
-                      className={`absolute inset-0 rounded-lg bg-gradient-to-br ${category.color}`}
+                      className={`absolute inset-0 rounded-lg ${pulseTint}`}
                       animate={{
                         scale: [1, 1.2, 1],
                         opacity: [0.3, 0, 0.3],
@@ -182,41 +181,15 @@ export function Skills() {
           })}
         </div>
 
-        {/* Additional Info */}
+        {/* Nuage d’icônes 3D */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-light-text-secondary dark:text-dark-text-secondary text-lg">
-            <span className="gradient-text font-semibold">
-              20+ technologies
-            </span>{" "}
-            maîtrisées pour créer des solutions web complètes
-          </p>
-        </motion.div>
-
-        {/* Technology Logos Loop */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
           className="mt-16"
         >
-          <div className="relative overflow-hidden rounded-lg bg-light-card dark:bg-dark-card p-8 border border-light-border dark:border-dark-border">
-            <LogoLoop
-              logos={techLogos}
-              speed={80}
-              direction="left"
-              logoHeight={48}
-              gap={40}
-              pauseOnHover
-              scaleOnHover
-              fadeOut
-              fadeOutColor="var(--light-card, #ffffff)"
-              ariaLabel="Technologies et outils utilisés"
-            />
+          <div className="relative rounded-lg border border-light-border bg-accent-primary/20 dark:border-dark-border dark:bg-dark-card/80 px-4 py-8 md:px-8">
+            <IconCloud images={SKILL_CLOUD_IMAGE_URLS} size={400} />
           </div>
         </motion.div>
       </div>

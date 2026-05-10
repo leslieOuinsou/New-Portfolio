@@ -40,13 +40,13 @@ export function Education() {
             >
               {/* Timeline Line */}
               {index !== EDUCATION.length - 1 && (
-                <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 hidden md:block" />
+                <div className="absolute left-6 top-16 bottom-0 w-0.5 bg-light-border dark:bg-dark-border hidden md:block" />
               )}
 
               <div className="card card-hover flex flex-col md:flex-row gap-6 relative overflow-hidden">
                 {/* Animated Background Gradient */}
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-accent-primary/5 opacity-0 group-hover:opacity-100"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -58,11 +58,11 @@ export function Education() {
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center relative">
-                    <FiAward className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-full bg-accent-primary flex items-center justify-center relative ring-2 ring-white/70 dark:ring-white/20">
+                    <FiAward className="w-6 h-6 text-violet-950 dark:text-violet-100" />
                     {/* Pulse Animation */}
                     <motion.div
-                      className="absolute inset-0 rounded-full bg-blue-500/50"
+                      className="absolute inset-0 rounded-full bg-accent-primary/50"
                       animate={{
                         scale: [1, 1.5, 1],
                         opacity: [0.5, 0, 0.5],
@@ -88,7 +88,7 @@ export function Education() {
                   </motion.h3>
 
                   {/* School */}
-                  <div className="flex items-center gap-2 text-blue-500 dark:text-blue-400 mb-2">
+                  <div className="flex items-center gap-2 text-violet-800 dark:text-violet-300 mb-2">
                     <FiBookOpen className="w-4 h-4" />
                     <span className="font-medium">{edu.school}</span>
                   </div>
@@ -109,7 +109,7 @@ export function Education() {
                     {edu.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill}
-                        className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full cursor-default"
+                        className="px-3 py-1 text-xs font-medium bg-accent-primary/35 dark:bg-accent-primary/25 text-violet-950 dark:text-violet-100 rounded-full cursor-default border border-light-border/80 dark:border-dark-border"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={
                           isInView
@@ -122,7 +122,7 @@ export function Education() {
                         }}
                         whileHover={{
                           scale: 1.1,
-                          backgroundColor: "rgba(59, 130, 246, 0.2)",
+                          backgroundColor: "rgba(238, 237, 254, 0.9)",
                         }}
                       >
                         {skill}

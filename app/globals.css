@@ -3,12 +3,36 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    /* Marque : violet clair #EEEDFE + blanc */
+    --color-accent-primary: 238 237 254;
+    --color-accent-secondary: 255 255 255;
+    --color-light-surface: 255 255 255;
+    --color-dark-surface: 30 27 58;
+    --color-light-card: 255 255 255;
+    --color-dark-card: 36 33 62;
+    --color-light-border: 226 224 252;
+    --color-dark-border: 80 75 120;
+    --color-light-text-primary: 30 27 60;
+    --color-dark-text-primary: 248 250 252;
+    --color-light-text-secondary: 91 88 120;
+    --color-dark-text-secondary: 196 192 230;
+    --color-app-bg-light: 238 237 254;
+    --color-app-bg-dark: 30 27 58;
+    --light-card: #ffffff;
+  }
+
   html {
     @apply scroll-smooth;
   }
 
   body {
-    @apply bg-[#F5F5F7] dark:bg-[#0A1628] text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    @apply text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    background-color: rgb(var(--color-app-bg-light));
+  }
+
+  html.dark body {
+    background-color: rgb(var(--color-app-bg-dark));
   }
 }
 
@@ -18,7 +42,7 @@
   }
 
   .card {
-    @apply bg-white dark:bg-[#111C2E] border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-md dark:shadow-2xl transition-all duration-300;
+    @apply bg-white dark:bg-dark-card border border-light-border dark:border-dark-border rounded-xl p-6 shadow-md dark:shadow-2xl transition-all duration-300;
   }
 
   .card-hover {
@@ -26,11 +50,11 @@
   }
 
   .btn-primary {
-    @apply bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105;
+    @apply bg-white hover:bg-white/95 text-light-text-primary font-medium px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 ring-1 ring-light-border;
   }
 
   .btn-outline {
-    @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-medium px-6 py-3 rounded-lg transition-all duration-300;
+    @apply border-2 border-white text-light-text-primary bg-white/10 hover:bg-white font-medium px-6 py-3 rounded-lg transition-all duration-300;
   }
 
   .section-title {
@@ -42,30 +66,30 @@
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
+    @apply text-violet-950 dark:text-violet-100;
   }
 
   .skill-tag {
-    @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300;
+    @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-4 py-2 rounded-full text-sm font-medium border border-light-border dark:border-dark-border hover:border-violet-300 dark:hover:border-violet-400 transition-all duration-300;
   }
 
 }
 
-/* Scrollbar personnalisé */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-900;
+  @apply bg-accent-primary/50 dark:bg-dark-surface;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+  @apply rounded-full bg-white border border-light-border dark:border-dark-border dark:bg-accent-primary/40;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-blue-500;
+  @apply bg-accent-secondary dark:bg-white/20;
 }
 
 /* Animation pour les éléments au scroll */

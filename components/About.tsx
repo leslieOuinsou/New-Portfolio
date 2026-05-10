@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiDownload, FiMapPin } from "react-icons/fi";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PERSONAL_INFO } from "@/lib/constants";
+import { PERSONAL_INFO, PROJECTS } from "@/lib/constants";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -32,10 +33,10 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative w-full aspect-square max-w-md mx-auto">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-sm md:max-w-md">
               {/* Animated Background */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 rounded-3xl"
+                className="absolute inset-0 rounded-3xl bg-accent-primary/20"
                 animate={{
                   rotate: [0, 5, 0, -5, 0],
                 }}
@@ -46,14 +47,23 @@ export function About() {
                 }}
               />
 
-              {/* Profile Image Placeholder */}
-              <div className="absolute inset-4 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-3xl flex items-center justify-center text-white text-8xl font-bold shadow-light-lg dark:shadow-dark-lg">
-                {PERSONAL_INFO.name.split(" ").map((n) => n[0]).join("")}
+              {/* Photo de profil */}
+              <div className="absolute inset-3 overflow-hidden rounded-2xl bg-light-card shadow-light-lg ring-1 ring-white/60 dark:bg-dark-card dark:shadow-dark-lg dark:ring-dark-border sm:inset-4">
+                <div className="relative h-full w-full min-h-[280px]">
+                  <Image
+                    src="/about-profile.png"
+                    alt={`${PERSONAL_INFO.name}`}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 90vw, 28rem"
+                    priority
+                  />
+                </div>
               </div>
 
               {/* Floating Elements */}
               <motion.div
-                className="absolute -top-4 -right-4 w-24 h-24 bg-accent-primary/20 rounded-full blur-2xl"
+                className="absolute -top-4 -right-4 w-24 h-24 bg-accent-primary/30 rounded-full"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -65,7 +75,7 @@ export function About() {
                 }}
               />
               <motion.div
-                className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent-secondary/20 rounded-full blur-2xl"
+                className="absolute -bottom-4 -left-4 w-32 h-32 bg-white/50 dark:bg-white/10 rounded-full ring-1 ring-light-border dark:ring-dark-border"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -92,7 +102,7 @@ export function About() {
 
             {/* Location */}
             <div className="flex items-center gap-3 text-light-text-secondary dark:text-dark-text-secondary">
-              <FiMapPin className="w-5 h-5 text-accent-primary" />
+              <FiMapPin className="w-5 h-5 text-violet-800 dark:text-violet-300" />
               <span>{t.about.location}</span>
             </div>
 
@@ -113,7 +123,9 @@ export function About() {
                 className="card text-center"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-3xl font-bold gradient-text mb-2">3+</div>
+                <div className="text-3xl font-bold gradient-text mb-2">
+                  {PROJECTS.length}
+                </div>
                 <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
                   Projets
                 </div>
@@ -122,16 +134,15 @@ export function About() {
                 className="card text-center"
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-3xl font-bold gradient-text mb-2">∞</div>
+                <div className="text-3xl font-bold gradient-text mb-2">2</div>
                 <div className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-                  Passion
+                  Stages
                 </div>
               </motion.div>
             </div>
 
-            {/* CTA Button */}
             <motion.a
-              href="/cv-jordan-bell.pdf"
+              href="/cv-leslie-ouinsou.pdf"
               download
               className="btn-primary inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}

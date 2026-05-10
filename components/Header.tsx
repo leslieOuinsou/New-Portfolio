@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiGithub } from "react-icons/fi";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { PERSONAL_INFO } from "@/lib/constants";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,6 +28,7 @@ export function Header() {
     { name: t.nav.about, href: "#about" },
     { name: t.nav.skills, href: "#skills" },
     { name: t.nav.projects, href: "#projects" },
+    { name: t.nav.education, href: "#education" },
     { name: t.nav.contact, href: "#contact" },
   ];
 
@@ -50,18 +53,26 @@ export function Header() {
       >
         <nav className="container-custom py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo — sans cadre, ton fichier PNG */}
             <motion.a
               href="#home"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection("#home");
               }}
-              className="text-2xl font-bold gradient-text"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="flex shrink-0 items-center transition-opacity hover:opacity-90"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              aria-label={`${PERSONAL_INFO.name} — accueil`}
             >
-              JB
+              <Image
+                src="/Logo.jpg"
+                alt={`Logo ${PERSONAL_INFO.name}`}
+                width={160}
+                height={160}
+                className="h-10 w-auto max-h-11 object-contain object-left sm:h-11"
+                priority
+              />
             </motion.a>
 
             {/* Desktop Navigation */}
@@ -74,7 +85,7 @@ export function Header() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary dark:hover:text-accent-primary transition-colors duration-300 font-medium"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-violet-800 dark:hover:text-violet-300 transition-colors duration-300 font-medium"
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -87,13 +98,24 @@ export function Header() {
 
             {/* Theme & Language Toggle */}
             <div className="flex items-center gap-3">
+              <motion.a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-10 h-10 rounded-lg border border-light-border dark:border-dark-border items-center justify-center text-light-text-secondary dark:text-dark-text-secondary hover:text-violet-800 hover:border-violet-300 dark:hover:text-violet-300 dark:hover:border-violet-500 transition-colors shrink-0"
+                aria-label="GitHub — profil leslieOuinsou"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <FiGithub className="w-5 h-5" />
+              </motion.a>
               <LanguageToggle />
               <ThemeToggle />
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden w-10 h-10 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-accent-primary dark:hover:border-accent-primary transition-all duration-300"
+                className="md:hidden w-10 h-10 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-violet-300 dark:hover:border-violet-500 transition-all duration-300"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
@@ -117,7 +139,20 @@ export function Header() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed top-[72px] right-0 bottom-0 w-64 bg-light-surface dark:bg-dark-surface border-l border-light-border dark:border-dark-border shadow-light-lg dark:shadow-dark-lg z-40 md:hidden"
           >
-            <div className="flex flex-col p-6 gap-4">
+            <div className="flex flex-col gap-4 p-6">
+              <button
+                type="button"
+                onClick={() => scrollToSection("#home")}
+                className="mb-2 flex shrink-0 items-center self-start"
+              >
+                <Image
+                  src="/Logo.jpg"
+                  alt={`Logo ${PERSONAL_INFO.name}`}
+                  width={140}
+                  height={140}
+                  className="h-9 w-auto object-contain object-left"
+                />
+              </button>
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -126,7 +161,7 @@ export function Header() {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-accent-primary dark:hover:text-accent-primary transition-colors duration-300 font-medium text-lg py-2"
+                  className="text-light-text-secondary dark:text-dark-text-secondary hover:text-violet-800 dark:hover:text-violet-300 transition-colors duration-300 font-medium text-lg py-2"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}

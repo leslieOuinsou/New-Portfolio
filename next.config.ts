@@ -3,15 +3,22 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
+  transpilePackages: ["ogl"],
+  async rewrites() {
+    return [{ source: "/favicon.ico", destination: "/Logo.jpg" }];
+  },
   images: {
-    domains: ["localhost"],
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+    ],
   },
   compress: true,
   poweredByHeader: false,
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'react-icons'],
-  },
   webpack: (config, { dev, isServer }) => {
     if (dev && !isServer) {
       config.watchOptions = {

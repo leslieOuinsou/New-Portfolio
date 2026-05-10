@@ -21,13 +21,13 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="w-10 h-10 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-accent-primary dark:hover:border-accent-primary transition-all duration-300 hover:scale-110"
+      className="w-10 h-10 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-violet-300 dark:hover:border-violet-500 transition-all duration-300 hover:scale-110"
       aria-label="Toggle theme"
     >
       {theme === "dark" ? (
-        <FiSun className="w-5 h-5 text-accent-primary" />
+        <FiSun className="w-5 h-5 text-violet-800 dark:text-violet-300" />
       ) : (
-        <FiMoon className="w-5 h-5 text-accent-primary" />
+        <FiMoon className="w-5 h-5 text-violet-800 dark:text-violet-300" />
       )}
     </button>
   );
