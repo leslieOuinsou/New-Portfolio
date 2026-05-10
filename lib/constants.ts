@@ -131,12 +131,11 @@ export const EDUCATION = [
   },
   {
     id: 2,
-    degree:
-      "Mastère 1 Chef de Projets Web Développement — 3ème année",
+    degree: "Mastère 1 Chef de Projets Web Développement",
     school: "Institut Européen F2I, Vincennes",
     period: "2024 / 2025",
     description:
-      "Troisième année du parcours Chef de Projets Web Développement : pilotage de projets web, cadrage, gestion d’équipe, livrables, qualité et développement, en lien avec les besoins métiers.",
+      "Parcours Chef de Projets Web Développement : pilotage de projets web, cadrage, gestion d’équipe, livrables, qualité et développement, en lien avec les besoins métiers.",
     skills: [
       "Chef de projet web",
       "Agile / Scrum",
