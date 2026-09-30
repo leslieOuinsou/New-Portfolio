@@ -7,14 +7,34 @@ export const translations = {
       projects: "Projets",
       education: "Formation",
       contact: "Contact",
+      profile: "Profil",
+      desk: "Bureau 3D",
     },
     hero: {
       greeting: "Bonjour, je suis",
       title: "Développeuse Fullstack Junior",
       subtitle:
-        "Passionnée par l’informatique, le développement et le design -autonome, rigoureuse et créative, prête à m’investir pleinement dans vos projets.",
+        "Passionnée par l’informatique, le développement et le design — autonome, rigoureuse et créative, prête à m’investir pleinement dans vos projets.",
       cta: "Voir mes projets",
       contact: "Me contacter",
+      tagline:
+        "Fullstack de formation, créative par nature, et l’IA comme outil du quotidien.",
+      stackLine: "React · TypeScript · Next.js · Node.js",
+      sceneHint: "Bouge la souris · scrolle pour animer la scène 3D",
+    },
+    immersive: {
+      formation: "Formation",
+      frontend: "Front-end",
+      backend: "Back-end",
+      tools: "Outils & qualité",
+      openProject: "Ouvrir le projet",
+      viewCode: "Code source",
+      pageOf: "sur",
+      dragHint: "Molette ou flèches pour naviguer",
+      downloadCV: "Télécharger mon CV",
+      writeMe: "Écris-moi",
+      deskBlurb:
+        "Un espace de travail lumineux, pensé comme une carte de visite 3D — douce, colorée et interactive.",
     },
     about: {
       title: "À propos de moi",
@@ -57,7 +77,7 @@ export const translations = {
       },
     },
     education: {
-      title: "Parcours scolaire",
+      title: "Parcours académique",
       subtitle: "Formations et diplômes",
     },
     contact: {
@@ -89,6 +109,8 @@ export const translations = {
       projects: "Projects",
       education: "Education",
       contact: "Contact",
+      profile: "Profile",
+      desk: "3D Desk",
     },
     hero: {
       greeting: "Hello, I'm",
@@ -97,6 +119,24 @@ export const translations = {
         "Passionate about IT, development, and design — independent, rigorous, and creative, ready to fully invest in your projects.",
       cta: "View my projects",
       contact: "Contact me",
+      tagline:
+        "Full-stack by training, creative by nature, and AI as an everyday tool.",
+      stackLine: "React · TypeScript · Next.js · Node.js",
+      sceneHint: "Move your mouse · scroll to animate the 3D scene",
+    },
+    immersive: {
+      formation: "Education",
+      frontend: "Front-end",
+      backend: "Back-end",
+      tools: "Tools & quality",
+      openProject: "Open project",
+      viewCode: "Source code",
+      pageOf: "of",
+      dragHint: "Scroll or arrow keys to navigate",
+      downloadCV: "Download my CV",
+      writeMe: "Write to me",
+      deskBlurb:
+        "A bright workspace designed as a 3D calling card — soft, colorful, and interactive.",
     },
     about: {
       title: "About Me",

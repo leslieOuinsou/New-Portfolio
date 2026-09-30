@@ -124,7 +124,7 @@ export const EDUCATION = [
     id: 1,
     degree: "Master 2 Architecture Web",
     school: "Institut Européen F2I, Vincennes",
-    period: "En cours",
+    period: "2025 / 2026",
     description:
       "Spécialisation architecture web et développement d’applications modernes, après le Mastère 1 chef de projets web.",
     skills: ["Architecture web", "Fullstack", "Qualité", "Méthodes agiles"],

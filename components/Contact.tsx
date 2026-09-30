@@ -74,7 +74,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="py-20 md:py-32 bg-light-card dark:bg-dark-card"
+      className="relative py-20 md:py-32"
       ref={ref}
     >
       <div className="container-custom">
@@ -105,11 +105,11 @@ export function Contact() {
               <div className="space-y-4">
                 <motion.a
                   href={`mailto:${PERSONAL_INFO.email}`}
-                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  className="card flex items-center gap-4 hover:border-[rgb(var(--color-coral))] transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                    <FiMail className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    <FiMail className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -123,11 +123,11 @@ export function Contact() {
 
                 <motion.a
                   href={`tel:${PERSONAL_INFO.phone.replace(/\s/g, "")}`}
-                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  className="card flex items-center gap-4 hover:border-[rgb(var(--color-coral))] transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                    <FiPhone className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    <FiPhone className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -143,11 +143,11 @@ export function Contact() {
                   href={PERSONAL_INFO.portfolio}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  className="card flex items-center gap-4 hover:border-[rgb(var(--color-coral))] transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                    <FiGlobe className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    <FiGlobe className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -163,11 +163,11 @@ export function Contact() {
                   href={PERSONAL_INFO.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  className="card flex items-center gap-4 hover:border-[rgb(var(--color-coral))] transition-all"
                   whileHover={{ scale: 1.02, x: 10 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                    <FiGithub className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    <FiGithub className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -184,11 +184,11 @@ export function Contact() {
                     href={PERSONAL_INFO.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="card flex items-center gap-4 hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                    className="card flex items-center gap-4 hover:border-[rgb(var(--color-coral))] transition-all"
                     whileHover={{ scale: 1.02, x: 10 }}
                   >
                     <div className="w-12 h-12 rounded-lg bg-accent-primary/50 border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                      <FiLinkedin className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                      <FiLinkedin className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                     </div>
                     <div>
                       <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -206,7 +206,7 @@ export function Contact() {
                   whileHover={{ scale: 1.02 }}
                 >
                   <div className="w-12 h-12 rounded-lg bg-white border border-light-border dark:border-dark-border flex items-center justify-center flex-shrink-0">
-                    <FiMapPin className="w-6 h-6 text-violet-900 dark:text-violet-200" />
+                    <FiMapPin className="w-6 h-6 text-[rgb(var(--color-coral))]" />
                   </div>
                   <div>
                     <p className="font-semibold text-light-text-primary dark:text-dark-text-primary">
@@ -219,23 +219,6 @@ export function Contact() {
                 </motion.div>
               </div>
             </div>
-
-            {/* Decorative Element — fonds contrastés en clair / sombre */}
-            <motion.div
-              className="relative h-40 overflow-hidden rounded-lg bg-gradient-to-br from-accent-primary via-white to-accent-primary/80 ring-1 ring-light-border dark:from-dark-card dark:via-violet-950 dark:to-violet-900 dark:ring-dark-border"
-              animate={{ opacity: [0.95, 1, 0.95] }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-4">
-                <p className="text-center text-2xl font-bold text-violet-950 sm:text-3xl md:text-4xl dark:text-dark-text-primary">
-                  Let&apos;s Work Together
-                </p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -255,7 +238,7 @@ export function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors text-light-text-primary dark:text-dark-text-primary"
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors text-light-text-primary dark:text-dark-text-primary"
                   placeholder="Votre nom"
                   autoComplete="name"
                   suppressHydrationWarning
@@ -276,7 +259,7 @@ export function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors text-light-text-primary dark:text-dark-text-primary"
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors text-light-text-primary dark:text-dark-text-primary"
                   placeholder="votre@email.com"
                   autoComplete="email"
                   suppressHydrationWarning
@@ -297,7 +280,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-violet-300/50 focus:border-violet-400/60 transition-colors resize-none text-light-text-primary dark:text-dark-text-primary"
+                  className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors resize-none text-light-text-primary dark:text-dark-text-primary"
                   placeholder="Votre message..."
                   suppressHydrationWarning
                 />
@@ -311,7 +294,7 @@ export function Contact() {
                 {status === "sending" ? (
                   <>
                     <span
-                      className="w-5 h-5 border-2 border-violet-200 border-t-violet-900 rounded-full animate-spin"
+                      className="w-5 h-5 border-2 border-orange-200 border-t-[rgb(var(--color-coral))] rounded-full animate-spin"
                       aria-hidden
                     />
                     {t.contact.sending}

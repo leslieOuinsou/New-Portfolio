@@ -59,7 +59,7 @@ export function Education() {
                   transition={{ duration: 0.6 }}
                 >
                   <div className="w-12 h-12 rounded-full bg-accent-primary flex items-center justify-center relative ring-2 ring-white/70 dark:ring-white/20">
-                    <FiAward className="w-6 h-6 text-violet-950 dark:text-violet-100" />
+                    <FiAward className="w-6 h-6 text-[rgb(var(--color-ink))]" />
                     {/* Pulse Animation */}
                     <motion.div
                       className="absolute inset-0 rounded-full bg-accent-primary/50"
@@ -88,7 +88,7 @@ export function Education() {
                   </motion.h3>
 
                   {/* School */}
-                  <div className="flex items-center gap-2 text-violet-800 dark:text-violet-300 mb-2">
+                  <div className="flex items-center gap-2 text-[rgb(var(--color-coral))] mb-2">
                     <FiBookOpen className="w-4 h-4" />
                     <span className="font-medium">{edu.school}</span>
                   </div>
@@ -109,7 +109,7 @@ export function Education() {
                     {edu.skills.map((skill, skillIndex) => (
                       <motion.span
                         key={skill}
-                        className="px-3 py-1 text-xs font-medium bg-accent-primary/35 dark:bg-accent-primary/25 text-violet-950 dark:text-violet-100 rounded-full cursor-default border border-light-border/80 dark:border-dark-border"
+                        className="px-3 py-1 text-xs font-medium bg-accent-primary/35 dark:bg-accent-primary/25 text-[rgb(var(--color-ink))] rounded-full cursor-default border border-light-border/80 dark:border-dark-border"
                         initial={{ opacity: 0, scale: 0 }}
                         animate={
                           isInView

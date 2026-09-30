@@ -82,7 +82,7 @@ export function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 md:py-32 bg-light-card dark:bg-dark-card"
+      className="relative py-20 md:py-32"
       ref={ref}
     >
       <div className="container-custom">
@@ -132,7 +132,7 @@ export function Skills() {
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Icon className="w-6 h-6 text-violet-950 dark:text-violet-100" />
+                    <Icon className="w-6 h-6 text-[rgb(var(--color-ink))]" />
                     {/* Pulse effect */}
                     <motion.div
                       className={`absolute inset-0 rounded-lg ${pulseTint}`}

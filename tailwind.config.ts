@@ -36,7 +36,8 @@ export default {
         "dark-lg": "0 10px 15px -3px rgb(0 0 0 / 0.45)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nunito)", "system-ui", "sans-serif"],
+        display: ["var(--font-cormorant)", "Georgia", "serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-in-out",

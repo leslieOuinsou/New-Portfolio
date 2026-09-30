@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { ScrollMotionProvider } from "@/contexts/ScrollMotionContext";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: "--font-nunito",
   display: "swap",
 });
 
@@ -22,18 +30,11 @@ export const metadata: Metadata = {
     "TypeScript",
     "Node.js",
     "portfolio",
-    "développeur web",
-    "Laravel",
-    "Symfony",
+    "Three.js",
   ],
   authors: [{ name: "Leslie OUINSOU" }],
   creator: "Leslie OUINSOU",
   publisher: "Leslie OUINSOU",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
   metadataBase: new URL("https://new-portfolio-eight-omega.vercel.app"),
   openGraph: {
     title: "Leslie OUINSOU - Développeuse Fullstack Junior",
@@ -44,22 +45,9 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Leslie OUINSOU - Développeuse Fullstack Junior",
-    description:
-      "Portfolio de Leslie OUINSOU — développement web fullstack et qualité logicielle.",
-  },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
   icons: {
     icon: [
@@ -78,9 +66,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${cormorant.variable} ${nunito.variable} font-sans`}>
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <ScrollMotionProvider>{children}</ScrollMotionProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

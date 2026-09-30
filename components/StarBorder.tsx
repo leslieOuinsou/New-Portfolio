@@ -1,51 +1,49 @@
-import React from 'react';
-import './StarBorder.css';
+import React from "react";
+import "./StarBorder.css";
 
-type StarBorderProps<T extends React.ElementType> = React.ComponentPropsWithoutRef<T> & {
-  as?: T;
+type StarBorderProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string;
   children?: React.ReactNode;
   color?: string;
-  speed?: React.CSSProperties['animationDuration'];
+  speed?: React.CSSProperties["animationDuration"];
   thickness?: number;
 };
 
-const StarBorder = <T extends React.ElementType = 'button'>({
-  as,
-  className = '',
-  color = 'white',
-  speed = '6s',
+const StarBorder = ({
+  className = "",
+  color = "white",
+  speed = "6s",
   thickness = 1,
   children,
+  style,
   ...rest
-}: StarBorderProps<T>) => {
-  const Component = as || 'button';
-
+}: StarBorderProps) => {
   return (
-    <Component
+    <button
+      type="button"
       className={`star-border-container ${className}`}
-      {...(rest as React.ComponentPropsWithoutRef<T>)}
       style={{
         padding: `${thickness}px 0`,
-        ...((rest as React.ComponentPropsWithoutRef<T>).style as React.CSSProperties)
+        ...style,
       }}
+      {...rest}
     >
       <div
         className="border-gradient-bottom"
         style={{
           background: `radial-gradient(circle, ${color}, transparent 10%)`,
-          animationDuration: speed
+          animationDuration: speed,
         }}
-      ></div>
+      />
       <div
         className="border-gradient-top"
         style={{
           background: `radial-gradient(circle, ${color}, transparent 10%)`,
-          animationDuration: speed
+          animationDuration: speed,
         }}
-      ></div>
+      />
       <div className="inner-content">{children}</div>
-    </Component>
+    </button>
   );
 };
 

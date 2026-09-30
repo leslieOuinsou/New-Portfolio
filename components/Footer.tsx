@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiHeart, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PERSONAL_INFO } from "@/lib/constants";
 
@@ -24,7 +24,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-light-surface dark:bg-dark-surface border-t border-light-border dark:border-dark-border">
+    <footer className="relative border-t border-[rgb(var(--rose))]/30 bg-white/50 backdrop-blur-xl">
       <div className="container-custom py-12">
         <div className="grid md:grid-cols-3 gap-8 items-center">
           {/* Left - Logo/Name */}
@@ -68,7 +68,7 @@ export function Footer() {
                   href={link.href}
                   target={link.label !== "Email" ? "_blank" : undefined}
                   rel={link.label !== "Email" ? "noopener noreferrer" : undefined}
-                  className="w-12 h-12 rounded-full bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-violet-300 dark:hover:border-violet-500 transition-all"
+                  className="w-12 h-12 rounded-full bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border flex items-center justify-center hover:border-[rgb(var(--color-coral))] transition-all"
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, y: 20 }}
@@ -99,32 +99,6 @@ export function Footer() {
             </p>
           </motion.div>
         </div>
-
-        {/* Bottom - Made With */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 pt-8 border-t border-light-border dark:border-dark-border text-center"
-        >
-          <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary flex items-center justify-center gap-2 flex-wrap">
-            <span>{t.footer.madeWith}</span>
-            <motion.span
-              animate={{
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 1,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <FiHeart className="inline text-violet-700 dark:text-violet-400" />
-            </motion.span>
-            <span>{t.footer.using}</span>
-          </p>
-        </motion.div>
       </div>
     </footer>
   );
