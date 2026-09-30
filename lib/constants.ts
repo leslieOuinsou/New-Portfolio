@@ -136,6 +136,7 @@ export const PROJECTS = [
       "Docker",
     ],
     liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",
+    workflowUrl: "https://wk-archi-o24a-4-5-g5.duckdns.org",
     githubUrl: "https://github.com/leslieOuinsou",
   },
 ];

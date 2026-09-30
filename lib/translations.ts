@@ -60,6 +60,7 @@ export const translations = {
       title: "Mes projets",
       viewProject: "Voir le projet",
       viewCode: "Voir le code",
+      viewWorkflow: "Workflow",
       technologies: "Technologies",
       project1: {
         title: "MyBudget+",
@@ -174,6 +175,7 @@ export const translations = {
       title: "My Projects",
       viewProject: "View project",
       viewCode: "View code",
+      viewWorkflow: "Workflow",
       technologies: "Technologies",
       project1: {
         title: "MyBudget+",

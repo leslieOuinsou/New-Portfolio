@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PROJECTS } from "@/lib/constants";
 import { useRef } from "react";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiGitBranch } from "react-icons/fi";
 import Image from "next/image";
 
 export function Projects() {
@@ -69,7 +69,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex flex-wrap gap-3">
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -79,6 +79,18 @@ export function Projects() {
                       <FiExternalLink className="h-3.5 w-3.5" />
                       {t.projects.viewProject}
                     </a>
+                    {"workflowUrl" in project && project.workflowUrl ? (
+                      <a
+                        href={project.workflowUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline !px-3.5 !py-2.5"
+                        aria-label={t.projects.viewWorkflow}
+                        title={t.projects.viewWorkflow}
+                      >
+                        <FiGitBranch className="h-4 w-4" />
+                      </a>
+                    ) : null}
                     <a
                       href={project.githubUrl}
                       target="_blank"
