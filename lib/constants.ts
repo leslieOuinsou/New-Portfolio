@@ -123,16 +123,16 @@ export const PROJECTS = [
     title: "Thé Tip Top",
     titleEn: "Thé Tip Top",
     description:
-      "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — projet d’architecture web avec déploiement et monitoring (CI/CD).",
+      "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — Next.js, Node.js, PostgreSQL et Prisma, avec déploiement et monitoring CI/CD.",
     descriptionEn:
-      "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking — web architecture project with deployment and monitoring (CI/CD).",
+      "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking — Next.js, Node.js, PostgreSQL and Prisma, with CI/CD deployment and monitoring.",
     image: "/the-tip-top.jpg",
     technologies: [
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
       "Jenkins",
-      "GitLab",
-      "Grafana",
-      "Prometheus",
-      "Contabo",
       "Docker",
     ],
     liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",

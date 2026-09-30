@@ -83,7 +83,7 @@ export const translations = {
       project5: {
         title: "Thé Tip Top",
         description:
-          "Jeu concours Thé Tip Top — architecture web, déploiement et monitoring",
+          "Jeu concours Thé Tip Top — Next.js, Node.js, PostgreSQL, Prisma et CI/CD",
       },
     },
     education: {
@@ -197,7 +197,7 @@ export const translations = {
       project5: {
         title: "Thé Tip Top",
         description:
-          "Thé Tip Top contest — web architecture, deployment and monitoring",
+          "Thé Tip Top contest — Next.js, Node.js, PostgreSQL, Prisma and CI/CD",
       },
     },
     education: {
