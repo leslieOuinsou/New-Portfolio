@@ -26,6 +26,8 @@ export function Projects() {
 
         <div className="grid gap-8 sm:grid-cols-2">
           {PROJECTS.map((project, index) => {
+            const title =
+              language === "en" ? project.titleEn : project.title;
             const description =
               language === "fr" ? project.description : project.descriptionEn;
 
@@ -42,7 +44,7 @@ export function Projects() {
                 <div className="relative -mx-6 -mt-6 mb-6 aspect-[5/3] overflow-hidden">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={title}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 50vw"
@@ -52,7 +54,7 @@ export function Projects() {
 
                 <div className="relative z-10 flex flex-1 flex-col">
                   <h3 className="mb-3 text-xl font-bold text-light-text-primary dark:text-dark-text-primary md:text-2xl">
-                    {project.title}
+                    {title}
                   </h3>
 
                   <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-light-text-secondary dark:text-dark-text-secondary md:text-base">

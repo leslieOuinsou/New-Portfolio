@@ -1,6 +1,7 @@
 export const PERSONAL_INFO = {
   name: "Leslie OUINSOU",
   title: "Développeuse Fullstack Junior",
+  titleEn: "Junior Fullstack Developer",
   email: "ouinsou15@gmail.com",
   phone: "+33 7 66 23 45 75",
   location: "Flexible",
@@ -31,17 +32,19 @@ export const SKILLS = {
     "GraphQL",
   ],
   database: ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "SQL"],
-  tools: [
-    "Jenkins",
-    "GitLab",
-    "Grafana",
-    "Prometheus",
-    "Contabo",
-  ],
+  tools: ["Jenkins", "GitLab", "Grafana", "Prometheus", "Contabo"],
   design: ["Figma", "Canva", "visily.ai"],
   cms: ["WordPress", "ACF", "Elementor", "Twig"],
   automation: [
     "Tests unitaires",
+    "TDD",
+    "Clean Code",
+    "Cursor",
+    "Claude",
+    "GitHub Copilot",
+  ],
+  automationEn: [
+    "Unit testing",
     "TDD",
     "Clean Code",
     "Cursor",
@@ -54,6 +57,7 @@ export const PROJECTS = [
   {
     id: 1,
     title: "MyBudget+",
+    titleEn: "MyBudget+",
     description:
       "Application web et mobile de gestion de budget avec dispositifs de tests et de reporting qualité.",
     descriptionEn:
@@ -75,6 +79,7 @@ export const PROJECTS = [
   {
     id: 2,
     title: "Gestion d'événements",
+    titleEn: "Event Management",
     description:
       "Développement fullstack d’un site de gestion d’événements : création, modification et consultation des événements par les utilisateurs.",
     descriptionEn:
@@ -88,6 +93,7 @@ export const PROJECTS = [
   {
     id: 3,
     title: "Player Finder",
+    titleEn: "Player Finder",
     description:
       "Application mobile de mise en relation entre joueurs : recherche de partenaires ou d’équipes, profils et interface adaptée au mobile. Projet orienté développement mobile et expérience utilisateur.",
     descriptionEn:
@@ -101,6 +107,7 @@ export const PROJECTS = [
   {
     id: 4,
     title: "Afro-food",
+    titleEn: "Afro-food",
     description:
       "Site vitrine et menu digital pour une cuisine camerounaise et béninoise : présentation des plats, navigation fluide et déploiement sur Vercel.",
     descriptionEn:
@@ -114,6 +121,7 @@ export const PROJECTS = [
   {
     id: 5,
     title: "Thé Tip Top",
+    titleEn: "Thé Tip Top",
     description:
       "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — projet d’architecture web avec déploiement et monitoring (CI/CD).",
     descriptionEn:
@@ -136,33 +144,50 @@ export const EDUCATION = [
   {
     id: 1,
     degree: "Master 2 Architecture Web",
+    degreeEn: "Master's Year 2 — Web Architecture",
     school: "Institut Européen F2I, Vincennes",
     period: "2025 / 2026",
     description:
       "Spécialisation architecture web et développement d’applications modernes, après le Mastère 1 chef de projets web.",
+    descriptionEn:
+      "Specialization in web architecture and modern application development, following the Master's Year 1 in web project management.",
     skills: ["Architecture web", "Fullstack", "Qualité", "Méthodes agiles"],
+    skillsEn: ["Web architecture", "Fullstack", "Quality", "Agile methods"],
   },
   {
     id: 2,
     degree: "Mastère 1 Chef de Projets Web Développement",
+    degreeEn: "Master's Year 1 — Web Development Project Manager",
     school: "Institut Européen F2I, Vincennes",
     period: "2024 / 2025",
     description:
       "Parcours Chef de Projets Web Développement : pilotage de projets web, cadrage, gestion d’équipe, livrables, qualité et développement, en lien avec les besoins métiers.",
+    descriptionEn:
+      "Web Development Project Manager track: project leadership, scoping, team management, deliverables, quality and development aligned with business needs.",
     skills: [
       "Chef de projet web",
       "Agile / Scrum",
       "Cadrage & specs",
       "Développement web",
     ],
+    skillsEn: [
+      "Web project management",
+      "Agile / Scrum",
+      "Scoping & specs",
+      "Web development",
+    ],
   },
   {
     id: 3,
     degree: "Bachelor 3 Développement Web et Mobile",
+    degreeEn: "Bachelor Year 3 — Web & Mobile Development",
     school: "Institut F2I, Vincennes",
     period: "2023 – 2024",
     description:
       "Formation orientée conception et développement d’applications web et mobiles, bonnes pratiques et travail en équipe.",
+    descriptionEn:
+      "Training focused on designing and building web and mobile apps, best practices, and teamwork.",
     skills: ["Web", "Mobile", "Gestion de projet", "Intégration"],
+    skillsEn: ["Web", "Mobile", "Project management", "Integration"],
   },
 ];

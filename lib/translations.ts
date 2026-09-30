@@ -42,6 +42,10 @@ export const translations = {
         "Passionnée par l’informatique, le développement et le design, je suis autonome, rigoureuse et créative. J’aime concevoir des applications web modernes, des API robustes et des interfaces soignées, en m’appuyant sur les bonnes pratiques (tests, clean code, agilité). Curieuse des évolutions tech, notamment autour de l’IA. Langues : français (natif), anglais (B1). Centres d’intérêt : sport, lecture, veille tech (notamment IA).",
       downloadCV: "Télécharger mon CV",
       location: "Mobilité : flexible",
+      eyebrow: "Portrait",
+      statTech: "Technologies",
+      statProjects: "Projets",
+      statInternships: "Stages",
     },
     skills: {
       title: "Mes compétences",
@@ -99,6 +103,9 @@ export const translations = {
       phone: "Téléphone",
       portfolio: "Portfolio",
       mobility: "Mobilité",
+      namePlaceholder: "Votre nom",
+      emailPlaceholder: "votre@email.com",
+      messagePlaceholder: "Votre message...",
     },
     footer: {
       rights: "Tous droits réservés.",
@@ -149,6 +156,10 @@ export const translations = {
         "Passionate about IT, development, and design, I am independent, rigorous, and creative. I enjoy building modern web apps, solid APIs, and polished UIs, with a focus on best practices (testing, clean code, agility). I stay curious about tech trends, especially AI. Languages: French (native), English (B1). Interests: sports, reading, tech watch (especially AI).",
       downloadCV: "Download my CV",
       location: "Location: flexible",
+      eyebrow: "Portrait",
+      statTech: "Technologies",
+      statProjects: "Projects",
+      statInternships: "Internships",
     },
     skills: {
       title: "My Skills",
@@ -205,6 +216,9 @@ export const translations = {
       phone: "Phone",
       portfolio: "Portfolio",
       mobility: "Mobility",
+      namePlaceholder: "Your name",
+      emailPlaceholder: "your@email.com",
+      messagePlaceholder: "Your message...",
     },
     footer: {
       rights: "All rights reserved.",

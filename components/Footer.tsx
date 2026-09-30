@@ -6,8 +6,10 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { PERSONAL_INFO } from "@/lib/constants";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const title =
+    language === "en" ? PERSONAL_INFO.titleEn : PERSONAL_INFO.title;
 
   const socialLinks = [
     { icon: FiGithub, href: PERSONAL_INFO.github, label: "GitHub" },
@@ -48,7 +50,7 @@ export function Footer() {
               {PERSONAL_INFO.name}
             </h3>
             <p className="text-sm text-light-text-secondary dark:text-dark-text-secondary">
-              {PERSONAL_INFO.title}
+              {title}
             </p>
           </motion.div>
 

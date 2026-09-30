@@ -11,6 +11,12 @@ export function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
+  const stats = [
+    { value: "20+", label: t.about.statTech },
+    { value: String(PROJECTS.length), label: t.about.statProjects },
+    { value: "2", label: t.about.statInternships },
+  ];
+
   return (
     <section id="about" className="relative py-24 md:py-32" ref={ref}>
       <div className="container-custom">
@@ -21,7 +27,7 @@ export function About() {
           className="soft-panel mx-auto max-w-4xl px-8 py-12 sm:px-12"
         >
           <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-[rgb(var(--accent-deep))]">
-            Portrait
+            {t.about.eyebrow}
           </p>
           <h2 className="section-title">{t.about.title}</h2>
           <p className="mt-6 text-lg leading-relaxed text-[rgb(var(--ink-soft))]">
@@ -34,11 +40,7 @@ export function About() {
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-4 border-t border-[rgb(var(--rose))]/30 pt-8">
-            {[
-              { value: "20+", label: "Technologies" },
-              { value: String(PROJECTS.length), label: "Projets" },
-              { value: "2", label: "Stages" },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-display text-3xl text-[rgb(var(--accent-deep))]">
                   {stat.value}

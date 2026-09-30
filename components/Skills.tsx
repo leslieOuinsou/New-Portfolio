@@ -40,7 +40,7 @@ const SKILL_CLOUD_IMAGE_URLS = [
 ];
 
 export function Skills() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -77,7 +77,7 @@ export function Skills() {
     },
     {
       title: t.skills.automation,
-      skills: SKILLS.automation,
+      skills: language === "en" ? SKILLS.automationEn : SKILLS.automation,
       icon: FiZap,
       accent: "secondary" as const,
     },

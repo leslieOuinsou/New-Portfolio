@@ -239,7 +239,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors text-light-text-primary dark:text-dark-text-primary"
-                  placeholder="Votre nom"
+                  placeholder={t.contact.namePlaceholder}
                   autoComplete="name"
                   suppressHydrationWarning
                 />
@@ -260,7 +260,7 @@ export function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors text-light-text-primary dark:text-dark-text-primary"
-                  placeholder="votre@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                   autoComplete="email"
                   suppressHydrationWarning
                 />
@@ -281,7 +281,7 @@ export function Contact() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 rounded-lg bg-light-card dark:bg-dark-card border border-light-border dark:border-dark-border focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-azure))]/40 focus:border-[rgb(var(--color-azure))] transition-colors resize-none text-light-text-primary dark:text-dark-text-primary"
-                  placeholder="Votre message..."
+                  placeholder={t.contact.messagePlaceholder}
                   suppressHydrationWarning
                 />
               </div>
