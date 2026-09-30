@@ -48,8 +48,7 @@ export const translations = {
       frontend: "Front-end",
       backend: "Back-end",
       database: "Bases de données",
-      tools: "Outils & DevOps",
-      cicd: "CI/CD & Monitoring",
+      tools: "DevOps & CI/CD",
       design: "Design & CMS",
       automation: "Qualité & IA assistée",
     },
@@ -75,6 +74,11 @@ export const translations = {
         title: "Afro-food",
         description:
           "Menu digital cuisine camerounaise et béninoise (Next.js, Vercel)",
+      },
+      project5: {
+        title: "Thé Tip Top",
+        description:
+          "Jeu concours Thé Tip Top — architecture web, déploiement et monitoring",
       },
     },
     education: {
@@ -151,8 +155,7 @@ export const translations = {
       frontend: "Front-end",
       backend: "Back-end",
       database: "Databases",
-      tools: "Tools & DevOps",
-      cicd: "CI/CD & Monitoring",
+      tools: "DevOps & CI/CD",
       design: "Design & CMS",
       automation: "Quality & AI-assisted",
     },
@@ -177,6 +180,11 @@ export const translations = {
         title: "Afro-food",
         description:
           "Digital menu for Cameroonian & Beninese cuisine (Next.js, Vercel)",
+      },
+      project5: {
+        title: "Thé Tip Top",
+        description:
+          "Thé Tip Top contest — web architecture, deployment and monitoring",
       },
     },
     education: {

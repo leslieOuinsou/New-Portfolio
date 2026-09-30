@@ -32,16 +32,6 @@ export const SKILLS = {
   ],
   database: ["PostgreSQL", "MongoDB", "MySQL", "Firebase", "SQL"],
   tools: [
-    "Git",
-    "GitHub",
-    "Docker",
-    "GitHub Actions",
-    "AWS",
-    "Agile",
-    "Scrum",
-    "Jest",
-  ],
-  cicd: [
     "Jenkins",
     "GitLab",
     "Grafana",
@@ -119,6 +109,26 @@ export const PROJECTS = [
       "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&h=600&fit=crop",
     technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     liveUrl: "https://afrofood.vercel.app/",
+    githubUrl: "https://github.com/leslieOuinsou",
+  },
+  {
+    id: 5,
+    title: "Thé Tip Top",
+    description:
+      "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — projet d’architecture web avec déploiement et monitoring (CI/CD).",
+    descriptionEn:
+      "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking — web architecture project with deployment and monitoring (CI/CD).",
+    image:
+      "https://images.unsplash.com/photo-1564890367538-4657d0d8c1d0?w=800&h=600&fit=crop",
+    technologies: [
+      "Jenkins",
+      "GitLab",
+      "Grafana",
+      "Prometheus",
+      "Contabo",
+      "Docker",
+    ],
+    liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",
     githubUrl: "https://github.com/leslieOuinsou",
   },
 ];

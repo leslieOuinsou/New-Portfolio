@@ -9,10 +9,9 @@ import {
   FiCode,
   FiServer,
   FiDatabase,
-  FiTool,
+  FiActivity,
   FiLayout,
   FiZap,
-  FiActivity,
 } from "react-icons/fi";
 import { IconCloud } from "./IconCloud";
 
@@ -32,8 +31,6 @@ const SKILL_CLOUD_IMAGE_URLS = [
   siIcon("express"),
   siIcon("mongodb"),
   siIcon("postgresql"),
-  siIcon("git"),
-  siIcon("docker"),
   siIcon("jenkins"),
   siIcon("gitlab"),
   siIcon("grafana"),
@@ -69,26 +66,20 @@ export function Skills() {
     {
       title: t.skills.tools,
       skills: SKILLS.tools,
-      icon: FiTool,
-      accent: "secondary" as const,
-    },
-    {
-      title: t.skills.cicd,
-      skills: SKILLS.cicd,
       icon: FiActivity,
-      accent: "primary" as const,
+      accent: "secondary" as const,
     },
     {
       title: t.skills.design,
       skills: [...SKILLS.design, ...SKILLS.cms],
       icon: FiLayout,
-      accent: "secondary" as const,
+      accent: "primary" as const,
     },
     {
       title: t.skills.automation,
       skills: SKILLS.automation,
       icon: FiZap,
-      accent: "primary" as const,
+      accent: "secondary" as const,
     },
   ];
 
