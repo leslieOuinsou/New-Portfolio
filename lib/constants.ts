@@ -118,8 +118,7 @@ export const PROJECTS = [
       "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — projet d’architecture web avec déploiement et monitoring (CI/CD).",
     descriptionEn:
       "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking — web architecture project with deployment and monitoring (CI/CD).",
-    image:
-      "https://images.unsplash.com/photo-1564890367538-4657d0d8c1d0?w=800&h=600&fit=crop",
+    image: "/the-tip-top.jpg",
     technologies: [
       "Jenkins",
       "GitLab",
