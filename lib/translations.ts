@@ -5,6 +5,7 @@ export const translations = {
       about: "À propos",
       skills: "Compétences",
       projects: "Projets",
+      experience: "Expérience",
       education: "Formation",
       contact: "Contact",
       profile: "Profil",
@@ -39,13 +40,13 @@ export const translations = {
     about: {
       title: "À propos de moi",
       description:
-        "Passionnée par l’informatique, le développement et le design, je suis autonome, rigoureuse et créative. J’aime concevoir des applications web modernes, des API robustes et des interfaces soignées, en m’appuyant sur les bonnes pratiques (tests, clean code, agilité). Curieuse des évolutions tech, notamment autour de l’IA. Langues : français (natif), anglais (B1). Centres d’intérêt : sport, lecture, veille tech (notamment IA).",
+        "Développeuse Full Stack à la recherche d’un CDI, je souhaite mettre mes compétences au service de projets numériques, de leur conception à leur évolution. Autonome, rigoureuse et orientée solutions, je m’adapte rapidement aux différents environnements et enjeux techniques. Langues : français (natif), anglais (B1). Centres d’intérêt : sport, lecture, veille technologique (IA).",
       downloadCV: "Télécharger mon CV",
-      location: "Mobilité : flexible",
+      location: "France · mobilité flexible",
       eyebrow: "Portrait",
       statTech: "Technologies",
       statProjects: "Projets",
-      statInternships: "Stages",
+      statInternships: "Expériences",
     },
     skills: {
       title: "Mes compétences",
@@ -53,8 +54,12 @@ export const translations = {
       backend: "Back-end",
       database: "Bases de données",
       tools: "DevOps & CI/CD",
-      design: "Design & CMS",
-      automation: "Qualité & IA assistée",
+      design: "Design & Prototypage",
+      automation: "Qualité & bonnes pratiques",
+    },
+    experience: {
+      title: "Expérience professionnelle",
+      subtitle: "Stages et missions fullstack",
     },
     projects: {
       title: "Mes projets",
@@ -120,6 +125,7 @@ export const translations = {
       about: "About",
       skills: "Skills",
       projects: "Projects",
+      experience: "Experience",
       education: "Education",
       contact: "Contact",
       profile: "Profile",
@@ -154,13 +160,13 @@ export const translations = {
     about: {
       title: "About Me",
       description:
-        "Passionate about IT, development, and design, I am independent, rigorous, and creative. I enjoy building modern web apps, solid APIs, and polished UIs, with a focus on best practices (testing, clean code, agility). I stay curious about tech trends, especially AI. Languages: French (native), English (B1). Interests: sports, reading, tech watch (especially AI).",
+        "Full Stack Developer seeking a permanent role (CDI). I want to put my skills to work on digital products, from design through to evolution. Independent, rigorous and solution-oriented, I adapt quickly to different environments and technical challenges. Languages: French (native), English (B1). Interests: sports, reading, tech watch (AI).",
       downloadCV: "Download my CV",
-      location: "Location: flexible",
+      location: "France · flexible mobility",
       eyebrow: "Portrait",
       statTech: "Technologies",
       statProjects: "Projects",
-      statInternships: "Internships",
+      statInternships: "Experience",
     },
     skills: {
       title: "My Skills",
@@ -168,8 +174,12 @@ export const translations = {
       backend: "Back-end",
       database: "Databases",
       tools: "DevOps & CI/CD",
-      design: "Design & CMS",
-      automation: "Quality & AI-assisted",
+      design: "Design & Prototyping",
+      automation: "Quality & best practices",
+    },
+    experience: {
+      title: "Professional experience",
+      subtitle: "Fullstack internships and missions",
     },
     projects: {
       title: "My Projects",

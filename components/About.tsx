@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { FiDownload, FiMapPin } from "react-icons/fi";
 import { useRef } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { PROJECTS } from "@/lib/constants";
+import { PROJECTS, EXPERIENCE } from "@/lib/constants";
 
 export function About() {
   const { t } = useLanguage();
@@ -14,7 +14,7 @@ export function About() {
   const stats = [
     { value: "20+", label: t.about.statTech },
     { value: String(PROJECTS.length), label: t.about.statProjects },
-    { value: "2", label: t.about.statInternships },
+    { value: String(EXPERIENCE.length), label: t.about.statInternships },
   ];
 
   return (

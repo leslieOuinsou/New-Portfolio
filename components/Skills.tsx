@@ -71,7 +71,7 @@ export function Skills() {
     },
     {
       title: t.skills.design,
-      skills: [...SKILLS.design, ...SKILLS.cms],
+      skills: SKILLS.design,
       icon: FiLayout,
       accent: "primary" as const,
     },
