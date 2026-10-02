@@ -53,7 +53,7 @@ export const EXPERIENCE = [
     roleEn: "Full-Stack Developer",
     company: "Beyond-The Sea",
     location: "La Teste-de-Buch",
-    period: "2025",
+    period: "2026",
     description:
       "Développement d’un dashboard de simulation Kites : composants d’interface pour la visualisation de données, adaptation responsive mobile/tablette, pipelines CI/CD, correction de bugs, maintenance et tests Cypress.",
     descriptionEn:
