@@ -165,15 +165,48 @@ export const EDUCATION = [
   },
   {
     id: 2,
-    degree: "Bachelor 3 Développement Web et Mobile",
-    degreeEn: "Bachelor Year 3 — Web & Mobile Development",
-    school: "Institut F2I, Vincennes",
-    period: "03/2024 – 09/2024",
+    degree: "Mastère 1 Concepteur Développeur Web et Mobile",
+    degreeEn: "Master's Year 1 — Web & Mobile Developer Designer",
+    school: "Institut Européen F2I, Vincennes",
+    period: "2024 / 2025",
     description:
-      "Formation orientée conception et développement d’applications web et mobiles, bonnes pratiques et travail en équipe.",
+      "Formation au métier de concepteur développeur web et mobile : conception, développement d’applications et bonnes pratiques.",
     descriptionEn:
-      "Training focused on designing and building web and mobile apps, best practices, and teamwork.",
-    skills: ["Web", "Mobile", "Gestion de projet", "Intégration"],
-    skillsEn: ["Web", "Mobile", "Project management", "Integration"],
+      "Training as a web and mobile developer-designer: application design, development, and best practices.",
+    skills: [
+      "Conception web",
+      "Développement web & mobile",
+      "Fullstack",
+      "UX/UI",
+    ],
+    skillsEn: [
+      "Web design",
+      "Web & mobile development",
+      "Fullstack",
+      "UX/UI",
+    ],
+  },
+  {
+    id: 3,
+    degree: "Bachelor Chef de Projet",
+    degreeEn: "Bachelor — Project Manager",
+    school: "Institut F2I, Vincennes",
+    period: "2023 – 2024",
+    description:
+      "Parcours Bachelor orienté chef de projet : cadrage, pilotage, coordination d’équipe et suivi des livrables.",
+    descriptionEn:
+      "Bachelor track focused on project management: scoping, leadership, team coordination, and deliverable tracking.",
+    skills: [
+      "Gestion de projet",
+      "Agile / Scrum",
+      "Cadrage & specs",
+      "Coordination",
+    ],
+    skillsEn: [
+      "Project management",
+      "Agile / Scrum",
+      "Scoping & specs",
+      "Coordination",
+    ],
   },
 ];
