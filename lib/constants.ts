@@ -88,7 +88,7 @@ export const PROJECTS = [
       "Web and mobile budget app with testing and quality reporting.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB"],
+    technologies: ["React", "JavaScript", "Node.js", "MongoDB", "Vercel", "Render"],
     liveUrl: "https://my-budjet-web.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },
@@ -116,7 +116,7 @@ export const PROJECTS = [
       "Mobile app to connect players: find partners or teams, profiles and a mobile-first UI. Focus on mobile development and UX.",
     image:
       "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop",
-    technologies: ["JavaScript", "React Native", "Expo", "Vercel"],
+    technologies: ["React Native", "Expo", "JavaScript"],
     liveUrl: "https://player-finder-ten.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou/Player-Finder",
   },
@@ -130,7 +130,7 @@ export const PROJECTS = [
       "Showcase and digital menu for Cameroonian and Beninese cuisine: dishes, smooth browsing, deployed on Vercel.",
     image:
       "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&h=600&fit=crop",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     liveUrl: "https://afrofood.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },
@@ -139,9 +139,9 @@ export const PROJECTS = [
     title: "Thé Tip Top",
     titleEn: "Thé Tip Top",
     description:
-      "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi — Next.js, Node.js, PostgreSQL et Prisma, avec déploiement et monitoring CI/CD.",
+      "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi, avec déploiement et monitoring CI/CD.",
     descriptionEn:
-      "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking — Next.js, Node.js, PostgreSQL and Prisma, with CI/CD deployment and monitoring.",
+      "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking, with CI/CD deployment and monitoring.",
     image: "/the-tip-top.jpg",
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma"],
     liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",

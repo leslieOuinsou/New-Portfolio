@@ -61,12 +61,20 @@ export function Projects() {
                     {description}
                   </p>
 
-                  <div className="mb-6 flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="skill-tag !px-3 !py-1 text-xs">
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="mb-6">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[rgb(var(--accent-deep))]">
+                      {t.projects.technologies}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="skill-tag !px-3 !py-1 text-xs"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap gap-3">
