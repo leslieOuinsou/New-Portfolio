@@ -83,12 +83,12 @@ export const PROJECTS = [
     title: "MyBudget+",
     titleEn: "MyBudget+",
     description:
-      "Application web et mobile de gestion de budget avec dispositifs de tests et de reporting qualité.",
+      "Application web et mobile de gestion de budget avec PostgreSQL, Prisma, tests et reporting qualité.",
     descriptionEn:
-      "Web and mobile budget app with testing and quality reporting.",
+      "Web and mobile budget app with PostgreSQL, Prisma, testing and quality reporting.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
-    technologies: ["React", "JavaScript", "Node.js", "MongoDB", "Vercel", "Render"],
+    technologies: ["React", "JavaScript", "Node.js", "PostgreSQL", "Prisma", "Vercel", "Render"],
     liveUrl: "https://my-budjet-web.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },

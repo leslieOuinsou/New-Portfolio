@@ -69,7 +69,7 @@ export const translations = {
       technologies: "Stack",
       project1: {
         title: "MyBudget+",
-        description: "Application budget avec tests et reporting qualité",
+        description: "Application budget avec PostgreSQL, Prisma et reporting qualité",
       },
       project2: {
         title: "Gestion d'événements",
@@ -189,7 +189,7 @@ export const translations = {
       technologies: "Stack",
       project1: {
         title: "MyBudget+",
-        description: "Budget app with tests and quality reporting",
+        description: "Budget app with PostgreSQL, Prisma and quality reporting",
       },
       project2: {
         title: "Event management",
