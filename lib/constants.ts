@@ -7,8 +7,7 @@ export const PERSONAL_INFO = {
   location: "France",
   github: "https://github.com/leslieOuinsou",
   portfolio: "https://new-portfolio-eight-omega.vercel.app/",
-  /** Non renseigné sur le CV — laisser vide pour masquer le lien dans l’interface */
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/ouinsou-leslie",
 };
 
 export const SKILLS = {
