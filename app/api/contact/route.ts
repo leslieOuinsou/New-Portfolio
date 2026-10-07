@@ -1,17 +1,11 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { PERSONAL_INFO } from "@/lib/constants";
+import { renderEmail } from "@/lib/email-template";
 
 export const runtime = "nodejs";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-const escapeHtml = (s: string) =>
-  s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 
 export async function POST(req: Request) {
   let body: { name?: unknown; email?: unknown; message?: unknown };
@@ -48,14 +42,25 @@ export async function POST(req: Request) {
     auth: { user, pass },
   });
 
+  const { html, text } = renderEmail({
+    badge: "Nouveau message",
+    title: `Message de ${name}`,
+    rows: [
+      { label: "Nom", value: name },
+      { label: "Email", value: email },
+    ],
+    body: message,
+    cta: { label: "Répondre", href: `mailto:${email}` },
+  });
+
   try {
     await transporter.sendMail({
       from: `"Portfolio" <${user}>`,
       to: process.env.CONTACT_TO || PERSONAL_INFO.email,
       replyTo: `"${name.replace(/["\r\n]/g, "")}" <${email}>`,
       subject: `Nouveau message de ${name.replace(/[\r\n]/g, " ")} - Portfolio`,
-      text: `Nom : ${name}\nEmail : ${email}\n\n${message}`,
-      html: `<p><b>Nom :</b> ${escapeHtml(name)}<br><b>Email :</b> ${escapeHtml(email)}</p><p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>`,
+      text,
+      html,
     });
     return NextResponse.json({ ok: true });
   } catch (error) {

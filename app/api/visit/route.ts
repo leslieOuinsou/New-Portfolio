@@ -1,13 +1,11 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { PERSONAL_INFO } from "@/lib/constants";
+import { renderEmail } from "@/lib/email-template";
 
 export const runtime = "nodejs";
 
 const BOT_RE = /bot|crawl|spider|slurp|preview|facebookexternalhit|headless|lighthouse|vercel|curl|wget/i;
-
-const escapeHtml = (s: string) =>
-  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 const decode = (v: string | null) => {
   if (!v) return "inconnu";
@@ -36,12 +34,23 @@ export async function POST(req: Request) {
 
   const country = decode(req.headers.get("x-vercel-ip-country"));
   const city = decode(req.headers.get("x-vercel-ip-city"));
-  const lines = [
-    `Date : ${new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}`,
-    `Lieu : ${city}, ${country}`,
-    `Provenance : ${referrer}`,
-    `Appareil : ${ua.slice(0, 200)}`,
-  ];
+  const { html, text } = renderEmail({
+    badge: "Nouvelle visite",
+    title: "Quelqu'un consulte ton portfolio",
+    rows: [
+      {
+        label: "Date",
+        value: new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" }),
+      },
+      { label: "Lieu", value: `${city}, ${country}` },
+      { label: "Provenance", value: referrer },
+      { label: "Appareil", value: ua.slice(0, 200) },
+    ],
+    cta: {
+      label: "Ouvrir le portfolio",
+      href: "https://new-portfolio-eight-omega.vercel.app/?owner=1",
+    },
+  });
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -53,8 +62,8 @@ export async function POST(req: Request) {
       from: `"Portfolio" <${user}>`,
       to: process.env.CONTACT_TO || PERSONAL_INFO.email,
       subject: `Nouvelle visite sur ton portfolio (${city}, ${country})`,
-      text: lines.join("\n"),
-      html: lines.map((l) => `<div>${escapeHtml(l)}</div>`).join(""),
+      text,
+      html,
     });
     return NextResponse.json({ ok: true });
   } catch (error) {
