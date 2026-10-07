@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { ScrollMotionProvider } from "@/contexts/ScrollMotionContext";
+import { VisitTracker } from "@/components/VisitTracker";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -67,6 +68,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={`${cormorant.variable} ${nunito.variable} font-sans`}>
+        <VisitTracker />
         <ThemeProvider>
           <LanguageProvider>
             <ScrollMotionProvider>{children}</ScrollMotionProvider>
