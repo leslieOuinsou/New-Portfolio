@@ -73,7 +73,7 @@ export const translations = {
       },
       project2: {
         title: "Gestion d'événements",
-        description: "Site fullstack de gestion d’événements (CRUD, MERN)",
+        description: "Site fullstack de gestion d’événements (CRUD, React, Express, PostgreSQL, Prisma)",
       },
       project3: {
         title: "Player Finder",
@@ -83,7 +83,7 @@ export const translations = {
       project4: {
         title: "Afro-food",
         description:
-          "Menu digital cuisine camerounaise et béninoise (Next.js, Vercel)",
+          "Menu digital cuisine camerounaise et béninoise (Next.js, Express, PostgreSQL, Prisma, Stripe)",
       },
       project5: {
         title: "Thé Tip Top",
@@ -193,7 +193,7 @@ export const translations = {
       },
       project2: {
         title: "Event management",
-        description: "Fullstack event site (CRUD, MERN)",
+        description: "Fullstack event site (CRUD, React, Express, PostgreSQL, Prisma)",
       },
       project3: {
         title: "Player Finder",
@@ -202,7 +202,7 @@ export const translations = {
       project4: {
         title: "Afro-food",
         description:
-          "Digital menu for Cameroonian & Beninese cuisine (Next.js, Vercel)",
+          "Digital menu for Cameroonian & Beninese cuisine (Next.js, Express, PostgreSQL, Prisma, Stripe)",
       },
       project5: {
         title: "Thé Tip Top",

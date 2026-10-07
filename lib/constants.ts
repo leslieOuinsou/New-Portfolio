@@ -87,7 +87,7 @@ export const PROJECTS = [
       "Web and mobile budget app with PostgreSQL, Prisma, testing and quality reporting.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
-    technologies: ["React", "JavaScript", "Node.js", "PostgreSQL", "Prisma", "Vercel", "Render"],
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Chart.js", "Vercel", "Render"],
     liveUrl: "https://my-budjet-web.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },
@@ -101,7 +101,7 @@ export const PROJECTS = [
       "Fullstack event management site: create, edit and view events.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-    technologies: ["MongoDB", "Express", "React", "Node.js"],
+    technologies: ["React", "JavaScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Vercel"],
     liveUrl: "https://gestion-evenements-frontend.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },
@@ -129,7 +129,7 @@ export const PROJECTS = [
       "Showcase and digital menu for Cameroonian and Beninese cuisine: dishes, smooth browsing, deployed on Vercel.",
     image:
       "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&h=600&fit=crop",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Vercel"],
     liveUrl: "https://afrofood.vercel.app/",
     githubUrl: "https://github.com/leslieOuinsou",
   },
