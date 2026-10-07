@@ -30,8 +30,7 @@ export function Contact() {
     setStatus("sending");
 
     try {
-      // Envoi via Formspree
-      const response = await fetch("https://formspree.io/f/xpzqkqkq", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +39,6 @@ export function Contact() {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          _subject: `Nouveau message de ${formData.name} - Portfolio Leslie OUINSOU`,
         }),
       });
 

@@ -2,7 +2,7 @@ export const PERSONAL_INFO = {
   name: "Leslie OUINSOU",
   title: "Développeuse Fullstack Junior",
   titleEn: "Junior Fullstack Developer",
-  email: "ouinsou15@gmail.com",
+  email: "ouinsoul5@gmail.com",
   phone: "+33 7 66 23 45 75",
   location: "France",
   github: "https://github.com/leslieOuinsou",
