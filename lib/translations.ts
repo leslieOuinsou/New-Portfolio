@@ -90,6 +90,11 @@ export const translations = {
         description:
           "Jeu concours Thé Tip Top — Next.js, Node.js, PostgreSQL, Prisma et CI/CD",
       },
+      project6: {
+        title: "Warmfire",
+        description:
+          "Boutique bois de chauffage — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
+      },
     },
     education: {
       title: "Parcours académique",
@@ -208,6 +213,11 @@ export const translations = {
         title: "Thé Tip Top",
         description:
           "Thé Tip Top contest — Next.js, Node.js, PostgreSQL, Prisma and CI/CD",
+      },
+      project6: {
+        title: "Warmfire",
+        description:
+          "Firewood shop — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
       },
     },
     education: {

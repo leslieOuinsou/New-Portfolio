@@ -78,6 +78,33 @@ export const EXPERIENCE = [
 
 export const PROJECTS = [
   {
+    id: 6,
+    title: "Warmfire",
+    titleEn: "Warmfire",
+    description:
+      "Application web TypeScript de vente de bois de chauffage : catalogue, devis/PDF, e-mails et livraison par zone — Nuxt/Vue côté interface, API Nitro, PostgreSQL et Prisma.",
+    descriptionEn:
+      "TypeScript web app for selling firewood: catalog, quotes/PDFs, email and zone-based delivery — Nuxt/Vue UI, Nitro API, PostgreSQL and Prisma.",
+    image:
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    technologies: [
+      "Nuxt",
+      "Vue 3",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Nitro",
+      "Nodemailer",
+      "pdf-lib",
+      "PostgreSQL",
+      "Prisma",
+      "Vercel",
+      "Vercel Blob",
+    ],
+    liveUrl: "https://warmfires.vercel.app/",
+    githubUrl: "https://github.com/leslieOuinsou",
+  },
+  {
     id: 1,
     title: "MyBudget+",
     titleEn: "MyBudget+",
