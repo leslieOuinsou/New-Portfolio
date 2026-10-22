@@ -119,8 +119,7 @@ export const PROJECTS = [
       "Site de vente de bois de chauffage sec : catalogue (bûches, densifiées, granulés), devis/PDF, e-mails et livraison selon la zone — Nuxt/Vue, API Nitro, PostgreSQL et Prisma.",
     descriptionEn:
       "Firewood sales website: catalog (logs, densified logs, pellets), quotes/PDFs, email and zone-based delivery — Nuxt/Vue, Nitro API, PostgreSQL and Prisma.",
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop",
+    image: "/warmfire.jpg",
     technologies: [
       "Nuxt",
       "Vue 3",
