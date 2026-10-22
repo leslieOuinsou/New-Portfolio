@@ -1,16 +1,48 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { PROJECTS } from "@/lib/constants";
-import { useRef } from "react";
-import { FiExternalLink, FiGithub, FiGitBranch } from "react-icons/fi";
+import { useEffect, useRef, useState } from "react";
+import {
+  FiExternalLink,
+  FiGithub,
+  FiGitBranch,
+  FiInfo,
+  FiX,
+} from "react-icons/fi";
 import Image from "next/image";
 
 export function Projects() {
   const { t, language } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [openId, setOpenId] = useState<number | null>(null);
+
+  const selected = PROJECTS.find((p) => p.id === openId) ?? null;
+  const selectedTitle = selected
+    ? language === "en"
+      ? selected.titleEn
+      : selected.title
+    : "";
+  const selectedAbout = selected
+    ? language === "en"
+      ? selected.aboutEn
+      : selected.about
+    : "";
+
+  useEffect(() => {
+    if (openId === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpenId(null);
+    };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [openId]);
 
   return (
     <section id="projects" className="relative py-20 md:py-32" ref={ref}>
@@ -57,13 +89,24 @@ export function Projects() {
                     {title}
                   </h3>
 
-                  <p className="mb-4 line-clamp-3 flex-1 text-sm leading-relaxed text-light-text-secondary dark:text-dark-text-secondary md:text-base">
+                  <p className="mb-3 line-clamp-2 text-sm leading-relaxed text-light-text-secondary dark:text-dark-text-secondary md:text-base">
                     {description}
                   </p>
 
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(project.id)}
+                    className="mb-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-[rgb(var(--accent-deep))] transition hover:text-[rgb(var(--accent))]"
+                  >
+                    <FiInfo className="h-4 w-4" />
+                    {t.projects.aboutProject}
+                  </button>
+
                   {"note" in project && project.note ? (
                     <p className="mb-4 text-xs italic text-[rgb(var(--accent-deep))]">
-                      {language === "en" && "noteEn" in project && project.noteEn
+                      {language === "en" &&
+                      "noteEn" in project &&
+                      project.noteEn
                         ? project.noteEn
                         : project.note}
                     </p>
@@ -85,7 +128,7 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="mt-auto flex flex-wrap gap-3">
                     <a
                       href={project.liveUrl}
                       target="_blank"
@@ -123,6 +166,71 @@ export function Projects() {
           })}
         </div>
       </div>
+
+      <AnimatePresence>
+        {selected ? (
+          <motion.div
+            className="fixed inset-0 z-[80] flex items-center justify-center bg-[rgb(var(--ink))]/45 p-4 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setOpenId(null)}
+          >
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="project-about-title"
+              initial={{ opacity: 0, y: 24, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16, scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 320, damping: 28 }}
+              className="soft-panel relative w-full max-w-lg bg-white/90 px-6 py-7 sm:px-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenId(null)}
+                className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full border border-[rgb(var(--rose))]/40 bg-white/80 text-[rgb(var(--ink))] transition hover:bg-white"
+                aria-label={t.projects.closeAbout}
+              >
+                <FiX className="h-4 w-4" />
+              </button>
+
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.28em] text-[rgb(var(--accent-deep))]">
+                {t.projects.aboutProject}
+              </p>
+              <h3
+                id="project-about-title"
+                className="font-display text-3xl font-medium text-[rgb(var(--ink))]"
+              >
+                {selectedTitle}
+              </h3>
+              <p className="mt-5 text-base leading-relaxed text-[rgb(var(--ink-soft))]">
+                {selectedAbout}
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={selected.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary !px-5 !py-2.5 text-xs"
+                >
+                  <FiExternalLink className="h-3.5 w-3.5" />
+                  {t.projects.viewProject}
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setOpenId(null)}
+                  className="btn-outline !px-5 !py-2.5 text-xs"
+                >
+                  {t.projects.closeAbout}
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }

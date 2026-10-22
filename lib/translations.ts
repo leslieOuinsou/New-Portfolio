@@ -66,6 +66,8 @@ export const translations = {
       viewProject: "Voir le projet",
       viewCode: "Voir le code",
       viewWorkflow: "Workflow",
+      aboutProject: "Que fait ce site ?",
+      closeAbout: "Fermer",
       technologies: "Stack",
       project1: {
         title: "MyBudget+",
@@ -196,6 +198,8 @@ export const translations = {
       viewProject: "View project",
       viewCode: "View code",
       viewWorkflow: "Workflow",
+      aboutProject: "What does this site do?",
+      closeAbout: "Close",
       technologies: "Stack",
       project1: {
         title: "MyBudget+",

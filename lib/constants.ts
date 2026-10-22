@@ -85,6 +85,10 @@ export const PROJECTS = [
       "Site de location de bateaux : recherche, réservation et paiement en ligne (Stripe), avec API Express sécurisée et base PostgreSQL — déployé sur Cloudflare Workers, Render et Neon.",
     descriptionEn:
       "Boat rental website: search, booking and online payment (Stripe), with a secured Express API and PostgreSQL — deployed on Cloudflare Workers, Render and Neon.",
+    about:
+      "SailingLoc permet de louer un bateau en ligne : parcourir les offres, réserver une période, et payer via Stripe. Le site gère aussi les comptes utilisateurs et les échanges liés à la location.",
+    aboutEn:
+      "SailingLoc lets you rent a boat online: browse listings, book a period, and pay with Stripe. The site also handles user accounts and rental-related exchanges.",
     image:
       "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop",
     technologies: [
@@ -119,6 +123,10 @@ export const PROJECTS = [
       "Site de vente de bois de chauffage sec : catalogue (bûches, densifiées, granulés), devis/PDF, e-mails et livraison selon la zone — Nuxt/Vue, API Nitro, PostgreSQL et Prisma.",
     descriptionEn:
       "Firewood sales website: catalog (logs, densified logs, pellets), quotes/PDFs, email and zone-based delivery — Nuxt/Vue, Nitro API, PostgreSQL and Prisma.",
+    about:
+      "Warmfire est une boutique de bois de chauffage : choisir son bois (bûches, densifiées, granulés), comparer les prix, vérifier la livraison par code postal, demander un devis et recevoir des documents PDF.",
+    aboutEn:
+      "Warmfire is a firewood shop: choose your wood (logs, densified logs, pellets), compare prices, check delivery by postal code, request a quote and receive PDF documents.",
     image: "/warmfire.jpg",
     technologies: [
       "Nuxt",
@@ -145,6 +153,10 @@ export const PROJECTS = [
       "Application web et mobile de gestion de budget avec PostgreSQL, Prisma, tests et reporting qualité.",
     descriptionEn:
       "Web and mobile budget app with PostgreSQL, Prisma, testing and quality reporting.",
+    about:
+      "MyBudget+ aide à suivre son budget au quotidien : enregistrer ses dépenses et revenus, visualiser sa situation financière et garder une vue claire de ses finances.",
+    aboutEn:
+      "MyBudget+ helps track your daily budget: log expenses and income, visualize your financial situation and keep a clear overview of your money.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=600&fit=crop",
     technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Chart.js", "Vercel", "Render"],
@@ -159,6 +171,10 @@ export const PROJECTS = [
       "Développement fullstack d’un site de gestion d’événements : création, modification et consultation des événements par les utilisateurs.",
     descriptionEn:
       "Fullstack event management site: create, edit and view events.",
+    about:
+      "Ce site permet de gérer des événements en ligne : créer un événement, le modifier, le consulter et suivre les informations liées à chaque événement.",
+    aboutEn:
+      "This site lets you manage events online: create an event, edit it, view it and keep track of details for each event.",
     image:
       "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
     technologies: ["React", "JavaScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Vercel"],
@@ -173,6 +189,10 @@ export const PROJECTS = [
       "Application mobile de mise en relation entre joueurs : recherche de partenaires ou d’équipes, profils et interface adaptée au mobile. Projet orienté développement mobile et expérience utilisateur.",
     descriptionEn:
       "Mobile app to connect players: find partners or teams, profiles and a mobile-first UI. Focus on mobile development and UX.",
+    about:
+      "Player Finder met en relation des joueurs : trouver un partenaire ou une équipe, consulter des profils et organiser des parties plus facilement depuis le mobile.",
+    aboutEn:
+      "Player Finder connects players: find a partner or a team, browse profiles and arrange games more easily from your phone.",
     image:
       "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&h=600&fit=crop",
     technologies: ["React Native", "Expo", "JavaScript"],
@@ -187,6 +207,10 @@ export const PROJECTS = [
       "Site vitrine et menu digital pour une cuisine camerounaise et béninoise : présentation des plats, navigation fluide et déploiement sur Vercel.",
     descriptionEn:
       "Showcase and digital menu for Cameroonian and Beninese cuisine: dishes, smooth browsing, deployed on Vercel.",
+    about:
+      "Afro-food présente une cuisine camerounaise et béninoise sous forme de menu digital : découvrir les plats, naviguer dans l’offre et commander ou consulter facilement.",
+    aboutEn:
+      "Afro-food showcases Cameroonian and Beninese cuisine as a digital menu: discover dishes, browse the offer and order or explore easily.",
     image:
       "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&h=600&fit=crop",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Vercel"],
@@ -201,6 +225,10 @@ export const PROJECTS = [
       "Plateforme de jeu concours pour la marque Thé Tip Top : participation, tickets, lots et suivi, avec déploiement et monitoring CI/CD.",
     descriptionEn:
       "Contest platform for the Thé Tip Top brand: entries, tickets, prizes and tracking, with CI/CD deployment and monitoring.",
+    about:
+      "Thé Tip Top est un jeu concours en ligne : participer avec un ticket, tenter de gagner des lots et suivre sa participation sur la plateforme.",
+    aboutEn:
+      "Thé Tip Top is an online contest: enter with a ticket, try to win prizes and track your participation on the platform.",
     image: "/the-tip-top.jpg",
     technologies: ["Next.js", "Node.js", "PostgreSQL", "Prisma"],
     liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",
