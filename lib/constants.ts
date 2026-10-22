@@ -82,11 +82,11 @@ export const PROJECTS = [
     title: "SailingLoc",
     titleEn: "SailingLoc",
     description:
-      "Plateforme de location de bateaux : interface React/Vite, API Express sécurisée (JWT, CSRF, Helmet), paiements Stripe, PostgreSQL/Sequelize — déployée sur Cloudflare Workers, Render et Neon.",
+      "Site de location de bateaux : recherche, réservation et paiement en ligne (Stripe), avec API Express sécurisée et base PostgreSQL — déployé sur Cloudflare Workers, Render et Neon.",
     descriptionEn:
-      "Boat rental platform: React/Vite UI, secured Express API (JWT, CSRF, Helmet), Stripe payments, PostgreSQL/Sequelize — deployed on Cloudflare Workers, Render and Neon.",
+      "Boat rental website: search, booking and online payment (Stripe), with a secured Express API and PostgreSQL — deployed on Cloudflare Workers, Render and Neon.",
     image:
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=800&h=600&fit=crop",
     technologies: [
       "React 19",
       "Vite",
@@ -120,7 +120,7 @@ export const PROJECTS = [
     descriptionEn:
       "TypeScript web app for selling firewood: catalog, quotes/PDFs, email and zone-based delivery — Nuxt/Vue UI, Nitro API, PostgreSQL and Prisma.",
     image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+      "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=800&h=600&fit=crop",
     technologies: [
       "Nuxt",
       "Vue 3",

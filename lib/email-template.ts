@@ -16,43 +16,60 @@ type EmailOptions = {
   cta?: { label: string; href: string };
 };
 
-const FONT = "'Segoe UI',Helvetica,Arial,sans-serif";
+const FONT =
+  "'Nunito', 'Segoe UI', Helvetica, Arial, sans-serif";
 
 export function renderEmail({ badge, title, rows, body, cta }: EmailOptions) {
   const rowsHtml = rows
     .map(
-      (r) => `
+      (r, i) => `
       <tr>
-        <td style="padding:12px 0;border-bottom:1px solid #f3e4ea;width:120px;vertical-align:top;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#ba96a8;font-weight:600;">${escapeHtml(r.label)}</td>
-        <td style="padding:12px 0;border-bottom:1px solid #f3e4ea;font-size:15px;color:#302830;word-break:break-word;">${escapeHtml(r.value)}</td>
-      </tr>`
+        <td style="padding:14px 16px;background:${i % 2 === 0 ? "#fcf7f9" : "#ffffff"};border-radius:10px;">
+          <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c4708c;font-weight:700;margin-bottom:6px;">${escapeHtml(r.label)}</div>
+          <div style="font-size:15px;line-height:1.5;color:#120e14;word-break:break-word;">${escapeHtml(r.value)}</div>
+        </td>
+      </tr>
+      <tr><td style="height:8px;font-size:0;line-height:0;">&nbsp;</td></tr>`
     )
     .join("");
 
   const bodyHtml = body
-    ? `<div style="margin-top:24px;padding:20px;background:#fcf7f9;border-left:4px solid #d68ca2;border-radius:8px;font-size:15px;line-height:1.6;color:#302830;">${escapeHtml(body).replace(/\n/g, "<br>")}</div>`
+    ? `<div style="margin-top:8px;padding:18px 20px;background:#fff7fa;border:1px solid #f0d4df;border-radius:14px;font-size:15px;line-height:1.65;color:#302830;">${escapeHtml(body).replace(/\n/g, "<br>")}</div>`
     : "";
 
   const ctaHtml = cta
-    ? `<div style="margin-top:28px;"><a href="${escapeHtml(cta.href)}" style="display:inline-block;padding:12px 24px;background:#c4708c;color:#ffffff;text-decoration:none;border-radius:999px;font-size:14px;font-weight:600;">${escapeHtml(cta.label)}</a></div>`
+    ? `<div style="margin-top:28px;text-align:center;">
+        <a href="${escapeHtml(cta.href)}" style="display:inline-block;padding:14px 28px;background:#c4708c;color:#ffffff;text-decoration:none;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:.02em;box-shadow:0 12px 28px rgba(196,112,140,.35);">${escapeHtml(cta.label)}</a>
+      </div>`
     : "";
 
   const html = `<!doctype html>
-<html lang="fr"><body style="margin:0;padding:0;background:#fcf7f9;font-family:${FONT};">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fcf7f9;padding:32px 12px;">
+<html lang="fr">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f6eef2;font-family:${FONT};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f6eef2;padding:40px 16px;">
     <tr><td align="center">
-      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;border:1px solid #f3e4ea;">
-        <tr><td style="background:linear-gradient(135deg,#e8b4c4,#c4708c);padding:28px 32px;">
-          <div style="display:inline-block;padding:4px 12px;background:rgba(255,255,255,.25);border-radius:999px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#ffffff;font-weight:600;">${escapeHtml(badge)}</div>
-          <h1 style="margin:14px 0 0;font-size:24px;line-height:1.3;color:#ffffff;font-weight:600;">${escapeHtml(title)}</h1>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;">
+        <tr><td style="padding:0 8px 18px;text-align:center;">
+          <div style="font-family:Georgia,'Times New Roman',serif;font-size:22px;color:#c4708c;letter-spacing:.04em;">Leslie OUINSOU</div>
+          <div style="margin-top:4px;font-size:12px;color:#9a7a88;letter-spacing:.16em;text-transform:uppercase;">Portfolio</div>
         </td></tr>
-        <tr><td style="padding:24px 32px 32px;">
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rowsHtml}</table>
-          ${bodyHtml}
-          ${ctaHtml}
-        </td></tr>
-        <tr><td style="padding:16px 32px;background:#fcf7f9;text-align:center;font-size:12px;color:#ba96a8;">
-          Portfolio de Leslie OUINSOU
+        <tr><td>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:22px;overflow:hidden;border:1px solid #eedde5;box-shadow:0 18px 50px rgba(186,150,168,.18);">
+            <tr><td style="background:linear-gradient(135deg,#e8b4c4 0%,#d68ca2 45%,#c4708c 100%);padding:30px 32px 26px;">
+              <span style="display:inline-block;padding:6px 14px;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.35);border-radius:999px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#ffffff;font-weight:700;">${escapeHtml(badge)}</span>
+              <h1 style="margin:16px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:26px;line-height:1.25;color:#ffffff;font-weight:500;">${escapeHtml(title)}</h1>
+            </td></tr>
+            <tr><td style="padding:28px 28px 12px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${rowsHtml}</table>
+              ${bodyHtml}
+              ${ctaHtml}
+            </td></tr>
+            <tr><td style="padding:22px 28px 28px;text-align:center;">
+              <div style="height:1px;background:#f0d4df;margin-bottom:18px;"></div>
+              <div style="font-size:12px;line-height:1.5;color:#9a7a88;">Notification automatique · Leslie OUINSOU</div>
+            </td></tr>
+          </table>
         </td></tr>
       </table>
     </td></tr>
@@ -64,6 +81,7 @@ export function renderEmail({ badge, title, rows, body, cta }: EmailOptions) {
     "",
     ...rows.map((r) => `${r.label} : ${r.value}`),
     ...(body ? ["", body] : []),
+    ...(cta ? ["", `${cta.label}: ${cta.href}`] : []),
   ].join("\n");
 
   return { html, text };
