@@ -93,12 +93,12 @@ export const translations = {
       project6: {
         title: "Warmfire",
         description:
-          "Boutique bois de chauffage — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
+          "Site de vente de bois de chauffage — Nuxt, Vue, Prisma, PostgreSQL",
       },
       project7: {
         title: "SailingLoc",
         description:
-          "Location de bateaux — React, Express, Sequelize, Stripe, Cloudflare",
+          "Site de location de bateaux — React, Express, Sequelize, Stripe",
       },
     },
     education: {
@@ -222,12 +222,12 @@ export const translations = {
       project6: {
         title: "Warmfire",
         description:
-          "Firewood shop — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
+          "Firewood sales website — Nuxt, Vue, Prisma, PostgreSQL",
       },
       project7: {
         title: "SailingLoc",
         description:
-          "Boat rental — React, Express, Sequelize, Stripe, Cloudflare",
+          "Boat rental website — React, Express, Sequelize, Stripe",
       },
     },
     education: {
