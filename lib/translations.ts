@@ -95,6 +95,11 @@ export const translations = {
         description:
           "Boutique bois de chauffage — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
       },
+      project7: {
+        title: "SailingLoc",
+        description:
+          "Location de bateaux — React, Express, Sequelize, Stripe, Cloudflare",
+      },
     },
     education: {
       title: "Parcours académique",
@@ -218,6 +223,11 @@ export const translations = {
         title: "Warmfire",
         description:
           "Firewood shop — Nuxt, Vue, Prisma, PostgreSQL, Vercel",
+      },
+      project7: {
+        title: "SailingLoc",
+        description:
+          "Boat rental — React, Express, Sequelize, Stripe, Cloudflare",
       },
     },
     education: {

@@ -23,7 +23,11 @@ export function VisitTracker() {
     fetch("/api/visit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ referrer: document.referrer }),
+      body: JSON.stringify({
+        referrer: document.referrer,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        languages: navigator.languages?.join(", ") || navigator.language,
+      }),
       keepalive: true,
     }).catch(() => {});
   }, []);

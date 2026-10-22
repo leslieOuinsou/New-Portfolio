@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Leslie OUINSOU" }],
   creator: "Leslie OUINSOU",
   publisher: "Leslie OUINSOU",
-  metadataBase: new URL("https://new-portfolio-eight-omega.vercel.app"),
+  metadataBase: new URL("https://leslie-ouinsou.vercel.app"),
   openGraph: {
     title: "Leslie OUINSOU - Développeuse Fullstack Junior",
     description:
       "Portfolio de Leslie OUINSOU — développement web fullstack, qualité et bonnes pratiques.",
-    url: "https://new-portfolio-eight-omega.vercel.app",
+    url: "https://leslie-ouinsou.vercel.app",
     siteName: "Leslie OUINSOU — Portfolio",
     locale: "fr_FR",
     type: "website",

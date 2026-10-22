@@ -2,6 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://new-portfolio-eight-omega.vercel.app/sitemap.xml
-
-
+Sitemap: https://leslie-ouinsou.vercel.app/sitemap.xml

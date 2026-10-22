@@ -61,6 +61,14 @@ export function Projects() {
                     {description}
                   </p>
 
+                  {"note" in project && project.note ? (
+                    <p className="mb-4 text-xs italic text-[rgb(var(--accent-deep))]">
+                      {language === "en" && "noteEn" in project && project.noteEn
+                        ? project.noteEn
+                        : project.note}
+                    </p>
+                  ) : null}
+
                   <div className="mb-6">
                     <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[rgb(var(--accent-deep))]">
                       {t.projects.technologies}

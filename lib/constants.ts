@@ -6,7 +6,7 @@ export const PERSONAL_INFO = {
   phone: "+33 7 66 23 45 75",
   location: "France",
   github: "https://github.com/leslieOuinsou",
-  portfolio: "https://new-portfolio-eight-omega.vercel.app/",
+  portfolio: "https://leslie-ouinsou.vercel.app/",
   linkedin: "https://www.linkedin.com/in/ouinsou-leslie",
 };
 
@@ -77,6 +77,40 @@ export const EXPERIENCE = [
 ];
 
 export const PROJECTS = [
+  {
+    id: 7,
+    title: "SailingLoc",
+    titleEn: "SailingLoc",
+    description:
+      "Plateforme de location de bateaux : interface React/Vite, API Express sécurisée (JWT, CSRF, Helmet), paiements Stripe, PostgreSQL/Sequelize — déployée sur Cloudflare Workers, Render et Neon.",
+    descriptionEn:
+      "Boat rental platform: React/Vite UI, secured Express API (JWT, CSRF, Helmet), Stripe payments, PostgreSQL/Sequelize — deployed on Cloudflare Workers, Render and Neon.",
+    image:
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&h=600&fit=crop",
+    technologies: [
+      "React 19",
+      "Vite",
+      "React Router",
+      "Tailwind CSS",
+      "Axios",
+      "Stripe",
+      "Node.js",
+      "Express",
+      "JWT",
+      "PostgreSQL",
+      "Sequelize",
+      "Nodemailer",
+      "Docker",
+      "Jest",
+      "Cloudflare Workers",
+      "Render",
+      "Neon",
+    ],
+    liveUrl: "https://sailingloc-web-leslie.ouinsoul5.workers.dev/home",
+    githubUrl: "https://github.com/leslieOuinsou",
+    note: "Premier chargement possible ~1 min (hébergement gratuit).",
+    noteEn: "First load may take ~1 min (free hosting).",
+  },
   {
     id: 6,
     title: "Warmfire",
