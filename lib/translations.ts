@@ -63,12 +63,17 @@ export const translations = {
     },
     projects: {
       title: "Mes projets",
+      personalTitle: "Projets personnels",
+      academicTitle: "Projets académiques",
       viewProject: "Voir le projet",
       viewCode: "Voir le code",
       viewWorkflow: "Workflow",
       aboutProject: "Que fait ce site ?",
+      viewSpec: "Cahier des charges",
       closeAbout: "Fermer",
       technologies: "Stack",
+      objective: "Objectif",
+
       project1: {
         title: "MyBudget+",
         description: "Application budget avec PostgreSQL, Prisma et reporting qualité",
@@ -195,12 +200,17 @@ export const translations = {
     },
     projects: {
       title: "My Projects",
+      personalTitle: "Personal projects",
+      academicTitle: "Academic projects",
       viewProject: "View project",
       viewCode: "View code",
       viewWorkflow: "Workflow",
       aboutProject: "What does this site do?",
+      viewSpec: "Specifications",
       closeAbout: "Close",
       technologies: "Stack",
+      objective: "Objective",
+
       project1: {
         title: "MyBudget+",
         description: "Budget app with PostgreSQL, Prisma and quality reporting",

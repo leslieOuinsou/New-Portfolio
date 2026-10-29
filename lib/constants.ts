@@ -79,6 +79,7 @@ export const EXPERIENCE = [
 export const PROJECTS = [
   {
     id: 7,
+    category: "academic" as const,
     title: "SailingLoc",
     titleEn: "SailingLoc",
     description:
@@ -117,6 +118,7 @@ export const PROJECTS = [
   },
   {
     id: 6,
+    category: "personal" as const,
     title: "Warmfire",
     titleEn: "Warmfire",
     description:
@@ -147,6 +149,7 @@ export const PROJECTS = [
   },
   {
     id: 1,
+    category: "personal" as const,
     title: "MyBudget+",
     titleEn: "MyBudget+",
     description:
@@ -165,6 +168,7 @@ export const PROJECTS = [
   },
   {
     id: 2,
+    category: "personal" as const,
     title: "Gestion d'événements",
     titleEn: "Event Management",
     description:
@@ -183,6 +187,7 @@ export const PROJECTS = [
   },
   {
     id: 3,
+    category: "personal" as const,
     title: "Player Finder",
     titleEn: "Player Finder",
     description:
@@ -201,6 +206,7 @@ export const PROJECTS = [
   },
   {
     id: 4,
+    category: "personal" as const,
     title: "Afro-food",
     titleEn: "Afro-food",
     description:
@@ -219,6 +225,7 @@ export const PROJECTS = [
   },
   {
     id: 5,
+    category: "academic" as const,
     title: "Thé Tip Top",
     titleEn: "Thé Tip Top",
     description:
