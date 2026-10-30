@@ -221,6 +221,7 @@ export const PROJECTS = [
       "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&h=600&fit=crop",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Vercel"],
     liveUrl: "https://afrofood.vercel.app/",
+    testsUrl: "https://afrofood.vercel.app/tests",
     githubUrl: "https://github.com/leslieOuinsou",
   },
   {

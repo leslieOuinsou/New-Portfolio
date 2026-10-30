@@ -14,6 +14,7 @@ import {
   FiExternalLink,
   FiGithub,
   FiGitBranch,
+  FiCheckSquare,
   FiBookOpen,
   FiInfo,
   FiX,
@@ -194,6 +195,18 @@ export function Projects() {
                     title={t.projects.viewWorkflow}
                   >
                     <FiGitBranch className="h-4 w-4" />
+                  </a>
+                ) : null}
+                {"testsUrl" in project && project.testsUrl ? (
+                  <a
+                    href={project.testsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline !px-3.5 !py-2.5"
+                    aria-label={t.projects.viewTests}
+                    title={t.projects.viewTests}
+                  >
+                    <FiCheckSquare className="h-4 w-4" />
                   </a>
                 ) : null}
                 <a
