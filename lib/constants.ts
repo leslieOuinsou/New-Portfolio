@@ -145,6 +145,7 @@ export const PROJECTS = [
       "Vercel Blob",
     ],
     liveUrl: "https://warmfires.vercel.app/",
+    testsUrl: "https://warmfires.vercel.app/qualite",
     githubUrl: "https://github.com/leslieOuinsou",
   },
   {
@@ -222,6 +223,7 @@ export const PROJECTS = [
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Prisma", "Stripe", "Vercel"],
     liveUrl: "https://afrofood.vercel.app/",
     testsUrl: "https://afrofood.vercel.app/tests",
+    workflowUrl: "https://afrofood.vercel.app/pipeline",
     githubUrl: "https://github.com/leslieOuinsou",
   },
   {
