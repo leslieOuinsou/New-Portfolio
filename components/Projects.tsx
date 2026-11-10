@@ -142,17 +142,30 @@ export function Projects() {
                   <FiInfo className="h-4 w-4" />
                   {t.projects.aboutProject}
                 </button>
-                <button
-                  type="button"
-                  onClick={(e) =>
-                    openModal(project.id, "spec", e.currentTarget)
-                  }
-                  aria-label={`${t.projects.viewSpec} — ${title}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[rgb(var(--accent-deep))] transition hover:text-[rgb(var(--accent))]"
-                >
-                  <FiBookOpen className="h-4 w-4" />
-                  {t.projects.viewSpec}
-                </button>
+                {"specPdfUrl" in project && project.specPdfUrl ? (
+                  <a
+                    href={project.specPdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${t.projects.viewSpecPdf} — ${title}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[rgb(var(--accent-deep))] transition hover:text-[rgb(var(--accent))]"
+                  >
+                    <FiFileText className="h-4 w-4" />
+                    {t.projects.viewSpecPdf}
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={(e) =>
+                      openModal(project.id, "spec", e.currentTarget)
+                    }
+                    aria-label={`${t.projects.viewSpec} — ${title}`}
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[rgb(var(--accent-deep))] transition hover:text-[rgb(var(--accent))]"
+                  >
+                    <FiBookOpen className="h-4 w-4" />
+                    {t.projects.viewSpec}
+                  </button>
+                )}
               </div>
 
               {"note" in project && project.note ? (
@@ -208,18 +221,6 @@ export function Projects() {
                     title={t.projects.viewTests}
                   >
                     <FiCheckSquare className="h-4 w-4" />
-                  </a>
-                ) : null}
-                {"specPdfUrl" in project && project.specPdfUrl ? (
-                  <a
-                    href={project.specPdfUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-outline !px-3.5 !py-2.5"
-                    aria-label={t.projects.viewSpecPdf}
-                    title={t.projects.viewSpecPdf}
-                  >
-                    <FiFileText className="h-4 w-4" />
                   </a>
                 ) : null}
                 <a
