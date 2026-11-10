@@ -113,6 +113,7 @@ export const PROJECTS = [
     ],
     liveUrl: "https://sailingloc-web-leslie.ouinsoul5.workers.dev/home",
     githubUrl: "https://github.com/leslieOuinsou",
+    specPdfUrl: "/cahiers/sailingloc.pdf",
     note: "Premier chargement possible ~1 min (hébergement gratuit).",
     noteEn: "First load may take ~1 min (free hosting).",
   },
@@ -244,6 +245,7 @@ export const PROJECTS = [
     liveUrl: "https://dsp5-archi-o24a-4-5-g5.duckdns.org",
     workflowUrl: "https://wk-archi-o24a-4-5-g5.duckdns.org",
     githubUrl: "https://github.com/leslieOuinsou",
+    specPdfUrl: "/cahiers/the-tip-top.pdf",
   },
 ];
 

@@ -16,6 +16,7 @@ import {
   FiGitBranch,
   FiCheckSquare,
   FiBookOpen,
+  FiFileText,
   FiInfo,
   FiX,
 } from "react-icons/fi";
@@ -209,6 +210,18 @@ export function Projects() {
                     <FiCheckSquare className="h-4 w-4" />
                   </a>
                 ) : null}
+                {"specPdfUrl" in project && project.specPdfUrl ? (
+                  <a
+                    href={project.specPdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-outline !px-3.5 !py-2.5"
+                    aria-label={t.projects.viewSpecPdf}
+                    title={t.projects.viewSpecPdf}
+                  >
+                    <FiFileText className="h-4 w-4" />
+                  </a>
+                ) : null}
                 <a
                   href={project.githubUrl}
                   target="_blank"
@@ -389,6 +402,17 @@ export function Projects() {
                       <FiExternalLink className="h-3.5 w-3.5" />
                       {t.projects.viewProject}
                     </a>
+                    {"specPdfUrl" in selected && selected.specPdfUrl ? (
+                      <a
+                        href={selected.specPdfUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-outline !px-5 !py-2.5 text-xs"
+                      >
+                        <FiFileText className="h-3.5 w-3.5" />
+                        {t.projects.viewSpecPdf}
+                      </a>
+                    ) : null}
                     <button
                       type="button"
                       onClick={() => setOpenId(null)}
