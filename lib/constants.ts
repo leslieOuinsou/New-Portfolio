@@ -148,6 +148,7 @@ export const PROJECTS = [
     liveUrl: "https://warmfires.vercel.app/",
     testsUrl: "https://warmfires.vercel.app/qualite",
     githubUrl: "https://github.com/leslieOuinsou",
+    specPdfUrl: "/cahiers/warmfire.pdf",
   },
   {
     id: 1,
